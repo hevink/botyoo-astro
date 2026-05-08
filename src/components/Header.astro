@@ -1,0 +1,188 @@
+---
+// Same structure as botyoo-landing's Navbar.tsx, ported to Astro.
+// - Fixed, rounded floating header at top
+// - Logo on the left, center nav, Automate Now CTA on the right
+// - On scroll past 15px, header shrinks + gains a blurred background
+// - On mobile, a hamburger expands a drawer with the nav links
+
+const navLinks = [
+  { label: "About", href: "/about" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Changelog", href: "/changelog" },
+]
+---
+
+<header
+  id="site-header"
+  data-scrolled="false"
+  data-open="false"
+  class:list={[
+    "fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl",
+    "transform-gpu justify-center overflow-hidden rounded-xl",
+    "border border-transparent px-3 py-3",
+    "transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1.03)] will-change-transform",
+    "h-16",
+    // Scrolled / open states use data-attrs so we can switch with JS
+    "data-[scrolled=true]:max-w-3xl data-[scrolled=true]:backdrop-blur-md data-[scrolled=true]:border-gray-100 data-[scrolled=true]:bg-white/80 data-[scrolled=true]:shadow-xl data-[scrolled=true]:shadow-black/5",
+    "dark:data-[scrolled=true]:border-white/10 dark:data-[scrolled=true]:bg-black/40",
+    "data-[open=true]:h-52 data-[open=true]:max-w-3xl data-[open=true]:backdrop-blur-md data-[open=true]:border-gray-100 data-[open=true]:bg-white/80 data-[open=true]:shadow-xl data-[open=true]:shadow-black/5",
+    "dark:data-[open=true]:border-white/10 dark:data-[open=true]:bg-black/40",
+  ]}
+>
+  <div class="w-full md:my-auto">
+    <div class="relative flex items-center justify-between">
+      {/* Logo */}
+      <a href="/" aria-label="Home" class="flex items-center">
+        <img
+          src="/botyo-logo.png"
+          alt="Botyoo"
+          width="150"
+          height="50"
+          class="block dark:hidden h-10 w-auto object-contain"
+        />
+        <img
+          src="/botyo-logo-light.png"
+          alt="Botyoo"
+          width="150"
+          height="50"
+          class="hidden dark:block h-10 w-auto object-contain"
+        />
+      </a>
+
+      {/* Center nav — desktop */}
+      <nav
+        aria-label="Main"
+        class="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:-translate-x-1/2 md:-translate-y-1/2 md:transform"
+      >
+        <div class="flex items-center gap-10 font-medium">
+          {
+            navLinks.map((link) => (
+              <a
+                class="px-2 py-1 text-gray-900 dark:text-gray-100"
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </nav>
+
+      {/* Right side — CTA (desktop) */}
+      <div class="hidden items-center gap-x-2 md:flex">
+        <a
+          href="https://app.botyoo.com/dashboard"
+          class="relative inline-flex items-center justify-center rounded-xl border border-transparent bg-[#1347e6] px-3 py-2 text-center text-sm font-medium whitespace-nowrap text-white shadow-xs transition-all duration-100 ease-in-out hover:bg-[#1347e6]/90 h-10"
+        >
+          Automate Now
+        </a>
+      </div>
+
+      {/* Right side — mobile */}
+      <div class="flex gap-x-2 md:hidden">
+        <a
+          href="https://app.botyoo.com/dashboard"
+          class="relative inline-flex items-center justify-center rounded-xl border border-transparent bg-[#1347e6] px-3 py-2 text-center text-sm font-medium whitespace-nowrap text-white shadow-xs transition-all duration-100 ease-in-out hover:bg-[#1347e6]/90"
+        >
+          Automate Now
+        </a>
+        <button
+          id="menu-toggle"
+          type="button"
+          aria-label="Open Menu"
+          aria-expanded="false"
+          class="relative inline-flex aspect-square items-center justify-center rounded-xl border border-transparent bg-gray-200 p-2 text-gray-900 hover:bg-gray-300/70 dark:bg-white/10 dark:text-gray-100 dark:hover:bg-white/15 cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-icon="menu"
+            class="size-5"
+          >
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-icon="close"
+            class="hidden size-5"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {/* Mobile drawer */}
+    <nav
+      id="mobile-nav"
+      class="my-6 hidden flex text-lg ease-in-out will-change-transform md:hidden"
+    >
+      <ul class="space-y-4 font-medium">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header")
+  const toggle = document.getElementById("menu-toggle")
+  const mobileNav = document.getElementById("mobile-nav")
+
+  const setOpen = (open: boolean) => {
+    if (!header || !toggle || !mobileNav) return
+    header.dataset.open = open ? "true" : "false"
+    toggle.setAttribute("aria-expanded", open ? "true" : "false")
+    toggle.setAttribute("aria-label", open ? "Close Menu" : "Open Menu")
+    mobileNav.classList.toggle("hidden", !open)
+    toggle
+      .querySelector<SVGElement>('[data-icon="menu"]')
+      ?.classList.toggle("hidden", open)
+    toggle
+      .querySelector<SVGElement>('[data-icon="close"]')
+      ?.classList.toggle("hidden", !open)
+  }
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = header?.dataset.open === "true"
+    setOpen(!isOpen)
+  })
+
+  // Close menu if viewport grows past md
+  const mq = window.matchMedia("(min-width: 768px)")
+  mq.addEventListener("change", (e) => {
+    if (e.matches) setOpen(false)
+  })
+
+  // Scroll state
+  const onScroll = () => {
+    if (!header) return
+    header.dataset.scrolled = window.scrollY > 15 ? "true" : "false"
+  }
+  onScroll()
+  window.addEventListener("scroll", onScroll, { passive: true })
+</script>

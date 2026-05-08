@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro"
+import ChangelogEntry from "../components/ChangelogEntry.astro"
+---
+
+<Layout
+  title="Changelog — Botyoo"
+  description="Track every update we ship to Botyoo, including Instagram automation enhancements and platform improvements."
+>
+  <main
+    class="mx-auto mt-36 max-w-3xl px-3 animate-[slide-up-fade_600ms_both]"
+  >
+    <div class="text-center">
+      <h1
+        class="py-2 text-4xl font-bold tracking-tighter text-foreground sm:text-5xl"
+      >
+        Changelog
+      </h1>
+      <p class="mt-4 text-lg text-muted-foreground text-balance">
+        Keep yourself informed about the most recent additions and improvements
+        we've made to Botyoo.
+      </p>
+    </div>
+
+    <div class="mt-28">
+      <ChangelogEntry version="v1.1.0" date="July 8, 2024">
+        <h2>New Analytics Dashboard & Advanced Automation</h2>
+        <p>
+          We're excited to introduce our comprehensive analytics suite that
+          provides deep insights into your Instagram DM performance, along with
+          powerful new automation features that enhance follower engagement.
+        </p>
+
+        <img src="/changelog/v317.webp" alt="New analytics dashboard" width="1200" height="675" />
+
+        <h3>New & Improved:</h3>
+        <ul>
+          <li>
+            <strong>Analytics Dashboard:</strong> Track conversion rates,
+            response times, and engagement metrics for all your automated DM
+            conversations.
+          </li>
+          <li>
+            <strong>Follow Verification:</strong> New intelligent system that
+            automatically verifies followers before sending premium content or
+            special offers.
+          </li>
+          <li>
+            <strong>Conditional Responses:</strong> Create branching
+            conversation paths based on user responses for more natural
+            interactions.
+          </li>
+          <li>
+            <strong>A/B Testing:</strong> Compare different message templates
+            to determine which performs best for your specific audience.
+          </li>
+          <li>
+            <strong>Performance Reports:</strong> Receive weekly email reports
+            with key metrics and recommendations for optimizing your DM
+            strategy.
+          </li>
+        </ul>
+
+        <h3>Fixes:</h3>
+        <ul>
+          <li>
+            <strong>Message Queue:</strong> Fixed issues with message delivery
+            during peak Instagram usage times.
+          </li>
+          <li>
+            <strong>Template Editor:</strong> Improved formatting options when
+            creating multi-part automated messages.
+          </li>
+          <li>
+            <strong>Notification System:</strong> Enhanced reliability of
+            real-time alerts for high-priority DM interactions.
+          </li>
+          <li>
+            <strong>Mobile Interface:</strong> Resolved display issues on
+            smaller screens when viewing analytics charts.
+          </li>
+          <li>
+            <strong>API Integration:</strong> Fixed connection stability with
+            Instagram's messaging API during rate limit periods.
+          </li>
+        </ul>
+
+        <p>
+          For more information on how to leverage these new analytics features,
+          check out our <a href="#">updated documentation</a>.
+        </p>
+      </ChangelogEntry>
+
+      <ChangelogEntry version="v1.0.0" date="June 15, 2024">
+        <h2>Instagram DM Automation MVP Release</h2>
+        <p>
+          We're thrilled to announce the launch of our Instagram DM Automation
+          platform. This initial release provides businesses and creators with
+          essential tools to automate responses, engage followers, and convert
+          comments to leads.
+        </p>
+
+        <img src="/changelog/v316.png" alt="MVP release" width="1200" height="675" />
+
+        <h3>Core Features:</h3>
+        <ul>
+          <li>
+            <strong>Automated Responses:</strong> Set up instant replies to
+            common questions and inquiries in your Instagram DMs.
+          </li>
+          <li>
+            <strong>Comment-to-DM Conversion:</strong> Automatically invite
+            users who comment on your posts to continue the conversation in
+            DMs.
+          </li>
+          <li>
+            <strong>Message Templates:</strong> Create and save customizable
+            message templates for different scenarios and audience segments.
+          </li>
+          <li>
+            <strong>Simple Rules Engine:</strong> Define basic conditions for
+            when and how your automation responds to different types of
+            messages.
+          </li>
+          <li>
+            <strong>Basic Analytics:</strong> Track message volume, response
+            rates, and basic engagement metrics.
+          </li>
+          <li>
+            <strong>Instagram Integration:</strong> Seamless connection with
+            your Instagram Business or Creator account.
+          </li>
+          <li>
+            <strong>User Management:</strong> Add team members with different
+            permission levels to manage your DM automation.
+          </li>
+        </ul>
+
+        <h3>Getting Started:</h3>
+        <p>
+          To begin automating your Instagram DMs, simply connect your Instagram
+          account through our secure authentication process, create your first
+          message templates, and set up basic automation rules.
+        </p>
+        <p>
+          For detailed setup instructions, check out our <a href="#"
+            >quickstart guide</a
+          > or contact our support team for personalized onboarding assistance.
+        </p>
+      </ChangelogEntry>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  @keyframes slide-up-fade {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

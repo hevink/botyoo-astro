@@ -1,0 +1,246 @@
+---
+// Unified-platform section with dithered illustration, feature accordion,
+// compliance badges, and testimonial — Tailark dark-landing-one port.
+// Content swapped for Botyoo.
+
+const features = [
+  {
+    title: "Reply to every comment",
+    body: "Botyoo answers every qualifying comment with a personalized DM — no comment ignored, no lead lost, and the algorithm sees your engagement spike.",
+    icon: "brain",
+  },
+  {
+    title: "Gate links behind a follow",
+    body: "Only send offers, discounts, and lead magnets to people who follow you. You grow your audience at the same time you deliver value.",
+    icon: "globe",
+  },
+  {
+    title: "Capture email and phone in-DM",
+    body: "Collect contact details right inside the Instagram DM — no redirects, no drop-off — and push them to your CRM or email tool.",
+    icon: "form",
+  },
+  {
+    title: "One inbox for the whole team",
+    body: "Route every DM to a shared inbox, assign owners, and keep replies consistent without stepping on each other's conversations.",
+    icon: "bot",
+  },
+]
+
+const badges = [
+  { label: "Meta Business Partner ready", type: "shield" },
+  { label: "GDPR compliant", type: "shield" },
+  { label: "End-to-end encrypted tokens", type: "shield" },
+  { label: "99.9% uptime", type: "hourglass" },
+]
+
+const BG_IMAGE =
+  "https://images.unsplash.com/photo-1723869791623-3b6a012f996b?q=80&w=2340&auto=format&fit=crop"
+---
+
+<div
+  data-theme="global"
+  class="selection:bg-foreground/10 selection:text-foreground bg-background"
+>
+  <section class="bg-background overflow-hidden pt-24 pb-12">
+    <div class="mx-auto mb-12 max-w-2xl px-6 text-balance text-center md:mb-16">
+      <span class="text-primary font-mono text-sm uppercase">Features</span>
+      <h2
+        class="text-foreground mt-3 text-3xl font-semibold tracking-tight md:text-4xl"
+      >
+        Everything you need to run Instagram DMs at scale
+      </h2>
+      <p
+        class="text-muted-foreground mx-auto mt-4 max-w-xl text-balance text-lg"
+      >
+        Comment-to-DM flows, follow-first gating, and a shared team inbox —
+        without the per-contact pricing. Botyoo is Meta-partner ready so your
+        automations keep firing.
+      </p>
+    </div>
+
+    <div class="mx-auto my-1 max-w-5xl px-6">
+      <div class="relative">
+        {/* Corner crosses */}
+        {
+          [
+            "-translate-[calc(50%-0.5px)]",
+            "right-0 -translate-y-[calc(50%-0.5px)] translate-x-[calc(50%-0.5px)]",
+            "bottom-0 right-0 translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]",
+            "bottom-0 -translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]",
+          ].map((pos) => (
+            <div
+              aria-hidden="true"
+              class={`mask-radial-from-15% z-1 before:bg-foreground/25 after:bg-foreground/25 absolute size-3 before:absolute before:inset-0 before:m-auto before:h-px after:absolute after:inset-0 after:m-auto after:w-px ${pos}`}
+            />
+          ))
+        }
+
+        <div class="border-foreground/10 relative grid overflow-hidden border" style="grid-template-columns: 1fr 1fr;">
+          {/* Left column */}
+          <div class="flex flex-col gap-12 p-8 border-b border-foreground/10 md:border-b-0 md:border-r md:border-foreground/10">
+            <div class="text-balance">
+              <h3 class="text-foreground text-2xl font-semibold">
+                The Instagram DM stack ManyChat users wish they switched to
+              </h3>
+              <p class="text-muted-foreground mb-6 mt-4">
+                Comment-to-DM flows, follow-first gating, and a live shared
+                inbox — without the per-contact pricing. Botyoo is Meta-partner
+                ready so your automations keep firing.
+              </p>
+              <a
+                href="/pricing"
+                class="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-sm shadow-black/10 border border-transparent bg-card ring-1 ring-foreground/10 duration-200 hover:bg-muted/50 dark:ring-foreground/15 dark:hover:bg-muted/50 h-8 rounded-md px-3 text-xs"
+              >
+                See pricing
+              </a>
+            </div>
+
+            {/* Accordion */}
+            <div
+              class="mt-auto grid divide-y transition-all duration-300 grid-rows-[1fr_auto_auto_auto]"
+              data-accordion
+            >
+              {
+                features.map((f, i) => (
+                  <div
+                    data-accordion-item
+                    data-expanded={i === 0 ? "true" : "false"}
+                    class="not-first:border-t not-first:border-t-card group relative grid grid-rows-[auto_1fr]"
+                  >
+                    <button
+                      type="button"
+                      data-accordion-trigger
+                      class="group flex w-full cursor-pointer items-center gap-3 py-4 text-left"
+                    >
+                      {f.icon === "brain" && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-accordion-icon class="size-4 shrink-0 transition-colors text-muted-foreground group-hover:text-foreground">
+                          <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+                          <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+                        </svg>
+                      )}
+                      {f.icon === "globe" && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-accordion-icon class="size-4 shrink-0 transition-colors text-muted-foreground group-hover:text-foreground">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                          <path d="M2 12h20" />
+                        </svg>
+                      )}
+                      {f.icon === "bot" && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-accordion-icon class="size-4 shrink-0 transition-colors text-muted-foreground group-hover:text-foreground">
+                          <path d="M12 8V4H8" />
+                          <rect width="16" height="12" x="4" y="8" rx="2" />
+                          <path d="M2 14h2" /><path d="M20 14h2" />
+                          <path d="M15 13v2" /><path d="M9 13v2" />
+                        </svg>
+                      )}
+                      {f.icon === "form" && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-accordion-icon class="size-4 shrink-0 transition-colors text-muted-foreground group-hover:text-foreground">
+                          <rect width="18" height="18" x="3" y="3" rx="2" />
+                          <path d="M8 10h8" /><path d="M8 14h5" /><path d="M12 17.5h4" />
+                        </svg>
+                      )}
+                      <h3 data-accordion-title class="group-hover:text-foreground font-medium transition-colors text-muted-foreground">
+                        {f.title}
+                      </h3>
+                    </button>
+                    <div data-accordion-body class="grid transition-[grid-template-rows] duration-300 grid-rows-[0fr]">
+                      <div class="overflow-hidden">
+                        <p class="text-muted-foreground pl-6.5 text-balance pb-6">{f.body}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          {/* Right column — illustration card over dithered background */}
+          <div class="relative overflow-hidden" style="min-height: 500px;">
+            <div class="absolute inset-0">
+              {/* Foreground illustration */}
+              <div class="relative z-10 h-full">
+                <div class="scale-85 absolute inset-0 m-auto size-fit overflow-hidden">
+                  <div aria-hidden="true" class="min-w-sm max-w-md px-6 pt-1">
+                    <div class="bg-card/95 shadow-black/4 ring-border z-1 relative rounded-2xl p-6 shadow-md ring-1">
+                      <div class="mask-t-from-5% bg-card/50 mask-t-to-65% absolute inset-0 rounded-2xl backdrop-blur"></div>
+                      <span class="text-muted-foreground text-xs">Today <span class="bg-foreground/50 size-0.5 rounded-full"></span> <span>09:15 AM</span></span>
+                      <div class="mt-1 text-lg font-semibold">Summer launch DM flow</div>
+                      <div class="bg-foreground/10 group relative mb-4 mt-3 h-fit w-fit cursor-pointer overflow-hidden rounded-full p-px shadow shadow-black/5">
+                        <div class="bg-linear-to-br/increasing mask-r-to-75% mask-r-from-25% duration-2000 absolute inset-0 aspect-square -translate-y-1/3 animate-spin from-emerald-400 via-blue-500 to-indigo-400 opacity-50"></div>
+                        <div class="group-hover:bg-card bg-background/95 relative flex h-8 items-center gap-1.5 rounded-full px-3 text-sm duration-100">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fill-foreground size-3"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                          03:47
+                        </div>
+                      </div>
+                      <div class="space-y-4">
+                        <div class="*:not-first:text-foreground/50 flex gap-5 border-b *:-mb-px *:flex *:cursor-pointer *:items-center *:gap-1.5 *:py-2 *:text-sm *:[&>svg]:size-3.5">
+                          <div class="border-primary border-b">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                            <span>Summary</span>
+                          </div>
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M12 2v4"></path><path d="M16 2v4"></path><rect width="16" height="18" x="4" y="4" rx="2"></rect><path d="M8 10h6"></path><path d="M8 14h8"></path><path d="M8 18h5"></path></svg>
+                            <span>Messages</span>
+                          </div>
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22a5 5 0 0 1-2-4"></path><path d="M7 16.93c.96.43 1.96.74 2.99.91"></path><path d="M3.34 14A6.8 6.8 0 0 1 2 10c0-4.42 4.48-8 10-8s10 3.58 10 8a7.19 7.19 0 0 1-.33 2"></path><path d="M5 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
+                            <span>Audience</span>
+                          </div>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                          <p class="text-muted-foreground">Highlights from yesterday's automation run:</p>
+                          <ul class="text-muted-foreground list-disc space-y-1.5 pl-4">
+                            <li><span class="text-foreground font-medium">DMs sent:</span> 1,248 triggered from 3 active posts</li>
+                            <li><span class="text-foreground font-medium">Follow-first gate:</span> 37% new follows before DM delivery</li>
+                            <li><span class="text-foreground font-medium">Conversions:</span> 82 link clicks, 14 checkouts started</li>
+                          </ul>
+                          <p class="text-muted-foreground">Next step: push the "waitlist reminder" follow-up tomorrow at 8:30 PM.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Dithered background image */}
+              <div class="dither absolute inset-0 opacity-75 dark:opacity-25">
+                <img alt="" aria-hidden="true" loading="lazy" decoding="async" class="size-full object-cover opacity-50" src={BG_IMAGE} />
+              </div>
+              <img alt="" aria-hidden="true" loading="lazy" decoding="async" class="size-full object-cover opacity-75 dark:opacity-40 absolute inset-0" src={BG_IMAGE} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Accordion: open one item at a time, expanded one gets `grid-rows-[1fr]`
+  document.querySelectorAll<HTMLElement>("[data-accordion]").forEach((root) => {
+    const items = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-accordion-item]"),
+    )
+    const setExpanded = (index: number) => {
+      items.forEach((item, i) => {
+        const expanded = i === index
+        item.dataset.expanded = expanded ? "true" : "false"
+        const body = item.querySelector<HTMLElement>("[data-accordion-body]")
+        body?.classList.toggle("grid-rows-[1fr]", expanded)
+        body?.classList.toggle("grid-rows-[0fr]", !expanded)
+        const title = item.querySelector<HTMLElement>("[data-accordion-title]")
+        const icon = item.querySelector<HTMLElement>("[data-accordion-icon]")
+        title?.classList.toggle("text-foreground", expanded)
+        title?.classList.toggle("text-muted-foreground", !expanded)
+        icon?.classList.toggle("text-foreground", expanded)
+        icon?.classList.toggle("text-muted-foreground", !expanded)
+      })
+    }
+    items.forEach((item, i) => {
+      item
+        .querySelector<HTMLButtonElement>("[data-accordion-trigger]")
+        ?.addEventListener("click", () => setExpanded(i))
+    })
+    // Open first on load
+    setExpanded(0)
+  })
+</script>

@@ -1,0 +1,177 @@
+---
+// Site footer — updated for Botyoo.
+// - No newsletter signup
+// - Links point at real routes (/, /about, /pricing, /changelog) + sensible defaults
+// - Logo swapped for Botyoo's mark + wordmark
+// - Social links wired to the founder's X account (same as Contact Us on /about)
+
+const year = new Date().getFullYear()
+
+const productLinks = [
+  { label: "Pricing", href: "/pricing" },
+  { label: "Changelog", href: "/changelog" },
+  { label: "Launch app", href: "https://app.botyoo.com/dashboard" },
+]
+
+const resourceLinks = [
+  { label: "Documentation", href: "https://docs.botyoo.com" },
+  { label: "Support", href: "mailto:hevin@botyoo.com" },
+  { label: "Status", href: "#" },
+]
+
+const companyLinks = [
+  { label: "About", href: "/about" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+]
+---
+
+<footer role="contentinfo" class="bg-background pt-8 sm:pt-20">
+  <div class="mx-auto max-w-5xl space-y-16 px-6">
+    <div class="flex flex-wrap items-start justify-between gap-6">
+      <div class="max-w-xs space-y-6">
+        <a aria-label="Botyoo home" class="flex items-center gap-2" href="/">
+          <img
+            src="/botyo-logo-mark.png"
+            alt=""
+            width="36"
+            height="36"
+            class="block size-8 object-contain dark:hidden"
+          />
+          <img
+            src="/botyo-logo-mark-light.png"
+            alt=""
+            width="36"
+            height="36"
+            class="hidden size-8 object-contain dark:block"
+          />
+          <span class="text-foreground text-lg font-semibold tracking-tight"
+            >Botyoo</span
+          >
+        </a>
+        <p class="text-muted-foreground text-balance text-sm">
+          Instagram DM automation that replies instantly, qualifies leads, and
+          turns comments into conversations 24/7.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Botyoo on X"
+          class="text-muted-foreground hover:text-primary block"
+          href="https://x.com/Hevin_69"
+        >
+          <svg
+            class="size-5"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Email Botyoo"
+          class="text-muted-foreground hover:text-primary block"
+          href="mailto:hevin@botyoo.com"
+        >
+          <svg
+            class="size-5"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div
+      aria-hidden="true"
+      class="h-px bg-[length:6px_1px] bg-repeat-x opacity-25 [background-image:linear-gradient(90deg,var(--color-foreground)_1px,transparent_1px)]"
+    >
+    </div>
+
+    <div class="grid gap-12 sm:grid-cols-3">
+      <div class="space-y-4 text-sm">
+        <span class="block font-medium">Product</span>
+        <div class="flex flex-wrap gap-4 sm:flex-col">
+          {
+            productLinks.map((link) => (
+              <a
+                class="text-muted-foreground hover:text-primary block duration-150"
+                href={link.href}
+              >
+                <span>{link.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="space-y-4 text-sm">
+        <span class="block font-medium">Resources</span>
+        <div class="flex flex-wrap gap-4 sm:flex-col">
+          {
+            resourceLinks.map((link) => (
+              <a
+                class="text-muted-foreground hover:text-primary block duration-150"
+                href={link.href}
+              >
+                <span>{link.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="space-y-4 text-sm">
+        <span class="block font-medium">Company</span>
+        <div class="flex flex-wrap gap-4 sm:flex-col">
+          {
+            companyLinks.map((link) => (
+              <a
+                class="text-muted-foreground hover:text-primary block duration-150"
+                href={link.href}
+              >
+                <span>{link.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-between gap-4 border-t py-8">
+      <span class="text-muted-foreground text-sm">
+        © {year} Botyoo. All rights reserved.
+      </span>
+      <div
+        class="ring-foreground/5 bg-card flex items-center gap-2 rounded-full border border-transparent py-1 pl-2 pr-4 shadow ring-1"
+      >
+        <div class="relative flex size-3">
+          <span
+            class="duration-1500 absolute inset-0 block size-full animate-pulse rounded-full bg-emerald-100"
+          ></span>
+          <span
+            class="relative m-auto block size-1 rounded-full bg-emerald-500"
+          ></span>
+        </div>
+        <span class="text-sm">All Systems Normal</span>
+      </div>
+    </div>
+  </div>
+</footer>

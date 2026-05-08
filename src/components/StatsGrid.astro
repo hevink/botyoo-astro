@@ -1,0 +1,413 @@
+---
+// Stats + integrations grid — Tailark dark-landing-one port with Botyoo content.
+// Top-left card: DM campaign analytics preview (replaces invoice illustration).
+// Top-right card: Integrations preview with Instagram + Shopify (replaces Gemini/Replit).
+// Bottom row: four small feature cards (Fast, Reliable, Secure, Made for Instagram).
+
+const smallFeatures = [
+  {
+    title: "Instant replies",
+    body: "DMs fire the moment a qualifying comment lands — no cron, no lag.",
+    icon: "zap",
+  },
+  {
+    title: "Built to scale",
+    body: "Thousands of concurrent triggers without dropping a single lead.",
+    icon: "cpu",
+  },
+  {
+    title: "Secure by default",
+    body: "Encrypted tokens, workspace isolation, and role-based access control.",
+    icon: "lock",
+  },
+  {
+    title: "Made for Instagram",
+    body: "Uses the official Meta Graph API so flows keep working as Instagram evolves.",
+    icon: "sparkles",
+  },
+]
+---
+
+<div
+  data-theme="global"
+  class="selection:bg-foreground/10 selection:text-foreground bg-background"
+>
+  <section class="bg-background @container pt-12 pb-24">
+    <div class="mx-auto w-full max-w-5xl px-6">
+      <div class="mx-auto mb-12 max-w-2xl px-6 text-balance text-center md:mb-16">
+        <span class="text-primary font-mono text-sm uppercase">Campaigns</span>
+        <h2
+          class="text-foreground mt-3 text-3xl font-semibold tracking-tight md:text-4xl"
+        >
+          Launch, track, and scale every DM campaign
+        </h2>
+        <p class="text-muted-foreground mx-auto mt-4 max-w-xl text-balance text-lg">
+          Build comment-to-DM flows and scheduled blasts, watch performance in
+          real time, and ship campaigns on Instagram without leaving Botyoo.
+        </p>
+      </div>
+
+      <div class="relative">
+        {/* Corner crosses */}
+        {
+          [
+            "-translate-[calc(50%-0.5px)]",
+            "right-0 -translate-y-[calc(50%-0.5px)] translate-x-[calc(50%-0.5px)]",
+            "bottom-0 right-0 translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]",
+            "bottom-0 -translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]",
+          ].map((pos) => (
+            <div
+              aria-hidden="true"
+              class={`mask-radial-from-15% before:bg-foreground/25 after:bg-foreground/25 absolute size-3 before:absolute before:inset-0 before:m-auto before:h-px after:absolute after:inset-0 after:m-auto after:w-px ${pos}`}
+            />
+          ))
+        }
+
+        <div
+          class="border-foreground/10 *:nth-2:border-r-0 @max-4xl:*:nth-4:border-r-0 @max-4xl:*:nth-5:border-b-0 @max-4xl:*:first:border-r-0 @4xl:*:not-nth-2:border-b-0 *:nth-1:border-b! divide-foreground/10 @4xl:grid-cols-4 @4xl:*:p-8 relative grid grid-cols-2 divide-x divide-y overflow-hidden border *:p-4"
+        >
+          {/* Card 1 — DM analytics preview */}
+          <div
+            class="@4xl:col-span-2 col-span-full row-span-2 grid grid-rows-subgrid gap-8 !p-8"
+          >
+            <div class="max-w-84 mx-auto w-full self-center">
+              <div aria-hidden="true" class="relative">
+                <div
+                  class="mask-b-from-65% before:bg-background before:border-border after:border-border after:bg-background/50 before:z-1 group relative -mx-4 px-4 pt-6 before:absolute before:inset-x-6 before:bottom-0 before:top-4 before:rounded-2xl before:border after:absolute after:inset-x-9 after:bottom-0 after:top-2 after:rounded-2xl after:border"
+                >
+                  <div
+                    class="bg-card ring-border relative z-10 overflow-hidden rounded-2xl p-8 text-sm shadow-xl shadow-black/10 ring-1"
+                  >
+                    <div class="mb-6 flex items-start justify-between">
+                      <div class="space-y-0.5">
+                        <div
+                          class="flex size-5 items-center justify-center rounded bg-[#1347e6] text-[10px] font-bold text-white"
+                        >
+                          B
+                        </div>
+                        <div class="mt-4 font-mono text-xs text-muted-foreground">
+                          CAMPAIGN-001
+                        </div>
+                        <div
+                          class="mt-1 -translate-x-1 font-mono text-2xl font-semibold"
+                        >
+                          1,248 DMs
+                        </div>
+                        <div class="text-xs font-medium text-emerald-500">
+                          +38% vs last week
+                        </div>
+                      </div>
+
+                      <div
+                        aria-hidden="true"
+                        class="bg-card ring-border w-16 space-y-2 rounded-md p-2 shadow-md ring-1"
+                      >
+                        <div class="flex items-center gap-1">
+                          <div
+                            class="bg-foreground/15 size-2.5 rounded-full"
+                          >
+                          </div>
+                          <div
+                            class="bg-foreground/15 h-[3px] w-4 rounded-full"
+                          >
+                          </div>
+                        </div>
+                        <div class="space-y-1.5">
+                          <div class="flex items-center gap-1">
+                            <div
+                              class="bg-foreground/15 h-[3px] w-2.5 rounded-full"
+                            >
+                            </div>
+                            <div
+                              class="bg-foreground/15 h-[3px] w-6 rounded-full"
+                            >
+                            </div>
+                          </div>
+                          <div class="flex items-center gap-1">
+                            <div
+                              class="bg-foreground/15 h-[3px] w-2.5 rounded-full"
+                            >
+                            </div>
+                            <div
+                              class="bg-foreground/15 h-[3px] w-6 rounded-full"
+                            >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="space-y-1.5">
+                          <div
+                            class="bg-foreground/15 h-[3px] w-full rounded-full"
+                          >
+                          </div>
+                          <div class="flex items-center gap-1">
+                            <div
+                              class="bg-foreground/15 h-[3px] w-2/3 rounded-full"
+                            >
+                            </div>
+                            <div
+                              class="bg-foreground/15 h-[3px] w-1/3 rounded-full"
+                            >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                      <div class="grid grid-cols-[auto_1fr] items-center">
+                        <span class="text-muted-foreground w-18 block">
+                          Trigger
+                        </span>
+                        <span
+                          class="bg-border h-2 w-1/4 rounded-full px-2"
+                        ></span>
+                      </div>
+                      <div class="grid grid-cols-[auto_1fr] items-center">
+                        <span class="text-muted-foreground w-18 block">
+                          Audience
+                        </span>
+                        <span
+                          class="bg-border h-2 w-1/2 rounded-full px-2"
+                        ></span>
+                      </div>
+                      <div class="grid grid-cols-[auto_1fr] items-center">
+                        <span class="text-muted-foreground w-18 block">
+                          Funnel
+                        </span>
+                        <span
+                          class="bg-border h-2 w-2/3 rounded-full px-2"
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mx-auto max-w-sm text-center">
+              <h3 class="text-balance font-semibold">
+                Campaign analytics you can act on
+              </h3>
+              <p class="text-muted-foreground mt-3">
+                Watch DMs sent, link clicks, and follow-first conversions update
+                in real time — one dashboard per campaign, no spreadsheet
+                needed.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 — Campaigns preview */}
+          <div
+            class="@4xl:col-span-2 relative col-span-full row-span-2 grid grid-rows-subgrid gap-8 !p-8"
+          >
+            <div
+              aria-hidden="true"
+              class="mask-radial-from-15% before:bg-foreground/25 after:bg-foreground/25 absolute size-3 before:absolute before:inset-0 before:m-auto before:h-px after:absolute after:inset-0 after:m-auto after:w-px bottom-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%+0.5px)]"
+            >
+            </div>
+
+            <div class="@4xl:px-8 mx-auto max-w-sm self-center">
+              <div aria-hidden="true" class="bg-foreground/5 group rounded-2xl">
+                <div class="flex items-center gap-1.5 px-6 py-2.5 text-sm font-medium">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="size-3.5 opacity-50"
+                  >
+                    <path d="M3 11h18" />
+                    <path d="M5 6h14" />
+                    <path d="M8 16h8" />
+                    <path d="M10 20h4" />
+                  </svg>
+                  Campaigns
+                </div>
+
+                <div class="relative">
+                  <div
+                    class="absolute inset-0 scale-100 opacity-100 blur-lg transition-all duration-300"
+                  >
+                    <div
+                      class="bg-linear-to-r absolute inset-x-6 bottom-0 top-12 -translate-y-3 from-indigo-500 to-emerald-400"
+                    >
+                    </div>
+                  </div>
+                  <div
+                    class="bg-card ring-foreground/10 relative overflow-hidden rounded-2xl border border-transparent px-6 py-3 shadow-md shadow-black/5 ring-1"
+                  >
+                    {/* Campaign row 1 — live */}
+                    <div
+                      class="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-dashed py-3 last:border-b-0"
+                    >
+                      <div
+                        class="bg-muted border-foreground/5 flex size-12 items-center justify-center rounded-lg border text-base"
+                      >
+                        🎁
+                      </div>
+                      <div class="space-y-0.5">
+                        <h3 class="text-sm font-medium">Summer launch</h3>
+                        <p class="text-muted-foreground line-clamp-1 text-sm">
+                          Comment "DROP" → discount code in DM.
+                        </p>
+                      </div>
+                      <span
+                        class="inline-flex h-7 items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 text-xs font-medium text-emerald-600 ring-1 ring-emerald-500/30 dark:text-emerald-400"
+                      >
+                        <span
+                          class="size-1.5 rounded-full bg-emerald-500"
+                        ></span>
+                        Live
+                      </span>
+                    </div>
+
+                    {/* Campaign row 2 — scheduled */}
+                    <div
+                      class="grid grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-dashed py-3 last:border-b-0"
+                    >
+                      <div
+                        class="bg-muted border-foreground/5 flex size-12 items-center justify-center rounded-lg border text-base"
+                      >
+                        📣
+                      </div>
+                      <div class="space-y-0.5">
+                        <h3 class="text-sm font-medium">Waitlist reminder</h3>
+                        <p class="text-muted-foreground line-clamp-1 text-sm">
+                          Scheduled DM blast to 2,340 followers.
+                        </p>
+                      </div>
+                      <span
+                        class="inline-flex h-7 items-center gap-1.5 rounded-full bg-foreground/5 px-2.5 text-xs font-medium text-muted-foreground ring-1 ring-foreground/10"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="size-3"
+                        >
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        8:30 pm
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-10 mx-auto max-w-sm text-center">
+              <h3 class="text-balance font-semibold">
+                Ship campaigns in minutes, not days
+              </h3>
+              <p class="text-muted-foreground mt-3">
+                Build a comment-to-DM flow, schedule a follow-up blast, and
+                launch — Botyoo tracks every send, click, and follow in one
+                place.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom 4 small feature cards */}
+          {
+            smallFeatures.map((f) => (
+              <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                  {f.icon === "zap" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-foreground size-4"
+                    >
+                      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+                    </svg>
+                  )}
+                  {f.icon === "cpu" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-foreground size-4"
+                    >
+                      <rect width="16" height="16" x="4" y="4" rx="2" />
+                      <rect width="6" height="6" x="9" y="9" rx="1" />
+                      <path d="M15 2v2" />
+                      <path d="M15 20v2" />
+                      <path d="M2 15h2" />
+                      <path d="M2 9h2" />
+                      <path d="M20 15h2" />
+                      <path d="M20 9h2" />
+                      <path d="M9 2v2" />
+                      <path d="M9 20v2" />
+                    </svg>
+                  )}
+                  {f.icon === "lock" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-foreground size-4"
+                    >
+                      <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                  )}
+                  {f.icon === "sparkles" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-foreground size-4"
+                    >
+                      <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                      <path d="M20 3v4" />
+                      <path d="M22 5h-4" />
+                      <path d="M4 17v2" />
+                      <path d="M5 18H3" />
+                    </svg>
+                  )}
+                  <h3 class="text-sm font-medium">{f.title}</h3>
+                </div>
+                <p class="text-muted-foreground text-sm">{f.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,119 @@
+---
+// About page — ported from botyoo-landing/src/app/about/page.tsx.
+// Uses the Astro site's theme tokens (bg-background, text-muted-foreground, etc.)
+// so it matches the dark landing instead of the Next.js gray gradient.
+
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout
+  title="About Botyoo"
+  description="Learn about Botyoo, the Instagram DM automation platform that helps creators and businesses engage followers, automate responses, and turn every comment into a lead."
+>
+  <main class="bg-background pt-36 pb-24">
+    <div class="mx-auto flex max-w-2xl flex-col overflow-hidden px-6">
+      {/* Overview */}
+      <section
+        aria-labelledby="about-overview"
+        class="animate-[slide-up-fade_600ms_backwards]"
+      >
+        <span
+          class="z-10 block w-fit rounded-lg border border-indigo-200/20 bg-indigo-50/10 px-3 py-1.5 text-sm font-semibold uppercase leading-4 tracking-tighter"
+        >
+          <span
+            class="bg-gradient-to-b from-indigo-400 to-indigo-500 bg-clip-text text-transparent"
+          >
+            about botyoo
+          </span>
+        </span>
+        <h1
+          id="about-overview"
+          class="text-foreground mt-4 inline-block text-balance py-2 text-4xl font-bold tracking-tighter sm:text-5xl"
+        >
+          Why we built Botyoo
+        </h1>
+        <p class="text-muted-foreground mt-6 max-w-2xl text-lg">
+          We noticed that many people use Instagram to grow their business. But
+          when potential customers send DMs, most brands can't keep up — messages
+          pile up, and replies never come. That's where we come in. We automate
+          your Instagram DMs, so your followers get instant responses — even
+          when you're offline.
+        </p>
+      </section>
+
+      {/* Setup image + origin story */}
+      <section aria-labelledby="build-title" class="mt-20">
+        <div
+          class="bg-foreground/5 ring-foreground/10 mx-auto mb-10 w-fit rounded-2xl p-2 ring-1 ring-inset lg:p-3"
+        >
+          <img
+            src="/images/setup.jpeg"
+            alt="The workspace where Botyoo was built"
+            width="1000"
+            height="1000"
+            loading="lazy"
+            decoding="async"
+            class="mx-auto h-auto w-fit rounded-xl object-cover md:h-[600px]"
+          />
+        </div>
+        <p class="text-muted-foreground text-lg">
+          I built this entire platform from scratch. It started as a side
+          project and grew into something creators and businesses actually rely
+          on every day.
+        </p>
+      </section>
+
+      {/* Vision */}
+      <section aria-labelledby="vision-title" class="my-20">
+        <h2
+          id="vision-title"
+          class="text-foreground inline-block py-2 text-4xl font-bold tracking-tighter md:text-5xl"
+        >
+          Our Vision
+        </h2>
+        <div class="text-muted-foreground mt-6 max-w-prose space-y-4">
+          <p class="text-lg leading-8">
+            Currently, our platform only offers Instagram automation, but we
+            plan to expand our services to include TikTok automation and more
+            features in the future. We also recognize that there is still more
+            work to be done to improve our existing Instagram automation, and
+            we're committed to continuously adding new functionality and
+            refinements to make it more powerful and user-friendly.
+          </p>
+
+          <img
+            src="/signature.png"
+            alt="Founder signature"
+            width="2000"
+            height="2000"
+            loading="lazy"
+            decoding="async"
+            class="mx-auto w-fit dark:invert"
+          />
+        </div>
+
+        <a
+          href="https://x.com/Hevin_69"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-8 inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-transparent bg-[#1347e6] px-4 text-center text-sm font-medium text-white shadow-xl shadow-[#1347e6]/20 transition-all duration-100 ease-in-out hover:bg-[#1347e6]/90"
+        >
+          Contact Us
+        </a>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  @keyframes slide-up-fade {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

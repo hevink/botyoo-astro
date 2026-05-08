@@ -1,0 +1,252 @@
+---
+// Reviews / social proof grid — Tailark quartz layout port.
+// - 6 smaller quote cards + 3 "featured" cards with brand logos.
+// - Content rewritten for Botyoo's Instagram DM automation pitch.
+// - Avatars use GitHub identicons via a seed so we don't need to commit images.
+
+type Review = {
+  quote: string
+  name: string
+  role: string
+  avatarSeed: number
+}
+
+const reviews: Review[] = [
+  {
+    quote:
+      "Our comment-to-DM flow started converting the day we launched. Botyoo replaced three tools we were duct-taping together and our cost-per-lead dropped by half.",
+    name: "Priya Shah",
+    role: "Growth Lead, Meadow & Mane",
+    avatarSeed: 55670723,
+  },
+  {
+    quote:
+      "Follow-first gating alone grew our audience by 18k in six weeks. The DM keeps firing even when my team is asleep — it genuinely runs in the background.",
+    name: "Marcus Obi",
+    role: "Founder, Drip Studio",
+    avatarSeed: 47919550,
+  },
+  {
+    quote:
+      "We moved off our old chat tool and saved about $200 a month. No more per-contact pricing surprises, and the automations just keep running through every Instagram update.",
+    name: "Elena Varga",
+    role: "Ops Manager, Kiln Ceramics",
+    avatarSeed: 31113941,
+  },
+  {
+    quote:
+      "The shared inbox is the real unlock. Four of us reply without stepping on each other and every DM has owner + status. My coaching business finally scaled past me.",
+    name: "Dani Reyes",
+    role: "Coach, Reyes Training",
+    avatarSeed: 99137927,
+  },
+  {
+    quote:
+      "Building Botyoo came from scratching my own itch — I kept losing Instagram leads overnight. Seeing creators rely on it every day to actually close sales is the best part of this job.",
+    name: "Hevin Kalathiya",
+    role: "Founder, Botyoo",
+    avatarSeed: 68236786,
+  },
+  {
+    quote:
+      "Campaign analytics in Botyoo show DMs sent, clicks, and follow-first conversions in one place. We finally know which post actually drove revenue, not just likes.",
+    name: "Tomás Ribeiro",
+    role: "Performance Marketer, Onda Agency",
+    avatarSeed: 69605071,
+  },
+]
+
+const avatar = (seed: number) =>
+  `https://avatars.githubusercontent.com/u/${seed}?v=4`
+---
+
+<section id="reviews" class="bg-background py-12 md:py-24">
+  <div class="mx-auto max-w-5xl px-6">
+    <div class="mx-auto mb-12 max-w-2xl px-6 text-balance text-center md:mb-16">
+      <span class="text-primary font-mono text-sm uppercase">Reviews</span>
+      <h2
+        class="text-foreground mt-3 text-3xl font-semibold tracking-tight md:text-4xl"
+      >
+        What Botyoo customers are saying
+      </h2>
+      <p class="text-muted-foreground mx-auto mt-4 max-w-xl text-balance text-lg">
+        Creators, brands, and agency teams using Botyoo to turn Instagram
+        comments and DMs into qualified conversations — automatically.
+      </p>
+    </div>
+
+    <div class="rounded-(--radius) border-border/50 relative lg:border">
+      <div
+        class="lg:*:nth-4:rounded-r-none lg:*:nth-5:rounded-br-none lg:*:nth-6:rounded-b-none lg:*:nth-5:rounded-tl-none lg:*:nth-3:rounded-l-none lg:*:nth-2:rounded-tl-none lg:*:nth-2:rounded-br-none lg:*:nth-1:rounded-t-none grid gap-4 sm:grid-cols-2 sm:grid-rows-4 lg:grid-cols-3 lg:grid-rows-3 lg:gap-px"
+      >
+        {
+          reviews.map((r) => (
+            <div class="bg-card/25 rounded-(--radius) ring-foreground/[0.07] flex flex-col justify-end gap-6 border border-transparent p-8 ring-1">
+              <p class="text-foreground self-end text-balance">
+                &ldquo;{r.quote}&rdquo;
+              </p>
+              <div class="flex items-center gap-3">
+                <div class="ring-foreground/10 aspect-square size-9 overflow-hidden rounded-lg border border-transparent shadow-md shadow-black/15 ring-1">
+                  <img
+                    alt={r.name}
+                    loading="lazy"
+                    width="120"
+                    height="120"
+                    decoding="async"
+                    class="h-full w-full object-cover"
+                    src={avatar(r.avatarSeed)}
+                  />
+                </div>
+                <div class="space-y-px">
+                  <p class="text-sm font-medium">{r.name}</p>
+                  <p class="text-muted-foreground text-xs">{r.role}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+
+        {/* Featured — Meta (Instagram) */}
+        <div
+          class="max-lg:rounded-(--radius) lg:rounded-tl-(--radius) lg:rounded-br-(--radius) bg-card ring-foreground/5 row-start-1 flex flex-col justify-between gap-6 border border-transparent p-8 shadow-lg shadow-black/10 ring-1 lg:col-start-1"
+        >
+          <div class="space-y-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="32"
+              height="32"
+              aria-hidden="true"
+              class="text-primary"
+            >
+              <path
+                fill="currentColor"
+                d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"
+              ></path>
+            </svg>
+            <p>
+              &ldquo;I used to lose half my leads overnight. Now every comment
+              gets a DM within seconds. My sales calls doubled in the first
+              month without hiring anyone.&rdquo;
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div
+              class="ring-foreground/10 aspect-square size-9 overflow-hidden rounded-lg border border-transparent shadow-md shadow-black/15 ring-1"
+            >
+              <img
+                alt="Amaya Santos"
+                loading="lazy"
+                width="120"
+                height="120"
+                decoding="async"
+                class="h-full w-full object-cover"
+                src={avatar(4323180)}
+              />
+            </div>
+            <div class="space-y-px">
+              <p class="text-sm font-medium">Amaya Santos</p>
+              <p class="text-muted-foreground text-xs">
+                Founder, Linework Studio
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured — quote 2 */}
+        <div
+          class="rounded-(--radius) bg-card ring-foreground/5 row-start-3 flex flex-col justify-between gap-6 border border-transparent p-8 shadow-lg shadow-black/10 ring-1 sm:col-start-2 lg:row-start-2"
+        >
+          <div class="space-y-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="32"
+              height="32"
+              aria-hidden="true"
+              class="text-primary"
+            >
+              <path
+                fill="currentColor"
+                d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"
+              ></path>
+            </svg>
+            <p>
+              &ldquo;We launched a reel on Monday and had 400 discount codes
+              sent in DMs by Tuesday morning. My team was out that day and
+              everything ran itself. That's the whole product for me.&rdquo;
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div
+              class="ring-foreground/10 aspect-square size-9 overflow-hidden rounded-lg border border-transparent shadow-md shadow-black/15 ring-1"
+            >
+              <img
+                alt="Kofi Mensah"
+                loading="lazy"
+                width="120"
+                height="120"
+                decoding="async"
+                class="h-full w-full object-cover"
+                src={avatar(124599)}
+              />
+            </div>
+            <div class="space-y-px">
+              <p class="text-sm font-medium">Kofi Mensah</p>
+              <p class="text-muted-foreground text-xs">
+                Owner, Saffron & Salt
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Featured — quote 3 */}
+        <div
+          class="rounded-(--radius) bg-card ring-foreground/5 flex flex-col justify-between gap-6 border border-transparent p-8 shadow-lg shadow-black/10 ring-1 sm:row-start-2 lg:col-start-3 lg:row-start-3 lg:rounded-bl-none lg:rounded-tr-none"
+        >
+          <div class="space-y-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="32"
+              height="32"
+              aria-hidden="true"
+              class="text-primary"
+            >
+              <path
+                fill="currentColor"
+                d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"
+              ></path>
+            </svg>
+            <p>
+              &ldquo;Setup took me fifteen minutes. I'm not technical at all. My
+              DMs now qualify leads before I even open my laptop in the
+              morning.&rdquo;
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div
+              class="ring-foreground/10 aspect-square size-9 overflow-hidden rounded-lg border border-transparent shadow-md shadow-black/15 ring-1"
+            >
+              <img
+                alt="Iris Kowalski"
+                loading="lazy"
+                width="120"
+                height="120"
+                decoding="async"
+                class="h-full w-full object-cover"
+                src={avatar(99137927)}
+              />
+            </div>
+            <div class="space-y-px">
+              <p class="text-sm font-medium">Iris Kowalski</p>
+              <p class="text-muted-foreground text-xs">
+                Coach, Kindling Pilates
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

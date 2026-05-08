@@ -1,0 +1,123 @@
+---
+const CONSTELLATION_SRC =
+  "https://raw.githubusercontent.com/tailark/assets/refs/heads/main/constellation_uvxuml.webp"
+---
+
+<section class="bg-background relative overflow-hidden">
+  {/* Background layer 1 — dithered */}
+  <div
+    class="mask-b-from-55% mask-b-to-75% mask-radial-from-45% dither mask-radial-at-bottom mask-radial-[125%_80%] lg:aspect-3/2 absolute inset-0 opacity-15"
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      decoding="async"
+      width="2342"
+      height="1561"
+      class="size-full object-cover"
+      src={CONSTELLATION_SRC}
+    />
+  </div>
+
+  {/* Background layer 2 */}
+  <div
+    class="mask-b-from-55% mask-b-to-75% mask-radial-from-45% mask-radial-at-bottom mask-radial-[125%_80%] lg:aspect-7/5 absolute inset-0"
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      decoding="async"
+      width="2342"
+      height="1561"
+      class="size-full object-cover"
+      src={CONSTELLATION_SRC}
+    />
+  </div>
+
+  <div class="relative z-10 pb-20 pt-24 md:pt-32 lg:pt-48">
+    <div
+      class="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 text-center"
+    >
+      <div class="flex flex-col items-center">
+        <img
+          src="/meta-tech-provider.png"
+          alt="Meta Tech Provider verified"
+          width="180"
+          height="60"
+          class="mb-6 h-12 w-auto md:h-14"
+        />
+        <h1
+          class="text-foreground text-balance text-5xl font-semibold lg:text-6xl"
+        >
+          Turn Instagram <span class="max-md:hidden">comments</span> into {" "}
+          <span
+            class="bg-linear-to-b from-foreground/50 to-foreground/95 bg-clip-text text-transparent [-webkit-text-stroke:0.5px_var(--color-foreground)]"
+          >
+            qualified sales
+          </span>
+        </h1>
+      </div>
+      <div class="flex max-w-lg flex-col items-center">
+        <p
+          class="text-muted-foreground mb-6 text-balance text-lg lg:text-xl"
+        >
+          Save time with instant, automated replies and never miss a lead.
+          Botyoo engages customers, qualifies leads, and drives conversions
+          24/7.
+        </p>
+        <div class="flex items-center gap-3">
+          <a
+            href="https://app.botyoo.com/dashboard"
+            class="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-md border-[0.5px] border-white/25 shadow-black/20 bg-primary ring-1 ring-(--ring-color) [--ring-color:color-mix(in_oklab,var(--color-foreground)_15%,var(--color-primary))] text-primary-foreground hover:bg-primary/90 h-8 rounded-md px-3 text-xs"
+          >
+            Get Started
+          </a>
+          <a
+            href="#"
+            class="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-sm shadow-black/15 border border-transparent ring-1 duration-200 dark:ring-foreground/15 dark:hover:bg-muted/50 h-8 rounded-md px-3 text-xs bg-foreground/10 ring-foreground/20 hover:bg-foreground/15 backdrop-blur"
+          >
+            Watch Demo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Product frame */}
+    <div
+      class="@container perspective-dramatic mask-[radial-gradient(ellipse_80%_95%_at_50%_0%,#000_80%,transparent_100%)] max-lg:pt-12"
+    >
+      <div
+        class="rotate-x-[0.125deg] before:z-1 before:bg-linear-to-b relative mx-auto max-w-6xl px-3 before:absolute before:inset-0 before:inset-x-4 before:top-0 before:rounded-2xl before:from-blue-950 before:opacity-20 before:mix-blend-color lg:px-12 lg:pt-20 lg:before:inset-x-12 lg:before:top-20"
+      >
+        <div
+          class="bg-linear-to-b from-foreground rotate-66 absolute inset-0 z-10 mx-auto w-8 -translate-y-44 rounded-full opacity-5 blur-xl"
+        >
+        </div>
+        <div
+          class="bg-linear-to-b from-foreground rotate-66 absolute inset-0 z-10 mx-auto w-16 -translate-y-32 translate-x-44 rounded-full opacity-20 blur-2xl"
+        >
+        </div>
+        <div
+          class="bg-foreground/5 border-foreground/5 rounded-[15px] border p-0.5"
+        >
+          <div
+            class="bg-background sm:aspect-3/2 ring-foreground/10 relative aspect-square origin-top overflow-hidden rounded-xl p-1 shadow ring-1"
+          >
+            <img
+              alt="Botyoo product illustration"
+              fetchpriority="high"
+              decoding="async"
+              width="1123"
+              height="748"
+              class="size-full object-contain object-left-top"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1123px"
+              src="/hero.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -13,16 +13,12 @@ const productLinks = [
   { label: "Launch app", href: "https://app.botyoo.com/dashboard" },
 ]
 
-const resourceLinks = [
-  { label: "Documentation", href: "https://docs.botyoo.com" },
-  { label: "Support", href: "mailto:hevin@botyoo.com" },
-  { label: "Status", href: "#" },
-]
-
 const companyLinks = [
   { label: "About", href: "/about" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Refund Policy", href: "/refund" },
+  { label: "Shipping & Delivery", href: "/shipping" },
 ]
 ---
 
@@ -107,27 +103,12 @@ const companyLinks = [
     >
     </div>
 
-    <div class="grid gap-12 sm:grid-cols-3">
+    <div class="grid gap-12 sm:grid-cols-2">
       <div class="space-y-4 text-sm">
         <span class="block font-medium">Product</span>
         <div class="flex flex-wrap gap-4 sm:flex-col">
           {
             productLinks.map((link) => (
-              <a
-                class="text-muted-foreground hover:text-primary block duration-150"
-                href={link.href}
-              >
-                <span>{link.label}</span>
-              </a>
-            ))
-          }
-        </div>
-      </div>
-      <div class="space-y-4 text-sm">
-        <span class="block font-medium">Resources</span>
-        <div class="flex flex-wrap gap-4 sm:flex-col">
-          {
-            resourceLinks.map((link) => (
               <a
                 class="text-muted-foreground hover:text-primary block duration-150"
                 href={link.href}

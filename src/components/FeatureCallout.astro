@@ -63,7 +63,7 @@ const BG_IMAGE =
           ))
         }
 
-        <div class="border-foreground/10 relative grid overflow-hidden border" style="grid-template-columns: 1fr 1fr;">
+        <div class="border-foreground/10 relative grid overflow-hidden border md:grid-cols-2 grid-cols-1">
           {/* Left column */}
           <div class="flex flex-col gap-12 p-8 border-b border-foreground/10 md:border-b-0 md:border-r md:border-foreground/10">
             <div class="text-balance">
@@ -144,7 +144,7 @@ const BG_IMAGE =
           </div>
 
           {/* Right column — dynamic content cards */}
-          <div class="relative overflow-hidden" style="min-height: 500px;">
+          <div class="relative overflow-hidden min-h-[400px] md:min-h-[500px]">
             <div class="absolute inset-0">
               {/* Feature cards — one per accordion item, toggled via JS */}
               <div class="relative z-10 h-full">

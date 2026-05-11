@@ -23,131 +23,139 @@ import ChangelogEntry from "../components/ChangelogEntry.astro"
     </div>
 
     <div class="mt-28">
-      <ChangelogEntry version="v1.1.0" date="July 8, 2024">
-        <h2>New Analytics Dashboard & Advanced Automation</h2>
+
+      <ChangelogEntry version="v2.5.0" date="May 11, 2025">
+        <h2>Team Workspaces & Member Invitations</h2>
         <p>
-          We're excited to introduce our comprehensive analytics suite that
-          provides deep insights into your Instagram DM performance, along with
-          powerful new automation features that enhance follower engagement.
+          Collaborate with your team on a single Instagram account. Invite members to your workspace — they see the same automations, contacts, inbox, and analytics as you.
         </p>
 
-        <img src="/changelog/v317.webp" alt="New analytics dashboard" width="1200" height="675" />
-
-        <h3>New & Improved:</h3>
+        <h3>New:</h3>
         <ul>
-          <li>
-            <strong>Analytics Dashboard:</strong> Track conversion rates,
-            response times, and engagement metrics for all your automated DM
-            conversations.
-          </li>
-          <li>
-            <strong>Follow Verification:</strong> New intelligent system that
-            automatically verifies followers before sending premium content or
-            special offers.
-          </li>
-          <li>
-            <strong>Conditional Responses:</strong> Create branching
-            conversation paths based on user responses for more natural
-            interactions.
-          </li>
-          <li>
-            <strong>A/B Testing:</strong> Compare different message templates
-            to determine which performs best for your specific audience.
-          </li>
-          <li>
-            <strong>Performance Reports:</strong> Receive weekly email reports
-            with key metrics and recommendations for optimizing your DM
-            strategy.
-          </li>
+          <li><strong>Invite Members:</strong> Add team members by email. They get a one-click invite link to join your workspace instantly.</li>
+          <li><strong>Shared Workspace Data:</strong> Members see the same automations, contacts, inbox conversations, and analytics — no separate setup needed.</li>
+          <li><strong>Pending Invitations:</strong> Track who you've invited and their status. Revoke invites anytime.</li>
+          <li><strong>Simplified Roles:</strong> Two roles — Owner (full control) and Member (can do everything except remove others).</li>
+          <li><strong>Auto-Accept Invites:</strong> If the invited user is already logged in, they join the workspace automatically — no extra clicks.</li>
+          <li><strong>Google OAuth Invite Flow:</strong> Invite tokens carry through Google sign-in seamlessly.</li>
         </ul>
 
-        <h3>Fixes:</h3>
+        <h3>Improved:</h3>
         <ul>
-          <li>
-            <strong>Message Queue:</strong> Fixed issues with message delivery
-            during peak Instagram usage times.
-          </li>
-          <li>
-            <strong>Template Editor:</strong> Improved formatting options when
-            creating multi-part automated messages.
-          </li>
-          <li>
-            <strong>Notification System:</strong> Enhanced reliability of
-            real-time alerts for high-priority DM interactions.
-          </li>
-          <li>
-            <strong>Mobile Interface:</strong> Resolved display issues on
-            smaller screens when viewing analytics charts.
-          </li>
-          <li>
-            <strong>API Integration:</strong> Fixed connection stability with
-            Instagram's messaging API during rate limit periods.
-          </li>
+          <li><strong>Remove Member Dialog:</strong> Confirmation dialog with loading state before removing a team member.</li>
+          <li><strong>Integration Page:</strong> Members see the connected Instagram account (read-only). Only the owner can connect or refresh permissions.</li>
+          <li><strong>Faster Invites:</strong> Invite emails now send in the background — the UI responds instantly instead of waiting 10+ seconds.</li>
         </ul>
-
-        <p>
-          For more information on how to leverage these new analytics features,
-          check out our <a href="#">updated documentation</a>.
-        </p>
       </ChangelogEntry>
 
-      <ChangelogEntry version="v1.0.0" date="June 15, 2024">
-        <h2>Instagram DM Automation MVP Release</h2>
+      <ChangelogEntry version="v2.4.0" date="April 28, 2025">
+        <h2>Campaigns — Bulk DM Your Audience</h2>
         <p>
-          We're thrilled to announce the launch of our Instagram DM Automation
-          platform. This initial release provides businesses and creators with
-          essential tools to automate responses, engage followers, and convert
-          comments to leads.
+          Send targeted DM campaigns to your contacts. Filter by tag or automation, preview your message in a phone mockup, and track delivery in real time.
         </p>
 
-        <img src="/changelog/v316.png" alt="MVP release" width="1200" height="675" />
-
-        <h3>Core Features:</h3>
+        <h3>New:</h3>
         <ul>
-          <li>
-            <strong>Automated Responses:</strong> Set up instant replies to
-            common questions and inquiries in your Instagram DMs.
-          </li>
-          <li>
-            <strong>Comment-to-DM Conversion:</strong> Automatically invite
-            users who comment on your posts to continue the conversation in
-            DMs.
-          </li>
-          <li>
-            <strong>Message Templates:</strong> Create and save customizable
-            message templates for different scenarios and audience segments.
-          </li>
-          <li>
-            <strong>Simple Rules Engine:</strong> Define basic conditions for
-            when and how your automation responds to different types of
-            messages.
-          </li>
-          <li>
-            <strong>Basic Analytics:</strong> Track message volume, response
-            rates, and basic engagement metrics.
-          </li>
-          <li>
-            <strong>Instagram Integration:</strong> Seamless connection with
-            your Instagram Business or Creator account.
-          </li>
-          <li>
-            <strong>User Management:</strong> Add team members with different
-            permission levels to manage your DM automation.
-          </li>
+          <li><strong>Campaign Builder:</strong> Full-page campaign creation with audience targeting by tag, automation, or both.</li>
+          <li><strong>Live DM Preview:</strong> See exactly how your message looks in an iPhone mockup before sending.</li>
+          <li><strong>Variable Chips:</strong> Insert dynamic variables (name, username) into campaign messages with one click.</li>
+          <li><strong>Image & Link Attachments:</strong> Attach images and add clickable links to your campaign messages.</li>
+          <li><strong>Audience Count Preview:</strong> See how many contacts will receive the campaign before you hit send.</li>
+          <li><strong>Campaign Analytics:</strong> Track sent, failed, and pending counts in real time.</li>
+        </ul>
+      </ChangelogEntry>
+
+      <ChangelogEntry version="v2.3.0" date="April 10, 2025">
+        <h2>Shared Inbox — Real-Time DM Conversations</h2>
+        <p>
+          A full inbox experience for managing Instagram DM conversations. Reply to leads, send media, react to messages, and sync your entire conversation history.
+        </p>
+
+        <h3>New:</h3>
+        <ul>
+          <li><strong>Conversation List:</strong> All your DM conversations in one place with search, filter by status, and unread indicators.</li>
+          <li><strong>Real-Time Replies:</strong> Send text messages, images, videos, and audio directly from the inbox.</li>
+          <li><strong>Message Reactions:</strong> React to messages with emoji — synced with Instagram.</li>
+          <li><strong>Full Sync:</strong> One-click sync pulls your entire Instagram conversation history including all messages and media.</li>
+          <li><strong>Live Updates (SSE):</strong> New messages appear instantly via server-sent events — no page refresh needed.</li>
+          <li><strong>Contact Profile Panel:</strong> See contact details, tags, follower count, and automation source alongside conversations.</li>
+          <li><strong>Contact Notes:</strong> Add internal notes to any contact for your team's reference.</li>
+          <li><strong>Contact Tags:</strong> Organize contacts with custom tags for segmentation and campaign targeting.</li>
+        </ul>
+      </ChangelogEntry>
+
+      <ChangelogEntry version="v2.2.0" date="March 15, 2025">
+        <h2>Advanced Automation Triggers & Follow-Ups</h2>
+        <p>
+          New automation types, smarter triggers, and multi-step follow-up sequences that keep the conversation going after the first DM.
+        </p>
+
+        <h3>New:</h3>
+        <ul>
+          <li><strong>Click-to-DM Ads:</strong> Trigger automations from Instagram ad clicks — with optional keyword matching or catch-all fallback.</li>
+          <li><strong>Story Mentions & Shares:</strong> Respond automatically when someone mentions you in a story or shares your reel.</li>
+          <li><strong>Follow-Up Sequences:</strong> Schedule multi-step follow-up messages with delays — keep leads warm automatically.</li>
+          <li><strong>Follow-Up Links & Images:</strong> Attach links and images to follow-up steps for richer engagement.</li>
+          <li><strong>Keyword Matching:</strong> Flexible keyword triggers with any-keyword mode and Levenshtein fuzzy matching.</li>
         </ul>
 
-        <h3>Getting Started:</h3>
-        <p>
-          To begin automating your Instagram DMs, simply connect your Instagram
-          account through our secure authentication process, create your first
-          message templates, and set up basic automation rules.
-        </p>
-        <p>
-          For detailed setup instructions, check out our <a href="#"
-            >quickstart guide</a
-          > or contact our support team for personalized onboarding assistance.
-        </p>
+        <h3>Improved:</h3>
+        <ul>
+          <li><strong>Webhook Processing:</strong> Faster, more reliable webhook handling for comments, DMs, and story interactions.</li>
+          <li><strong>Edge Caching:</strong> Instagram profile and posts are cached at the edge for faster page loads.</li>
+          <li><strong>Token Encryption:</strong> All Instagram access tokens are now encrypted at rest.</li>
+        </ul>
       </ChangelogEntry>
+
+      <ChangelogEntry version="v2.1.0" date="February 20, 2025">
+        <h2>Workspaces, Plans & Multi-Account Support</h2>
+        <p>
+          Organize your Instagram accounts into workspaces. Each workspace has its own automations, contacts, and integrations — with plan-based limits.
+        </p>
+
+        <h3>New:</h3>
+        <ul>
+          <li><strong>Workspaces:</strong> Create multiple workspaces to manage different Instagram accounts or brands separately.</li>
+          <li><strong>Workspace Switcher:</strong> Switch between workspaces instantly from the sidebar.</li>
+          <li><strong>Plan-Based Limits:</strong> Free, Pro, and Premium tiers with workspace and automation limits.</li>
+          <li><strong>Subscription Management:</strong> Upgrade, downgrade, or cancel your plan directly from the dashboard.</li>
+          <li><strong>Referral Program:</strong> Earn credits by referring other creators to Botyoo.</li>
+        </ul>
+
+        <h3>Improved:</h3>
+        <ul>
+          <li><strong>Google Sign-In:</strong> One-click Google OAuth for faster onboarding.</li>
+          <li><strong>Email Verification:</strong> Required on sign-up to reduce spam accounts.</li>
+          <li><strong>Magic Link Login:</strong> Passwordless sign-in option via email link.</li>
+        </ul>
+      </ChangelogEntry>
+
+      <ChangelogEntry version="v2.0.0" date="January 10, 2025">
+        <h2>Complete Platform Rebuild</h2>
+        <p>
+          Botyoo v2 is a ground-up rebuild with a new backend (Hono on Cloudflare Workers), new frontend (Next.js 15), and a completely redesigned automation builder.
+        </p>
+
+        <h3>New:</h3>
+        <ul>
+          <li><strong>Visual Automation Builder:</strong> Drag-and-drop flow builder for creating comment-to-DM automations with conditional logic.</li>
+          <li><strong>Follow-First Gating:</strong> Only send links to users who follow you — grow your audience while delivering value.</li>
+          <li><strong>Email & Phone Collection:</strong> Capture contact details directly inside Instagram DMs without redirects.</li>
+          <li><strong>Analytics Dashboard:</strong> Track DM sends, new followers, and comment engagement with date-range charts.</li>
+          <li><strong>Contacts CRM:</strong> View all captured leads with email, follower count, and automation source. Export to CSV.</li>
+          <li><strong>Link Tracking:</strong> Short links with click tracking and plan-based branding.</li>
+          <li><strong>Dark Mode:</strong> Full dark theme across the entire platform.</li>
+        </ul>
+
+        <h3>Infrastructure:</h3>
+        <ul>
+          <li><strong>Cloudflare Workers:</strong> Backend runs on the edge for sub-100ms response times globally.</li>
+          <li><strong>Neon Postgres:</strong> Serverless database with connection pooling.</li>
+          <li><strong>Redis Caching:</strong> Real-time data and pub/sub for live inbox updates.</li>
+          <li><strong>Cloudflare Email:</strong> Transactional emails without SMTP dependencies.</li>
+        </ul>
+      </ChangelogEntry>
+
     </div>
   </main>
 </Layout>

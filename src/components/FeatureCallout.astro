@@ -1,7 +1,6 @@
 ---
-// Unified-platform section with dithered illustration, feature accordion,
-// compliance badges, and testimonial — Tailark dark-landing-one port.
-// Content swapped for Botyoo.
+// Unified-platform section with feature accordion on left,
+// dynamic illustration cards on right that change based on selected feature.
 
 const features = [
   {
@@ -26,13 +25,6 @@ const features = [
   },
 ]
 
-const badges = [
-  { label: "Meta Business Partner ready", type: "shield" },
-  { label: "GDPR compliant", type: "shield" },
-  { label: "End-to-end encrypted tokens", type: "shield" },
-  { label: "99.9% uptime", type: "hourglass" },
-]
-
 const BG_IMAGE =
   "https://images.unsplash.com/photo-1723869791623-3b6a012f996b?q=80&w=2340&auto=format&fit=crop"
 ---
@@ -44,14 +36,10 @@ const BG_IMAGE =
   <section class="bg-background overflow-hidden pt-24 pb-12">
     <div class="mx-auto mb-12 max-w-2xl px-6 text-balance text-center md:mb-16">
       <span class="text-primary font-mono text-sm uppercase">Features</span>
-      <h2
-        class="text-foreground mt-3 text-3xl font-semibold tracking-tight md:text-4xl"
-      >
+      <h2 class="text-foreground mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
         Everything you need to run Instagram DMs at scale
       </h2>
-      <p
-        class="text-muted-foreground mx-auto mt-4 max-w-xl text-balance text-lg"
-      >
+      <p class="text-muted-foreground mx-auto mt-4 max-w-xl text-balance text-lg">
         Comment-to-DM flows, follow-first gating, and a shared team inbox —
         without the per-contact pricing. Botyoo is Meta-partner ready so your
         automations keep firing.
@@ -104,6 +92,7 @@ const BG_IMAGE =
                 features.map((f, i) => (
                   <div
                     data-accordion-item
+                    data-index={i}
                     data-expanded={i === 0 ? "true" : "false"}
                     class="not-first:border-t not-first:border-t-card group relative grid grid-rows-[auto_1fr]"
                   >
@@ -154,53 +143,187 @@ const BG_IMAGE =
             </div>
           </div>
 
-          {/* Right column — illustration card over dithered background */}
+          {/* Right column — dynamic content cards */}
           <div class="relative overflow-hidden" style="min-height: 500px;">
             <div class="absolute inset-0">
-              {/* Foreground illustration */}
+              {/* Feature cards — one per accordion item, toggled via JS */}
               <div class="relative z-10 h-full">
-                <div class="scale-85 absolute inset-0 m-auto size-fit overflow-hidden">
-                  <div aria-hidden="true" class="min-w-sm max-w-md px-6 pt-1">
-                    <div class="bg-card/95 shadow-black/4 ring-border z-1 relative rounded-2xl p-6 shadow-md ring-1">
+                {/* Card 0: Reply to every comment */}
+                <div data-feature-card="0" class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-100">
+                  <div class="scale-85 overflow-hidden max-w-md px-6">
+                    <div class="bg-card/95 shadow-black/4 ring-border rounded-2xl p-6 shadow-md ring-1 relative">
                       <div class="mask-t-from-5% bg-card/50 mask-t-to-65% absolute inset-0 rounded-2xl backdrop-blur"></div>
-                      <span class="text-muted-foreground text-xs">Today <span class="bg-foreground/50 size-0.5 rounded-full"></span> <span>09:15 AM</span></span>
-                      <div class="mt-1 text-lg font-semibold">Summer launch DM flow</div>
-                      <div class="bg-foreground/10 group relative mb-4 mt-3 h-fit w-fit cursor-pointer overflow-hidden rounded-full p-px shadow shadow-black/5">
-                        <div class="bg-linear-to-br/increasing mask-r-to-75% mask-r-from-25% duration-2000 absolute inset-0 aspect-square -translate-y-1/3 animate-spin from-emerald-400 via-blue-500 to-indigo-400 opacity-50"></div>
-                        <div class="group-hover:bg-card bg-background/95 relative flex h-8 items-center gap-1.5 rounded-full px-3 text-sm duration-100">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fill-foreground size-3"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
-                          03:47
+                      <div class="relative space-y-4">
+                        <div class="flex items-center gap-2">
+                          <div class="size-2 rounded-full bg-green-400 animate-pulse"></div>
+                          <span class="text-xs text-muted-foreground">Live — 3 posts monitored</span>
+                        </div>
+                        <div class="text-lg font-semibold">Comment → DM Engine</div>
+                        <div class="space-y-3 text-sm">
+                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
+                            <div class="size-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">JK</div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-foreground font-medium text-xs">@jake_fitness</p>
+                              <p class="text-muted-foreground text-xs truncate">"Where can I get this? 🔥"</p>
+                            </div>
+                            <span class="text-xs text-green-400 font-medium">DM sent ✓</span>
+                          </div>
+                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
+                            <div class="size-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white text-xs font-bold">SM</div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-foreground font-medium text-xs">@sarah_m</p>
+                              <p class="text-muted-foreground text-xs truncate">"Need this! Link please"</p>
+                            </div>
+                            <span class="text-xs text-green-400 font-medium">DM sent ✓</span>
+                          </div>
+                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
+                            <div class="size-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-xs font-bold">AR</div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-foreground font-medium text-xs">@alex.runs</p>
+                              <p class="text-muted-foreground text-xs truncate">"How much is this?"</p>
+                            </div>
+                            <span class="text-xs text-yellow-400 font-medium">Sending...</span>
+                          </div>
+                        </div>
+                        <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
+                          <span>247 DMs sent today</span>
+                          <span class="text-green-400">98% delivery rate</span>
                         </div>
                       </div>
-                      <div class="space-y-4">
-                        <div class="*:not-first:text-foreground/50 flex gap-5 border-b *:-mb-px *:flex *:cursor-pointer *:items-center *:gap-1.5 *:py-2 *:text-sm *:[&>svg]:size-3.5">
-                          <div class="border-primary border-b">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                            <span>Summary</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 1: Gate links behind a follow */}
+                <div data-feature-card="1" class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0">
+                  <div class="scale-85 overflow-hidden max-w-md px-6">
+                    <div class="bg-card/95 shadow-black/4 ring-border rounded-2xl p-6 shadow-md ring-1 relative">
+                      <div class="mask-t-from-5% bg-card/50 mask-t-to-65% absolute inset-0 rounded-2xl backdrop-blur"></div>
+                      <div class="relative space-y-4">
+                        <div class="text-lg font-semibold">Follow-First Gate</div>
+                        <p class="text-muted-foreground text-sm">User must follow before receiving the link</p>
+                        <div class="space-y-3">
+                          <div class="rounded-lg border border-foreground/10 p-4 space-y-3">
+                            <div class="flex items-center justify-between">
+                              <span class="text-sm font-medium">@new_visitor</span>
+                              <span class="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded-full">Not following</span>
+                            </div>
+                            <div class="bg-foreground/5 rounded-lg p-3 text-sm text-muted-foreground">
+                              "Hey! 👋 Follow us first to unlock the exclusive discount link. Tap the Follow button above and I'll send it right over!"
+                            </div>
                           </div>
-                          <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M12 2v4"></path><path d="M16 2v4"></path><rect width="16" height="18" x="4" y="4" rx="2"></rect><path d="M8 10h6"></path><path d="M8 14h8"></path><path d="M8 18h5"></path></svg>
-                            <span>Messages</span>
-                          </div>
-                          <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22a5 5 0 0 1-2-4"></path><path d="M7 16.93c.96.43 1.96.74 2.99.91"></path><path d="M3.34 14A6.8 6.8 0 0 1 2 10c0-4.42 4.48-8 10-8s10 3.58 10 8a7.19 7.19 0 0 1-.33 2"></path><path d="M5 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
-                            <span>Audience</span>
+                          <div class="rounded-lg border border-green-500/30 bg-green-500/5 p-4 space-y-3">
+                            <div class="flex items-center justify-between">
+                              <span class="text-sm font-medium">@new_visitor</span>
+                              <span class="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">Now following ✓</span>
+                            </div>
+                            <div class="bg-foreground/5 rounded-lg p-3 text-sm text-muted-foreground">
+                              "Awesome, you're in! 🎉 Here's your exclusive 30% off link: botyoo.com/deal"
+                            </div>
                           </div>
                         </div>
-                        <div class="space-y-3 text-sm">
-                          <p class="text-muted-foreground">Highlights from yesterday's automation run:</p>
-                          <ul class="text-muted-foreground list-disc space-y-1.5 pl-4">
-                            <li><span class="text-foreground font-medium">DMs sent:</span> 1,248 triggered from 3 active posts</li>
-                            <li><span class="text-foreground font-medium">Follow-first gate:</span> 37% new follows before DM delivery</li>
-                            <li><span class="text-foreground font-medium">Conversions:</span> 82 link clicks, 14 checkouts started</li>
-                          </ul>
-                          <p class="text-muted-foreground">Next step: push the "waitlist reminder" follow-up tomorrow at 8:30 PM.</p>
+                        <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
+                          <span>+1,420 new followers this week</span>
+                          <span class="text-green-400">37% conversion</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 2: Capture email and phone */}
+                <div data-feature-card="2" class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0">
+                  <div class="scale-85 overflow-hidden max-w-md px-6">
+                    <div class="bg-card/95 shadow-black/4 ring-border rounded-2xl p-6 shadow-md ring-1 relative">
+                      <div class="mask-t-from-5% bg-card/50 mask-t-to-65% absolute inset-0 rounded-2xl backdrop-blur"></div>
+                      <div class="relative space-y-4">
+                        <div class="text-lg font-semibold">In-DM Lead Capture</div>
+                        <p class="text-muted-foreground text-sm">Collect emails & phone numbers without leaving Instagram</p>
+                        <div class="space-y-2 text-sm">
+                          <div class="flex gap-2">
+                            <div class="size-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                              <span class="text-primary text-xs">B</span>
+                            </div>
+                            <div class="bg-foreground/5 rounded-lg rounded-tl-none p-3 text-muted-foreground">
+                              "Thanks for your interest! 🙌 What's the best email to send the free guide to?"
+                            </div>
+                          </div>
+                          <div class="flex gap-2 justify-end">
+                            <div class="bg-primary/10 rounded-lg rounded-tr-none p-3 text-foreground">
+                              "sarah@gmail.com"
+                            </div>
+                            <div class="size-6 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shrink-0 mt-0.5">
+                              <span class="text-white text-xs">S</span>
+                            </div>
+                          </div>
+                          <div class="flex gap-2">
+                            <div class="size-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                              <span class="text-primary text-xs">B</span>
+                            </div>
+                            <div class="bg-foreground/5 rounded-lg rounded-tl-none p-3 text-muted-foreground">
+                              "Got it! ✅ Check your inbox — the guide is on its way. Want me to text you a reminder too? Drop your number!"
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
+                          <span>892 emails collected</span>
+                          <span class="text-green-400">64% capture rate</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 3: One inbox for the whole team */}
+                <div data-feature-card="3" class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0">
+                  <div class="scale-85 overflow-hidden max-w-md px-6">
+                    <div class="bg-card/95 shadow-black/4 ring-border rounded-2xl p-6 shadow-md ring-1 relative">
+                      <div class="mask-t-from-5% bg-card/50 mask-t-to-65% absolute inset-0 rounded-2xl backdrop-blur"></div>
+                      <div class="relative space-y-4">
+                        <div class="text-lg font-semibold">Shared Team Inbox</div>
+                        <p class="text-muted-foreground text-sm">Everyone sees the same conversations — no overlap</p>
+                        <div class="space-y-2">
+                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
+                            <div class="size-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">MK</div>
+                            <div class="flex-1 min-w-0">
+                              <div class="flex items-center justify-between">
+                                <p class="text-foreground font-medium text-xs">@mike_k</p>
+                                <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full">Assigned: You</span>
+                              </div>
+                              <p class="text-muted-foreground text-xs truncate">"Can I get a bulk discount?"</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
+                            <div class="size-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white text-xs font-bold">LP</div>
+                            <div class="flex-1 min-w-0">
+                              <div class="flex items-center justify-between">
+                                <p class="text-foreground font-medium text-xs">@lisa_p</p>
+                                <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full">Assigned: Sarah</span>
+                              </div>
+                              <p class="text-muted-foreground text-xs truncate">"When does the sale end?"</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3 border border-green-500/20">
+                            <div class="size-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-xs font-bold">TN</div>
+                            <div class="flex-1 min-w-0">
+                              <div class="flex items-center justify-between">
+                                <p class="text-foreground font-medium text-xs">@tom_n</p>
+                                <span class="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">Resolved ✓</span>
+                              </div>
+                              <p class="text-muted-foreground text-xs truncate">"Thanks, got it!"</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
+                          <span>3 team members online</span>
+                          <span class="text-green-400">Avg reply: 2 min</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
               {/* Dithered background image */}
               <div class="dither absolute inset-0 opacity-75 dark:opacity-25">
                 <img alt="" aria-hidden="true" loading="lazy" decoding="async" class="size-full object-cover opacity-50" src={BG_IMAGE} />
@@ -215,11 +338,11 @@ const BG_IMAGE =
 </div>
 
 <script>
-  // Accordion: open one item at a time, expanded one gets `grid-rows-[1fr]`
+  // Accordion + feature card switcher
   document.querySelectorAll<HTMLElement>("[data-accordion]").forEach((root) => {
-    const items = Array.from(
-      root.querySelectorAll<HTMLElement>("[data-accordion-item]"),
-    )
+    const items = Array.from(root.querySelectorAll<HTMLElement>("[data-accordion-item]"))
+    const cards = document.querySelectorAll<HTMLElement>("[data-feature-card]")
+
     const setExpanded = (index: number) => {
       items.forEach((item, i) => {
         const expanded = i === index
@@ -234,12 +357,20 @@ const BG_IMAGE =
         icon?.classList.toggle("text-foreground", expanded)
         icon?.classList.toggle("text-muted-foreground", !expanded)
       })
+
+      // Switch right-side cards
+      cards.forEach((card) => {
+        const cardIndex = card.dataset.featureCard
+        card.classList.toggle("opacity-100", cardIndex === String(index))
+        card.classList.toggle("opacity-0", cardIndex !== String(index))
+      })
     }
+
     items.forEach((item, i) => {
-      item
-        .querySelector<HTMLButtonElement>("[data-accordion-trigger]")
+      item.querySelector<HTMLButtonElement>("[data-accordion-trigger]")
         ?.addEventListener("click", () => setExpanded(i))
     })
+
     // Open first on load
     setExpanded(0)
   })

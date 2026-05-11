@@ -146,7 +146,6 @@ const BG_IMAGE =
           {/* Right column — dynamic content cards */}
           <div class="relative overflow-hidden min-h-[400px] md:min-h-[500px]">
             <div class="absolute inset-0">
-              {/* Feature cards — one per accordion item, toggled via JS */}
               <div class="relative z-10 h-full">
                 {/* Card 0: Reply to every comment */}
                 <div data-feature-card="0" class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-100">
@@ -155,39 +154,39 @@ const BG_IMAGE =
                       <div class="mask-t-from-5% bg-card/50 mask-t-to-65% absolute inset-0 rounded-2xl backdrop-blur"></div>
                       <div class="relative space-y-4">
                         <div class="flex items-center gap-2">
-                          <div class="size-2 rounded-full bg-green-400 animate-pulse"></div>
+                          <div class="size-2 rounded-full bg-foreground/40 animate-pulse"></div>
                           <span class="text-xs text-muted-foreground">Live — 3 posts monitored</span>
                         </div>
                         <div class="text-lg font-semibold">Comment → DM Engine</div>
                         <div class="space-y-3 text-sm">
                           <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
-                            <div class="size-8 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">JK</div>
+                            <div class="size-8 rounded-full bg-foreground/10 flex items-center justify-center text-foreground/70 text-xs font-bold">JK</div>
                             <div class="flex-1 min-w-0">
                               <p class="text-foreground font-medium text-xs">@jake_fitness</p>
-                              <p class="text-muted-foreground text-xs truncate">"Where can I get this? 🔥"</p>
+                              <p class="text-muted-foreground text-xs truncate">"Where can I get this?"</p>
                             </div>
-                            <span class="text-xs text-green-400 font-medium">DM sent ✓</span>
+                            <span class="text-xs text-foreground/60 font-medium">DM sent ✓</span>
                           </div>
                           <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
-                            <div class="size-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white text-xs font-bold">SM</div>
+                            <div class="size-8 rounded-full bg-foreground/10 flex items-center justify-center text-foreground/70 text-xs font-bold">SM</div>
                             <div class="flex-1 min-w-0">
                               <p class="text-foreground font-medium text-xs">@sarah_m</p>
                               <p class="text-muted-foreground text-xs truncate">"Need this! Link please"</p>
                             </div>
-                            <span class="text-xs text-green-400 font-medium">DM sent ✓</span>
+                            <span class="text-xs text-foreground/60 font-medium">DM sent ✓</span>
                           </div>
                           <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
-                            <div class="size-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-xs font-bold">AR</div>
+                            <div class="size-8 rounded-full bg-foreground/10 flex items-center justify-center text-foreground/70 text-xs font-bold">AR</div>
                             <div class="flex-1 min-w-0">
                               <p class="text-foreground font-medium text-xs">@alex.runs</p>
                               <p class="text-muted-foreground text-xs truncate">"How much is this?"</p>
                             </div>
-                            <span class="text-xs text-yellow-400 font-medium">Sending...</span>
+                            <span class="text-xs text-muted-foreground font-medium">Sending...</span>
                           </div>
                         </div>
                         <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
                           <span>247 DMs sent today</span>
-                          <span class="text-green-400">98% delivery rate</span>
+                          <span>98% delivery rate</span>
                         </div>
                       </div>
                     </div>
@@ -206,25 +205,25 @@ const BG_IMAGE =
                           <div class="rounded-lg border border-foreground/10 p-4 space-y-3">
                             <div class="flex items-center justify-between">
                               <span class="text-sm font-medium">@new_visitor</span>
-                              <span class="text-xs bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded-full">Not following</span>
+                              <span class="text-xs bg-foreground/10 text-muted-foreground px-2 py-0.5 rounded-full">Not following</span>
                             </div>
                             <div class="bg-foreground/5 rounded-lg p-3 text-sm text-muted-foreground">
-                              "Hey! 👋 Follow us first to unlock the exclusive discount link. Tap the Follow button above and I'll send it right over!"
+                              "Hey! Follow us first to unlock the exclusive discount link. Tap the Follow button above and I'll send it right over!"
                             </div>
                           </div>
-                          <div class="rounded-lg border border-green-500/30 bg-green-500/5 p-4 space-y-3">
+                          <div class="rounded-lg border border-foreground/15 p-4 space-y-3">
                             <div class="flex items-center justify-between">
                               <span class="text-sm font-medium">@new_visitor</span>
-                              <span class="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">Now following ✓</span>
+                              <span class="text-xs bg-foreground/10 text-foreground/70 px-2 py-0.5 rounded-full">Now following ✓</span>
                             </div>
                             <div class="bg-foreground/5 rounded-lg p-3 text-sm text-muted-foreground">
-                              "Awesome, you're in! 🎉 Here's your exclusive 30% off link: botyoo.com/deal"
+                              "Awesome, you're in! Here's your exclusive 30% off link: botyoo.com/deal"
                             </div>
                           </div>
                         </div>
                         <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
                           <span>+1,420 new followers this week</span>
-                          <span class="text-green-400">37% conversion</span>
+                          <span>37% conversion</span>
                         </div>
                       </div>
                     </div>
@@ -241,33 +240,33 @@ const BG_IMAGE =
                         <p class="text-muted-foreground text-sm">Collect emails & phone numbers without leaving Instagram</p>
                         <div class="space-y-2 text-sm">
                           <div class="flex gap-2">
-                            <div class="size-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                              <span class="text-primary text-xs">B</span>
+                            <div class="size-6 rounded-full bg-foreground/10 flex items-center justify-center shrink-0 mt-0.5">
+                              <span class="text-foreground/70 text-xs">B</span>
                             </div>
                             <div class="bg-foreground/5 rounded-lg rounded-tl-none p-3 text-muted-foreground">
-                              "Thanks for your interest! 🙌 What's the best email to send the free guide to?"
+                              "Thanks for your interest! What's the best email to send the free guide to?"
                             </div>
                           </div>
                           <div class="flex gap-2 justify-end">
-                            <div class="bg-primary/10 rounded-lg rounded-tr-none p-3 text-foreground">
+                            <div class="bg-foreground/10 rounded-lg rounded-tr-none p-3 text-foreground">
                               "sarah@gmail.com"
                             </div>
-                            <div class="size-6 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shrink-0 mt-0.5">
-                              <span class="text-white text-xs">S</span>
+                            <div class="size-6 rounded-full bg-foreground/10 flex items-center justify-center shrink-0 mt-0.5">
+                              <span class="text-foreground/70 text-xs">S</span>
                             </div>
                           </div>
                           <div class="flex gap-2">
-                            <div class="size-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                              <span class="text-primary text-xs">B</span>
+                            <div class="size-6 rounded-full bg-foreground/10 flex items-center justify-center shrink-0 mt-0.5">
+                              <span class="text-foreground/70 text-xs">B</span>
                             </div>
                             <div class="bg-foreground/5 rounded-lg rounded-tl-none p-3 text-muted-foreground">
-                              "Got it! ✅ Check your inbox — the guide is on its way. Want me to text you a reminder too? Drop your number!"
+                              "Got it! Check your inbox — the guide is on its way. Want a text reminder too? Drop your number!"
                             </div>
                           </div>
                         </div>
                         <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
                           <span>892 emails collected</span>
-                          <span class="text-green-400">64% capture rate</span>
+                          <span>64% capture rate</span>
                         </div>
                       </div>
                     </div>
@@ -284,31 +283,31 @@ const BG_IMAGE =
                         <p class="text-muted-foreground text-sm">Everyone sees the same conversations — no overlap</p>
                         <div class="space-y-2">
                           <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
-                            <div class="size-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">MK</div>
+                            <div class="size-8 rounded-full bg-foreground/10 flex items-center justify-center text-foreground/70 text-xs font-bold">MK</div>
                             <div class="flex-1 min-w-0">
                               <div class="flex items-center justify-between">
                                 <p class="text-foreground font-medium text-xs">@mike_k</p>
-                                <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full">Assigned: You</span>
+                                <span class="text-xs bg-foreground/10 text-muted-foreground px-2 py-0.5 rounded-full">You</span>
                               </div>
                               <p class="text-muted-foreground text-xs truncate">"Can I get a bulk discount?"</p>
                             </div>
                           </div>
                           <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
-                            <div class="size-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white text-xs font-bold">LP</div>
+                            <div class="size-8 rounded-full bg-foreground/10 flex items-center justify-center text-foreground/70 text-xs font-bold">LP</div>
                             <div class="flex-1 min-w-0">
                               <div class="flex items-center justify-between">
                                 <p class="text-foreground font-medium text-xs">@lisa_p</p>
-                                <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full">Assigned: Sarah</span>
+                                <span class="text-xs bg-foreground/10 text-muted-foreground px-2 py-0.5 rounded-full">Sarah</span>
                               </div>
                               <p class="text-muted-foreground text-xs truncate">"When does the sale end?"</p>
                             </div>
                           </div>
-                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3 border border-green-500/20">
-                            <div class="size-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-xs font-bold">TN</div>
+                          <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
+                            <div class="size-8 rounded-full bg-foreground/10 flex items-center justify-center text-foreground/70 text-xs font-bold">TN</div>
                             <div class="flex-1 min-w-0">
                               <div class="flex items-center justify-between">
                                 <p class="text-foreground font-medium text-xs">@tom_n</p>
-                                <span class="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">Resolved ✓</span>
+                                <span class="text-xs bg-foreground/10 text-foreground/60 px-2 py-0.5 rounded-full">Resolved ✓</span>
                               </div>
                               <p class="text-muted-foreground text-xs truncate">"Thanks, got it!"</p>
                             </div>
@@ -316,7 +315,7 @@ const BG_IMAGE =
                         </div>
                         <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
                           <span>3 team members online</span>
-                          <span class="text-green-400">Avg reply: 2 min</span>
+                          <span>Avg reply: 2 min</span>
                         </div>
                       </div>
                     </div>

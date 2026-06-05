@@ -9,7 +9,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: "https://botyoo.com",
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    server: {
+      allowedHosts: [".trycloudflare.com"]
+    }
   },
   integrations: [sitemap()]
 });

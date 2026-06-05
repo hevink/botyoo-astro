@@ -1,0 +1,195 @@
+---
+import Layout from "./Layout.astro"
+
+interface Props {
+  title: string
+  description: string
+  pubDate: Date
+  updatedDate?: Date
+  author?: string
+  heroImage?: string
+  tags?: string[]
+}
+
+const { title, description, pubDate, updatedDate, author, heroImage, tags } =
+  Astro.props
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+---
+
+<Layout title={`${title} — Botyoo Blog`} description={description}>
+  <article class="mx-auto max-w-3xl px-6 pb-24 pt-36">
+    <header class="mb-10">
+      {
+        tags && tags.length > 0 && (
+          <div class="mb-4 flex flex-wrap gap-2">
+            {tags.map((t) => (
+              <span class="text-muted-foreground rounded-full border px-3 py-1 text-xs">
+                {t}
+              </span>
+            ))}
+          </div>
+        )
+      }
+      <h1 class="text-foreground mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+        {title}
+      </h1>
+      <p class="text-muted-foreground mb-6 text-lg">{description}</p>
+      <div class="text-muted-foreground flex flex-wrap items-center gap-3 text-sm">
+        {author && <span>{author}</span>}
+        {author && <span>·</span>}
+        <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+        {
+          updatedDate && (
+            <>
+              <span>·</span>
+              <span>Updated {fmt(updatedDate)}</span>
+            </>
+          )
+        }
+      </div>
+      {
+        heroImage && (
+          <img
+            src={heroImage}
+            alt=""
+            class="mt-8 w-full rounded-lg border"
+            loading="eager"
+          />
+        )
+      }
+    </header>
+
+    <div class="prose-blog">
+      <slot />
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  .prose-blog {
+    color: var(--color-foreground);
+    line-height: 1.75;
+  }
+  .prose-blog > * + * {
+    margin-top: 1.25rem;
+  }
+  .prose-blog h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .prose-blog h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-blog h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+  .prose-blog p,
+  .prose-blog li {
+    color: var(--color-foreground);
+  }
+  .prose-blog ul,
+  .prose-blog ol {
+    padding-left: 1.5rem;
+  }
+  .prose-blog ul {
+    list-style: disc;
+  }
+  .prose-blog ol {
+    list-style: decimal;
+  }
+  .prose-blog li + li {
+    margin-top: 0.4rem;
+  }
+  .prose-blog a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-blog a:hover {
+    opacity: 0.85;
+  }
+  .prose-blog blockquote {
+    border-left: 3px solid var(--color-border);
+    padding-left: 1rem;
+    color: var(--color-muted-foreground);
+    font-style: italic;
+  }
+  .prose-blog code {
+    background: var(--color-muted);
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 0.9em;
+  }
+  .prose-blog pre {
+    background: var(--color-muted);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+  .prose-blog pre code {
+    background: transparent;
+    padding: 0;
+  }
+  .prose-blog img {
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+  }
+  .prose-blog hr {
+    border-color: var(--color-border);
+    margin: 2.5rem 0;
+  }
+  .prose-blog strong {
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+
+  /* --- Comparison tables --- */
+  .prose-blog table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75rem 0;
+    font-size: 0.925rem;
+    line-height: 1.5;
+  }
+  .prose-blog th,
+  .prose-blog td {
+    border: 1px solid var(--color-border);
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose-blog thead th {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .prose-blog tbody tr:nth-child(even) {
+    background: var(--color-muted);
+  }
+  .prose-blog table strong {
+    font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .prose-blog table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+</style>

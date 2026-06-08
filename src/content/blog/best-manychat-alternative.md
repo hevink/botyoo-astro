@@ -1,7 +1,7 @@
 ---
 title: "Best ManyChat Alternatives for Instagram (2026)"
 description: "ManyChat cut its free plan to 25 contacts and still bills per contact. Here are 7 flat-rate ManyChat alternatives for Instagram in 2026, from $3.60/mo."
-pubDate: 2026-06-03
+pubDate: 2026-06-08
 author: "Hevin Kalathiya"
 heroImage: "/blog/best-manychat-alternative-2026.webp"
 tags:

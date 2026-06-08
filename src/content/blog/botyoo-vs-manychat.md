@@ -1,7 +1,7 @@
 ---
 title: "Botyoo vs ManyChat: Which Instagram DM Tool Wins in 2026?"
 description: "Botyoo vs ManyChat compared in 2026: $3.60/mo flat-rate vs $14/mo per-contact, features, email capture, and the official API. See which Instagram DM tool wins."
-pubDate: 2026-06-03
+pubDate: 2026-06-01
 author: "Hevin Kalathiya"
 heroImage: "/blog/botyoo-vs-manychat-2026.webp"
 tags:

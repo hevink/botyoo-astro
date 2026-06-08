@@ -1,7 +1,7 @@
 ---
 title: "How to Set Up Instagram Comment-to-DM Automation (2026)"
 description: "Set up Instagram comment-to-DM automation in 2026: the requirements, a 7-step setup, Instagram's API rules, and the cheapest tool to do it from $3.60/mo."
-pubDate: 2026-06-03
+pubDate: 2026-05-26
 author: "Hevin Kalathiya"
 heroImage: "/blog/instagram-comment-to-dm-automation-2026.webp"
 tags:

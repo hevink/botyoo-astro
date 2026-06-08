@@ -1,7 +1,7 @@
 ---
 title: "Cheapest Instagram DM Automation Tool in 2026 (Ranked)"
 description: "The cheapest Instagram DM automation tool in 2026 is Botyoo at $3.60/mo. We ranked 8 official-API tools by real monthly price, with the math and the catches."
-pubDate: 2026-06-03
+pubDate: 2026-05-25
 author: "Hevin Kalathiya"
 heroImage: "/blog/cheapest-instagram-dm-automation-tool-2026.webp"
 tags:

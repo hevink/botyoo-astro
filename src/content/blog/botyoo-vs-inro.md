@@ -1,7 +1,7 @@
 ---
 title: "Botyoo vs Inrō: Which Instagram DM Tool Wins in 2026?"
 description: "Botyoo vs Inrō compared in 2026: $3.60/mo with AI included vs Inrō's ~$14/mo AI-first plan. See which Instagram DM automation tool is the better value."
-pubDate: 2026-06-04
+pubDate: 2026-05-30
 author: "Hevin Kalathiya"
 heroImage: "/blog/botyoo-vs-inro-2026.webp"
 tags:

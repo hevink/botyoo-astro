@@ -1,7 +1,7 @@
 ---
 title: "Best InstantDM Alternatives for Instagram (2026)"
 description: "InstantDM is solid but costs $9.99/mo. Here are 6 cheaper InstantDM alternatives for Instagram in 2026, all on the official API, starting at $3.60/mo flat-rate."
-pubDate: 2026-06-03
+pubDate: 2026-06-07
 author: "Hevin Kalathiya"
 heroImage: "/blog/best-instantdm-alternative-2026.webp"
 tags:

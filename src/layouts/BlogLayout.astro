@@ -69,6 +69,15 @@ const fmt = (d: Date) =>
       <slot />
     </div>
   </article>
+
+  <script>
+    document.querySelectorAll('.prose-blog table').forEach((table) => {
+      const wrapper = document.createElement('div')
+      wrapper.className = 'table-wrapper'
+      table.parentNode!.insertBefore(wrapper, table)
+      wrapper.appendChild(table)
+    })
+  </script>
 </Layout>
 
 <style is:global>
@@ -158,17 +167,23 @@ const fmt = (d: Date) =>
   }
 
   /* --- Comparison tables --- */
+  .prose-blog .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.75rem 0;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+  }
   .prose-blog table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1.75rem 0;
-    font-size: 0.925rem;
-    line-height: 1.5;
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
   .prose-blog th,
   .prose-blog td {
     border: 1px solid var(--color-border);
-    padding: 0.6rem 0.85rem;
+    padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: top;
   }
@@ -176,20 +191,24 @@ const fmt = (d: Date) =>
     background: var(--color-primary);
     color: var(--color-primary-foreground);
     font-weight: 600;
-    white-space: nowrap;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+  .prose-blog tbody tr {
+    transition: background 0.15s;
   }
   .prose-blog tbody tr:nth-child(even) {
     background: var(--color-muted);
   }
+  .prose-blog tbody tr:hover {
+    background: var(--color-accent);
+  }
+  .prose-blog tbody tr:last-child td {
+    font-style: italic;
+    opacity: 0.75;
+  }
   .prose-blog table strong {
     font-weight: 700;
-  }
-  @media (max-width: 640px) {
-    .prose-blog table {
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
   }
 </style>

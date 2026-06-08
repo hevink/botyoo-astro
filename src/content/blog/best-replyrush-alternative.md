@@ -1,7 +1,7 @@
 ---
 title: "Best ReplyRush Alternatives for Instagram (2026)"
 description: "ReplyRush is a great free start, but per-DM pricing gets unpredictable. Here are 6 ReplyRush alternatives for Instagram in 2026, starting at $3.60/mo flat-rate."
-pubDate: 2026-06-04
+pubDate: 2026-06-05
 author: "Hevin Kalathiya"
 heroImage: "/blog/best-replyrush-alternative-2026.webp"
 tags:

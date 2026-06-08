@@ -1,7 +1,7 @@
 ---
 title: "Botyoo vs CreatorFlow: Which Instagram DM Tool Wins in 2026?"
 description: "Botyoo vs CreatorFlow compared in 2026: $3.60/mo vs $15/mo, both flat-rate with email capture. See which Instagram DM automation tool is worth it."
-pubDate: 2026-06-03
+pubDate: 2026-05-28
 author: "Hevin Kalathiya"
 heroImage: "/blog/botyoo-vs-creatorflow-2026.webp"
 tags:

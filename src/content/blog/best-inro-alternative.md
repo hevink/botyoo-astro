@@ -1,7 +1,7 @@
 ---
 title: "Best Inrō Alternatives for Instagram (2026)"
 description: "Inrō is AI-first but costs ~$14/mo with no native email capture. Here are 6 Inrō alternatives for Instagram in 2026, starting at $3.60/mo with AI included."
-pubDate: 2026-06-04
+pubDate: 2026-06-06
 author: "Hevin Kalathiya"
 heroImage: "/blog/best-inro-alternative-2026.webp"
 tags:

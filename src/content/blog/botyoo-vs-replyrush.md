@@ -1,7 +1,7 @@
 ---
 title: "Botyoo vs ReplyRush: Which Instagram DM Tool Wins in 2026?"
 description: "Botyoo vs ReplyRush compared in 2026: $3.60/mo flat-rate vs ReplyRush's free tier and per-DM pricing. See which Instagram DM automation tool fits you."
-pubDate: 2026-06-04
+pubDate: 2026-05-29
 author: "Hevin Kalathiya"
 heroImage: "/blog/botyoo-vs-replyrush-2026.webp"
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Botyoo vs InstantDM: Which Instagram DM Tool Wins in 2026?"
 description: "Botyoo vs InstantDM compared in 2026: $3.60/mo vs $9.99/mo, both flat-rate with email capture and AI. See which Instagram DM tool fits you."
-pubDate: 2026-06-03
+pubDate: 2026-05-31
 author: "Hevin Kalathiya"
 heroImage: "/blog/botyoo-vs-instantdm-2026.webp"
 tags:

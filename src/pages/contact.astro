@@ -174,6 +174,8 @@ import Layout from "../layouts/Layout.astro"
   const successMsg = document.getElementById("form-success")
   const errorMsg = document.getElementById("form-error")
 
+  const API_URL = "https://api.botyoo.com/api/contact"
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault()
     if (!btn) return
@@ -191,18 +193,26 @@ import Layout from "../layouts/Layout.astro"
     successMsg?.classList.add("hidden")
     errorMsg?.classList.add("hidden")
 
-    // Mailto fallback — opens the user's mail client with all fields pre-filled.
-    // Replace with a real API endpoint (e.g. Resend / Formspree) when ready.
-    const mailto = `mailto:hevin@botyoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`
-    window.location.href = mailto
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      })
 
-    // Re-enable after a short delay so users can submit again if the mail client didn't open
-    setTimeout(() => {
-      if (btn) {
-        btn.disabled = false
-        btn.textContent = "Send message"
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}))
+        throw new Error((json as any).error || "Server error")
       }
+
+      form.reset()
       successMsg?.classList.remove("hidden")
-    }, 800)
+    } catch (err) {
+      console.error(err)
+      errorMsg?.classList.remove("hidden")
+    } finally {
+      btn.disabled = false
+      btn.textContent = "Send message"
+    }
   })
 </script>

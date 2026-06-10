@@ -2,12 +2,15 @@
 import Layout from "../layouts/Layout.astro"
 
 // Same plan data as botyoo-landing's pricing page, ported to Astro.
+interface PriceByCurrency {
+  INR: { monthly: string; quarterly: string; annually: string }
+  USD: { monthly: string; quarterly: string; annually: string }
+}
+
 interface Plan {
   name: string
-  price:
-    | { monthly: string; quarterly: string; annually: string }
-    | string
-  originalPrice?: { monthly: string; quarterly: string; annually: string }
+  price: PriceByCurrency | string
+  originalPrice?: PriceByCurrency
   description: string
   capacity: string[]
   features: string[]
@@ -19,14 +22,12 @@ const plans: Plan[] = [
   {
     name: "PRO Plan",
     price: {
-      monthly: "₹399",
-      quarterly: "₹349",
-      annually: "₹299",
+      INR: { monthly: "₹399", quarterly: "₹349", annually: "₹299" },
+      USD: { monthly: "$20", quarterly: "$18", annually: "$15" },
     },
     originalPrice: {
-      monthly: "₹599",
-      quarterly: "₹549",
-      annually: "₹499",
+      INR: { monthly: "₹599", quarterly: "₹549", annually: "₹499" },
+      USD: { monthly: "$35", quarterly: "$33", annually: "$30" },
     },
     description:
       "Perfect for content creators and influencers who want to grow their Instagram presence.",
@@ -45,14 +46,12 @@ const plans: Plan[] = [
   {
     name: "PREMIUM Plan",
     price: {
-      monthly: "₹599",
-      quarterly: "₹549",
-      annually: "₹499",
+      INR: { monthly: "₹599", quarterly: "₹549", annually: "₹499" },
+      USD: { monthly: "$35", quarterly: "$33", annually: "$30" },
     },
     originalPrice: {
-      monthly: "₹1199",
-      quarterly: "₹1149",
-      annually: "₹1099",
+      INR: { monthly: "₹1199", quarterly: "₹1149", annually: "₹1099" },
+      USD: { monthly: "$50", quarterly: "$48", annually: "$45" },
     },
     description:
       "Designed for brands and businesses with multiple accounts and advanced needs analytics.",
@@ -102,10 +101,18 @@ const stripCurrency = (s: string) => {
   return match ? parseInt(match[1], 10) : 0
 }
 
+// Always display USD prices
+const usdPrice = (plan: Plan) =>
+  typeof plan.price === "string" ? plan.price : plan.price.USD
+
+const usdOriginalPrice = (plan: Plan) =>
+  plan.originalPrice ? plan.originalPrice.USD : undefined
+
 const discountFor = (plan: Plan, p: Period) => {
-  if (!plan.originalPrice || typeof plan.price === "string") return 0
-  const current = stripCurrency(plan.price[p])
-  const original = stripCurrency(plan.originalPrice[p])
+  const orig = usdOriginalPrice(plan)
+  if (!orig || typeof plan.price === "string") return 0
+  const current = stripCurrency(usdPrice(plan)[p])
+  const original = stripCurrency(orig[p])
   if (!original) return 0
   return Math.round(((original - current) / original) * 100)
 }
@@ -191,23 +198,23 @@ const discountFor = (plan: Plan, p: Period) => {
                           ) : (
                             <div class="flex items-center gap-2 flex-wrap">
                               <div class="text-2xl font-semibold">
-                                <span>₹</span><span
+                                <span>$</span><span
                                   data-price
                                   data-monthly={stripCurrency(
-                                    plan.price.monthly,
+                                    usdPrice(plan).monthly,
                                   )}
                                   data-quarterly={stripCurrency(
-                                    plan.price.quarterly,
+                                    usdPrice(plan).quarterly,
                                   )}
                                   data-annually={stripCurrency(
-                                    plan.price.annually,
+                                    usdPrice(plan).annually,
                                   )}
-                                >{stripCurrency(plan.price[defaultPeriod])}</span>
+                                >{stripCurrency(usdPrice(plan)[defaultPeriod])}</span>
                                 <span class="text-muted-foreground ml-1 text-base font-normal">
                                   / mo
                                 </span>
                               </div>
-                              {plan.originalPrice && (
+                              {usdOriginalPrice(plan) && (
                                 <>
                                   <div
                                     data-discount
@@ -226,14 +233,12 @@ const discountFor = (plan: Plan, p: Period) => {
                                   </div>
                                   <div
                                     data-original
-                                    data-monthly={plan.originalPrice.monthly}
-                                    data-quarterly={
-                                      plan.originalPrice.quarterly
-                                    }
-                                    data-annually={plan.originalPrice.annually}
+                                    data-monthly={usdOriginalPrice(plan)!.monthly}
+                                    data-quarterly={usdOriginalPrice(plan)!.quarterly}
+                                    data-annually={usdOriginalPrice(plan)!.annually}
                                     class="text-muted-foreground text-lg line-through"
                                   >
-                                    {plan.originalPrice[defaultPeriod]}
+                                    {usdOriginalPrice(plan)![defaultPeriod]}
                                   </div>
                                 </>
                               )}

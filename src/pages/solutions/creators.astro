@@ -1,0 +1,244 @@
+---
+import Layout from "../../layouts/Layout.astro"
+---
+
+<Layout
+  title="Botyoo for Content Creators — Turn Engagement Into a Lead Machine"
+  description="Stop manually replying to every comment. Botyoo turns your Instagram engagement into a 24/7 lead machine — delivering freebies, links, and offers while you're focused on creating."
+>
+  <main class="pt-28 pb-28">
+    <div class="mx-auto max-w-4xl px-6">
+
+      {/* Hero */}
+      <section class="py-12 border-b border-border">
+        <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
+          For Content Creators
+        </p>
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-foreground max-w-2xl leading-tight">
+          Your content works hard. Your DMs should too.
+        </h1>
+        <p class="mt-4 text-lg text-muted-foreground max-w-xl leading-relaxed">
+          Stop manually replying to every comment. Botyoo turns your Instagram engagement into a 24/7 lead machine — delivering freebies, links, and offers while you're focused on creating.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="https://app.botyoo.com/dashboard"
+            class="inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
+          >
+            Get started free
+          </a>
+          <a
+            href="/pricing"
+            class="inline-flex items-center gap-2 rounded-lg border border-border bg-card text-foreground px-5 py-2.5 text-sm font-medium hover:bg-muted/50 transition-colors"
+          >
+            See pricing
+          </a>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section class="py-14 border-b border-border">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-12">
+          How it works
+        </h2>
+
+        <div class="space-y-20">
+
+          {/* Step 1 */}
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-foreground/10 text-foreground text-sm font-bold">1</span>
+                <span class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Trigger</span>
+              </div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">Comment triggers a DM</h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Someone drops a keyword in your comments — "GUIDE", "LINK", "FREEBIE" — and Botyoo fires a personalized DM to that person within seconds. Your freebie, your link, your offer. Delivered automatically.
+              </p>
+            </div>
+            <div class="bg-card/80 ring-1 ring-foreground/10 rounded-2xl p-6">
+              <p class="text-xs text-muted-foreground mb-4">Comment detected → DM sent</p>
+              <div class="space-y-3 text-sm">
+                <div class="bg-foreground/5 rounded-lg p-3">
+                  <p class="text-xs text-muted-foreground mb-1">Post caption</p>
+                  <p class="text-foreground/80 text-xs">Comment <strong>"GUIDE"</strong> and I'll DM you my free 30-page content calendar 📅</p>
+                </div>
+                <div class="border-t border-foreground/10 pt-3 space-y-1.5">
+                  <p class="text-xs text-muted-foreground"><strong class="text-foreground/70">@alex.creates</strong> GUIDE 🙏</p>
+                  <p class="text-xs text-muted-foreground"><strong class="text-foreground/70">@priya_vids</strong> guide please!</p>
+                  <p class="text-xs text-muted-foreground"><strong class="text-foreground/70">@zara.film</strong> GUIDE ✨</p>
+                </div>
+                <div class="flex items-center gap-2 pt-1">
+                  <div class="size-2 rounded-full bg-primary animate-pulse"></div>
+                  <p class="text-xs text-muted-foreground">3 DMs sent in the last 12 seconds</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="md:order-2">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-foreground/10 text-foreground text-sm font-bold">2</span>
+                <span class="text-xs font-medium text-muted-foreground uppercase tracking-wide">List Building</span>
+              </div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">Build your list in the background</h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Collect emails and phone numbers right inside the DM conversation. No forms, no friction, no external landing pages. Followers share their details naturally, and every response gets saved to your contact list.
+              </p>
+            </div>
+            <div class="bg-card/80 ring-1 ring-foreground/10 rounded-2xl p-6 md:order-1">
+              <p class="text-xs text-muted-foreground mb-4">DM conversation with @alex.creates</p>
+              <div class="space-y-3 text-sm">
+                <div class="flex gap-2">
+                  <div class="size-6 rounded-full bg-foreground/10 flex items-center justify-center shrink-0 mt-0.5 text-xs text-foreground/70">YC</div>
+                  <div class="bg-foreground/5 rounded-lg rounded-tl-none p-3 text-muted-foreground text-xs">
+                    Hey Alex! Here's your free content calendar 🎉 → yourcreator.com/guide<br/><br/>
+                    Want me to send weekly tips too? Drop your email and I'll add you to the list!
+                  </div>
+                </div>
+                <div class="flex gap-2 justify-end">
+                  <div class="bg-foreground/10 rounded-lg rounded-tr-none p-3 text-foreground text-xs">alex@gmail.com</div>
+                  <div class="size-6 rounded-full bg-foreground/10 flex items-center justify-center shrink-0 mt-0.5 text-xs text-foreground/70">A</div>
+                </div>
+                <div class="flex items-center gap-2 pt-1 text-xs text-muted-foreground">
+                  <svg class="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  Email captured and saved to contacts
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-foreground/10 text-foreground text-sm font-bold">3</span>
+                <span class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Follow-ups</span>
+              </div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">Follow-ups run themselves</h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Set timed follow-up messages to re-engage anyone who didn't open your link. Announce your course, drop a reminder, share a bonus. Your funnel keeps running while you're filming your next piece.
+              </p>
+            </div>
+            <div class="bg-card/80 ring-1 ring-foreground/10 rounded-2xl p-6">
+              <p class="text-sm font-medium text-foreground mb-4">Follow-up sequence</p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-foreground/5">
+                  <span class="text-xs text-muted-foreground w-14 shrink-0 pt-0.5">Instant</span>
+                  <p class="text-muted-foreground text-xs">"Here's your free guide! Let me know if you have questions 📩"</p>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-foreground/5">
+                  <span class="text-xs text-muted-foreground w-14 shrink-0 pt-0.5">Day 2</span>
+                  <p class="text-muted-foreground text-xs">"Did you get a chance to go through it? Page 12 is the one everyone asks about 👀"</p>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-foreground/5">
+                  <span class="text-xs text-muted-foreground w-14 shrink-0 pt-0.5">Day 5</span>
+                  <p class="text-muted-foreground text-xs">"My full course drops Friday. Early access is open — want the link before it goes public?"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section class="py-14 border-b border-border">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
+          Key use cases
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-px bg-border border border-border rounded-xl overflow-hidden">
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">Freebie delivery</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Comment a keyword → instant DM with your PDF, checklist, or guide. No link-in-bio friction, no lost leads.</p>
+          </div>
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">Link in bio replacement</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Stop sending people to a static page. Drive them to DMs instead — higher engagement, better tracking, real conversations.</p>
+          </div>
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">Story reply automation</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Mention your lead magnet in a story. Everyone who replies gets a DM instantly — even at 3am when you're asleep.</p>
+          </div>
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">Course and offer promotion</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Warm up your audience through DM conversations before pitching. Followers who reply are already engaged — they convert better.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section class="py-14 border-b border-border">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
+          FAQ
+        </h2>
+        <div class="divide-y divide-border" id="faq">
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              Will Instagram flag my account for using automation?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">Botyoo connects through Meta's official API, so you're working within Instagram's permitted automation tools — not scraping or botting. This is the same infrastructure that major brands and agencies use. Following Meta's guidelines (like not spamming unsolicited DMs) keeps your account in good standing.</p>
+            </div>
+          </div>
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              Can I use this to deliver different freebies to different audiences?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">Yes — each automation you create has its own keyword, message, and destination link. So you can run a "GUIDE" automation for one post and a "TEMPLATE" automation for another, and each sends the right thing to the right person. No mixing, no mistakes.</p>
+            </div>
+          </div>
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              How does email list building through DMs actually work?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">After sending the initial freebie, your flow can ask a follow-up question like "Want me to email this too?" When someone replies with their address, Botyoo captures it and stores it as a contact. You can then export those emails or connect them to your email tool via Zapier or webhook.</p>
+            </div>
+          </div>
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              Can I promote a paid course or offer through DM flows?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">Absolutely. Many creators use Botyoo to warm up leads with a freebie first, then follow up days later with a pitch for their paid offer. The sequence feels personal rather than spammy, which means higher open rates and better conversion compared to a cold link drop.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section class="py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <p class="text-lg font-semibold text-foreground">Your next post could be your best lead gen ever.</p>
+          <p class="text-sm text-muted-foreground mt-1">Set up in under 5 minutes. No credit card needed.</p>
+        </div>
+        <a
+          href="https://app.botyoo.com/dashboard"
+          class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
+        >
+          Start building free →
+        </a>
+      </section>
+
+    </div>
+  </main>
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.querySelector('.faq-trigger')?.addEventListener('click', () => {
+      const body = item.querySelector('.faq-body')
+      const icon = item.querySelector('.faq-icon')
+      body?.classList.toggle('hidden')
+      icon?.classList.toggle('rotate-180')
+    })
+  })
+</script>

@@ -15,6 +15,15 @@ const productLinks = [
   { label: "Launch app", href: "https://app.botyoo.com/dashboard" },
 ]
 
+const solutionLinks = [
+  { label: "For Creators", href: "/solutions/creators" },
+  { label: "For Coaches", href: "/solutions/coaches" },
+  { label: "For Artists", href: "/solutions/artists" },
+  { label: "For Agencies", href: "/solutions/agencies" },
+  { label: "For E-Commerce", href: "/solutions/ecommerce" },
+  { label: "For Clinics", href: "/solutions/clinics" },
+]
+
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -106,12 +115,27 @@ const companyLinks = [
     >
     </div>
 
-    <div class="grid gap-12 sm:grid-cols-2">
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
       <div class="space-y-4 text-sm">
         <span class="block font-medium">Product</span>
         <div class="flex flex-wrap gap-4 sm:flex-col">
           {
             productLinks.map((link) => (
+              <a
+                class="text-muted-foreground hover:text-primary block duration-150"
+                href={link.href}
+              >
+                <span>{link.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="space-y-4 text-sm">
+        <span class="block font-medium">Solutions</span>
+        <div class="flex flex-wrap gap-4 sm:flex-col">
+          {
+            solutionLinks.map((link) => (
               <a
                 class="text-muted-foreground hover:text-primary block duration-150"
                 href={link.href}

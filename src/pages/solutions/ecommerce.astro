@@ -1,0 +1,245 @@
+---
+import Layout from "../../layouts/Layout.astro"
+---
+
+<Layout
+  title="Botyoo for E-Commerce — Turn Every Instagram Comment Into a Sale"
+  description="Post a product. Watch comments come in. Botyoo sends each commenter a personalized DM with your link, discount code, and follow-up — automatically. No manual replies needed."
+>
+  <main class="pt-28 pb-28">
+    <div class="mx-auto max-w-4xl px-6">
+
+      {/* Hero */}
+      <section class="py-12 border-b border-border">
+        <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
+          For E-Commerce Brands
+        </p>
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-foreground max-w-2xl leading-tight">
+          Turn every Instagram comment into a sale.
+        </h1>
+        <p class="mt-4 text-lg text-muted-foreground max-w-xl leading-relaxed">
+          Post a product. Watch comments come in. Botyoo sends each commenter a personalized DM with your link, discount code, and follow-up — automatically. No manual replies needed.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="https://app.botyoo.com/dashboard"
+            class="inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
+          >
+            Get started free
+          </a>
+          <a
+            href="/pricing"
+            class="inline-flex items-center gap-2 rounded-lg border border-border bg-card text-foreground px-5 py-2.5 text-sm font-medium hover:bg-muted/50 transition-colors"
+          >
+            See pricing
+          </a>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section class="py-14 border-b border-border">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-12">
+          How it works
+        </h2>
+
+        <div class="space-y-20">
+
+          {/* Step 1 */}
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-foreground/10 text-foreground text-sm font-bold">1</span>
+                <span class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Convert</span>
+              </div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">Comment → DM → checkout</h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Post a product with a keyword CTA. Anyone who comments that word gets a DM within seconds — your product link, a discount code, and a personalized note. The path from interest to purchase is as short as it can get.
+              </p>
+            </div>
+            <div class="bg-card/80 ring-1 ring-foreground/10 rounded-2xl p-6">
+              <div class="space-y-3 text-sm">
+                <div class="bg-foreground/5 rounded-lg p-3 text-xs text-foreground/80">
+                  New drop 👟 The Obsidian runner — limited to 200 pairs.<br/>
+                  Comment <strong>"SHOP"</strong> and we'll DM you the link + early access code.
+                </div>
+                <div class="border-t border-foreground/10 pt-3 space-y-1.5 text-xs">
+                  <p class="text-muted-foreground"><strong class="text-foreground/70">@runnerlife.co</strong> SHOP 🙌</p>
+                  <p class="text-muted-foreground"><strong class="text-foreground/70">@j_kicks</strong> shop please!</p>
+                  <p class="text-muted-foreground"><strong class="text-foreground/70">@mara.runs</strong> SHOP 🔥</p>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-muted-foreground pt-1">
+                  <div class="size-2 rounded-full bg-primary animate-pulse"></div>
+                  <span>47 DMs sent in the last hour</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="md:order-2">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-foreground/10 text-foreground text-sm font-bold">2</span>
+                <span class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Campaigns</span>
+              </div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">Run campaigns to your contact list</h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Flash sale launching? New drop? Send a DM blast to your entire captured contact list — filtered by tag or past campaign. 90%+ open rates beat email and push notifications by a wide margin.
+              </p>
+            </div>
+            <div class="bg-card/80 ring-1 ring-foreground/10 rounded-2xl p-6 md:order-1">
+              <p class="text-sm font-medium text-foreground mb-4">Campaign — Flash drop</p>
+              <div class="space-y-3 text-xs">
+                <div class="flex justify-between">
+                  <span class="text-muted-foreground">Audience</span>
+                  <span class="text-foreground/70">All previous buyers</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-muted-foreground">Contacts</span>
+                  <span class="text-foreground/70">3,482</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-muted-foreground">Open rate</span>
+                  <span class="text-foreground/70">91.7%</span>
+                </div>
+                <div class="border-t border-foreground/10 pt-3">
+                  <div class="bg-foreground/5 rounded-lg p-2.5 text-muted-foreground">
+                    "Hey {`{name}`} 👟 The Obsidian runner restocked — but only for 24h. Your priority code: BACK24 → shop.yourbrand.com/obsidian"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex items-center justify-center size-8 rounded-full bg-foreground/10 text-foreground text-sm font-bold">3</span>
+                <span class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Recovery</span>
+              </div>
+              <h3 class="text-xl font-semibold text-foreground mb-3">Follow up on abandoned interest</h3>
+              <p class="text-muted-foreground leading-relaxed">
+                Someone clicked your link but didn't buy? Botyoo detects the gap and sends a timed reminder — a gentle nudge, a limited-time code, or a "last pair" message. Recover revenue that would otherwise disappear quietly.
+              </p>
+            </div>
+            <div class="bg-card/80 ring-1 ring-foreground/10 rounded-2xl p-6">
+              <p class="text-sm font-medium text-foreground mb-4">Abandoned interest recovery</p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-foreground/5">
+                  <span class="text-xs text-muted-foreground w-16 shrink-0 pt-0.5">After 6h</span>
+                  <p class="text-muted-foreground text-xs">"Hey! Noticed you checked out the Obsidian — still interested? Only 14 pairs left 👟"</p>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-foreground/5">
+                  <span class="text-xs text-muted-foreground w-16 shrink-0 pt-0.5">After 24h</span>
+                  <p class="text-muted-foreground text-xs">"Your early access code BACK24 expires tonight. Grab the last pairs before they're gone."</p>
+                </div>
+                <div class="flex items-start gap-3 p-3 rounded-lg bg-foreground/5">
+                  <span class="text-xs text-muted-foreground w-16 shrink-0 pt-0.5">After 3d</span>
+                  <p class="text-muted-foreground text-xs">"New colorway just dropped! Want to be first to know next time? Reply YES for early access."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section class="py-14 border-b border-border">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
+          Key use cases
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-px bg-border border border-border rounded-xl overflow-hidden">
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">Product launches</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Build a waitlist from comments before launch. DM everyone the link and discount code the moment it goes live — no lag, no manual work.</p>
+          </div>
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">Flash sales and discount codes</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Blast your contact list with a time-limited offer. Higher open rates and faster conversion than email — especially for urgency-driven drops.</p>
+          </div>
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">Restock waitlists</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Sold out? Collect interest comments, tag them as waitlisted, and DM everyone automatically when stock comes back. Zero missed buyers.</p>
+          </div>
+          <div class="bg-background p-5">
+            <p class="font-semibold text-sm text-foreground">VIP loyalty segments</p>
+            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Tag repeat buyers and give them early access, exclusive codes, or a first look at new collections — directly in their DMs before the public announcement.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section class="py-14 border-b border-border">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
+          FAQ
+        </h2>
+        <div class="divide-y divide-border" id="faq">
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              Can Botyoo actually drive sales, or is it just for engagement?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">Botyoo is specifically built to drive revenue. The comment-to-DM flow puts your product link in front of people who already showed purchase intent (they commented). Follow-up sequences re-engage anyone who didn't convert. DM campaigns let you blast your list with flash sales. Every feature maps to a revenue action.</p>
+            </div>
+          </div>
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              How do I run a product drop campaign using Botyoo?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">Set up a keyword automation on your teaser post — everyone who comments "NOTIFY" gets tagged as interested. On drop day, use Botyoo's campaign feature to DM the whole group with your launch link and any exclusive code. The full loop — from interest capture to purchase DM — runs automatically.</p>
+            </div>
+          </div>
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              Can Botyoo handle customer support questions that come through DMs?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">Yes. Botyoo's AI can handle common questions — sizing, shipping timelines, return policies — automatically. Anything it can't resolve gets flagged and routed to your team's shared inbox, so a human can pick it up. You set the boundaries; the AI handles everything inside them.</p>
+            </div>
+          </div>
+          <div class="faq-item py-4">
+            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
+              Is sending DMs to people who commented against Meta's rules?
+              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-body hidden pt-3">
+              <p class="text-sm text-muted-foreground leading-relaxed">No — it's actually how the official Meta API is designed to be used. When someone comments on your post, they've initiated a public interaction with your account, which opens the messaging window under Meta's guidelines. Botyoo uses the official API for every message, so you're fully within permitted usage. No workarounds, no risk.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section class="py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <p class="text-lg font-semibold text-foreground">Your next product post could be your best sales channel.</p>
+          <p class="text-sm text-muted-foreground mt-1">Set up in under 5 minutes. No credit card needed.</p>
+        </div>
+        <a
+          href="https://app.botyoo.com/dashboard"
+          class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
+        >
+          Start building free →
+        </a>
+      </section>
+
+    </div>
+  </main>
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.querySelector('.faq-trigger')?.addEventListener('click', () => {
+      const body = item.querySelector('.faq-body')
+      const icon = item.querySelector('.faq-icon')
+      body?.classList.toggle('hidden')
+      icon?.classList.toggle('rotate-180')
+    })
+  })
+</script>

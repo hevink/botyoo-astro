@@ -1,0 +1,37 @@
+---
+// CTA section — adapted from ScaleReach's CTASection.astro
+---
+
+<section class="flex flex-col items-center justify-center w-full py-12 md:py-24 px-6">
+  <div class="w-full max-w-5xl">
+    <div class="h-[400px] overflow-hidden shadow-xl w-full border border-border rounded-xl bg-[#155dfc] relative z-20">
+
+      <img
+        alt="Botyoo CTA background"
+        class="absolute inset-0 w-full h-full object-cover object-right md:object-center"
+        src="/cta-background.webp"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <div class="absolute inset-0 -top-32 md:-top-40 flex flex-col items-center justify-center">
+        <h2 class="text-white text-4xl md:text-6xl font-semibold tracking-tight max-w-xs md:max-w-xl text-center leading-tight">
+          Automate your Instagram DMs today
+        </h2>
+
+        <div class="absolute bottom-10 flex flex-col items-center justify-center gap-2">
+          <a
+            href="https://app.botyoo.com/dashboard"
+            class="bg-white text-black font-semibold text-sm h-10 w-fit px-6 rounded-full flex items-center justify-center shadow-md hover:bg-white/90 transition-colors active:scale-95"
+          >
+            Get started free
+          </a>
+          <span class="text-white/70 text-sm">
+            Free plan available · No credit card required
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

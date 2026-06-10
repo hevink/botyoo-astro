@@ -1,0 +1,201 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+
+const allDocs = await getCollection("help")
+
+const sorted = allDocs.sort((a, b) => {
+  const catCompare = a.data.category.localeCompare(b.data.category)
+  if (catCompare !== 0) return catCompare
+  return a.data.order - b.data.order
+})
+
+const byCategory = sorted.reduce<Record<string, typeof sorted>>((acc, doc) => {
+  const cat = doc.data.category
+  if (!acc[cat]) acc[cat] = []
+  acc[cat].push(doc)
+  return acc
+}, {})
+
+const categories = Object.keys(byCategory)
+
+const CATEGORY_META: Record<string, { label: string }> = {
+  "Getting Started":   { label: "🚀" },
+  Automations:         { label: "⚡" },
+  "Account & Billing": { label: "💳" },
+  Integrations:        { label: "🔗" },
+  Troubleshooting:     { label: "🔧" },
+}
+
+const searchData = sorted.map((d) => ({
+  slug: d.id,
+  title: d.data.title,
+  description: d.data.description,
+  category: d.data.category,
+}))
+---
+
+<Layout
+  title="Help Center — Botyoo"
+  description="Find answers, guides, and documentation for Botyoo."
+>
+  <section class="bg-background pt-36 pb-24">
+    <div class="mx-auto max-w-3xl px-6">
+
+      <!-- Centered hero -->
+      <div class="mb-8 text-center">
+        <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Help Center
+        </div>
+        <h1 class="text-foreground text-balance text-4xl font-semibold md:text-5xl">
+          How can we help?
+        </h1>
+        <p class="text-muted-foreground mx-auto mt-3 max-w-md text-balance">
+          Search our guides or browse by category to get the most out of Botyoo.
+        </p>
+      </div>
+
+      <!-- Centered search -->
+      <div class="relative mb-16" id="search-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input
+          id="help-search"
+          type="text"
+          placeholder="Search articles…"
+          autocomplete="off"
+          class="bg-card ring-border h-12 w-full rounded-xl pl-11 pr-20 text-sm text-foreground placeholder:text-muted-foreground shadow-sm ring-1 transition focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+        <kbd class="absolute right-3.5 top-1/2 -translate-y-1/2 hidden rounded border border-border bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground sm:block">⌘K</kbd>
+        <div
+          id="search-results"
+          class="bg-card ring-border absolute left-0 right-0 top-full z-30 mt-2 hidden overflow-hidden rounded-xl shadow-lg ring-1"
+        />
+      </div>
+
+      <!-- Section heading -->
+      <h2 class="text-muted-foreground mb-4 text-xs font-semibold uppercase tracking-widest">
+        Browse by category
+      </h2>
+
+      <!-- Categories — clean 2-col card grid -->
+      <div class="mb-20 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {categories.map((category) => {
+          const meta = CATEGORY_META[category] ?? { label: "📄" }
+          const docs = byCategory[category]
+          return (
+            <div class="bg-card ring-border hover:ring-primary/40 group flex flex-col gap-4 rounded-2xl p-5 shadow-sm ring-1 transition-all hover:shadow-md">
+              <div class="flex items-center gap-3">
+                <div class="bg-muted flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-lg">
+                  {meta.label}
+                </div>
+                <div>
+                  <p class="text-foreground text-sm font-semibold leading-tight">{category}</p>
+                  <p class="text-muted-foreground text-xs">{docs.length} article{docs.length !== 1 ? "s" : ""}</p>
+                </div>
+              </div>
+              <ul class="space-y-0.5">
+                {docs.map((doc) => (
+                  <li>
+                    <a href={`/help/${doc.id}`} class="text-muted-foreground hover:text-foreground hover:bg-foreground/5 -mx-2 flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 opacity-40"><path d="m9 18 6-6-6-6"/></svg>
+                      {doc.data.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        })}
+      </div>
+
+      <!-- Popular articles -->
+      <h2 class="text-muted-foreground mb-4 text-xs font-semibold uppercase tracking-widest">
+        Popular articles
+      </h2>
+      <div class="mb-20 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {sorted.slice(0, 4).map((doc) => {
+          const meta = CATEGORY_META[doc.data.category] ?? { label: "📄" }
+          return (
+            <a
+              href={`/help/${doc.id}`}
+              class="bg-card ring-border hover:ring-primary/40 group relative flex flex-col gap-3 rounded-2xl p-5 shadow-sm ring-1 transition-all hover:shadow-md"
+            >
+              <div class="flex items-center gap-2">
+                <div class="bg-muted flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-sm">
+                  {meta.label}
+                </div>
+                <span class="text-muted-foreground text-xs">{doc.data.category}</span>
+              </div>
+              <h3 class="text-foreground text-base font-semibold leading-snug">{doc.data.title}</h3>
+              <p class="text-muted-foreground line-clamp-2 text-sm">{doc.data.description}</p>
+              <span class="text-primary mt-auto flex items-center gap-1 pt-1 text-sm font-medium">
+                Read article
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 translate-y-px duration-200 group-hover:translate-x-0.5"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </a>
+          )
+        })}
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-card ring-border rounded-2xl p-6 shadow-sm ring-1">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-4">
+            <div class="bg-muted flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl">💬</div>
+            <div>
+              <p class="text-foreground font-semibold">Still need help?</p>
+              <p class="text-muted-foreground mt-0.5 text-sm">Can't find what you're looking for? Our team is happy to help.</p>
+            </div>
+          </div>
+          <a
+            href="mailto:support@botyoo.com"
+            class="cursor-pointer inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none shadow-md border border-border bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-4 text-sm"
+          >
+            Contact Support
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script define:vars={{ searchData }}>
+  const input = document.getElementById("help-search")
+  const box   = document.getElementById("search-results")
+  const wrap  = document.getElementById("search-container")
+
+  function render(q) {
+    if (!q) { box.classList.add("hidden"); box.innerHTML = ""; return }
+    const hits = searchData.filter(
+      (d) => d.title.toLowerCase().includes(q) || d.description.toLowerCase().includes(q)
+    )
+    if (!hits.length) {
+      box.innerHTML = `<div class="px-4 py-6 text-center text-sm text-muted-foreground">No results for "<strong>${input.value}</strong>"</div>`
+    } else {
+      box.innerHTML = hits.map((d) => `
+        <a href="/help/${d.slug}" class="flex items-center gap-3 border-b border-border px-4 py-3 text-sm transition-colors hover:bg-foreground/5 last:border-0">
+          <div class="min-w-0 flex-1">
+            <p class="truncate font-medium text-foreground">${d.title}</p>
+            <p class="truncate text-xs text-muted-foreground">${d.description}</p>
+          </div>
+          <span class="bg-card ring-border shrink-0 rounded-md px-2 py-0.5 text-xs text-muted-foreground ring-1">${d.category}</span>
+        </a>`
+      ).join("")
+    }
+    box.classList.remove("hidden")
+  }
+
+  input.addEventListener("input", () => render(input.value.trim().toLowerCase()))
+
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); input.focus() }
+    if (e.key === "Escape") { input.blur(); box.classList.add("hidden") }
+  })
+
+  document.addEventListener("click", (e) => {
+    if (!wrap.contains(e.target)) box.classList.add("hidden")
+  })
+</script>

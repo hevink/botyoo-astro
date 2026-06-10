@@ -1,0 +1,136 @@
+---
+import Layout from "./Layout.astro"
+
+interface Props {
+  title: string
+  description: string
+  category: string
+}
+
+const { title, description, category } = Astro.props
+---
+
+<Layout title={`${title} — Botyoo Help`} description={description}>
+  <slot />
+</Layout>
+
+<style is:global>
+  .prose-help {
+    color: var(--color-foreground);
+    line-height: 1.75;
+  }
+  .prose-help > * + * {
+    margin-top: 1.25rem;
+  }
+  .prose-help h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .prose-help h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .prose-help h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-help p,
+  .prose-help li {
+    color: var(--color-foreground);
+  }
+  .prose-help ul,
+  .prose-help ol {
+    padding-left: 1.5rem;
+  }
+  .prose-help ul {
+    list-style: disc;
+  }
+  .prose-help ol {
+    list-style: decimal;
+  }
+  .prose-help li + li {
+    margin-top: 0.4rem;
+  }
+  .prose-help a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-help a:hover {
+    opacity: 0.85;
+  }
+  .prose-help blockquote {
+    border-left: 3px solid var(--color-border);
+    padding-left: 1rem;
+    color: var(--color-muted-foreground);
+    font-style: italic;
+    margin: 1.5rem 0;
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+  .prose-help code {
+    background: var(--color-muted);
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 0.9em;
+  }
+  .prose-help pre {
+    background: var(--color-muted);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  .prose-help pre code {
+    background: transparent;
+    padding: 0;
+  }
+  .prose-help strong {
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+  .prose-help hr {
+    border-color: var(--color-border);
+    margin: 2.5rem 0;
+  }
+
+  /* Tables */
+  .prose-help .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.75rem 0;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+  }
+  .prose-help table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  .prose-help th,
+  .prose-help td {
+    border: 1px solid var(--color-border);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose-help thead th {
+    background: var(--color-muted);
+    color: var(--color-foreground);
+    font-weight: 600;
+    font-size: 0.8125rem;
+  }
+  .prose-help tbody tr:nth-child(even) {
+    background: var(--color-muted);
+  }
+  .prose-help tbody tr:hover {
+    background: var(--color-accent);
+  }
+</style>

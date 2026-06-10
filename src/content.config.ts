@@ -15,4 +15,14 @@ const blog = defineCollection({
   }),
 })
 
-export const collections = { blog }
+const help = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/help" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.string().default("General"),
+    order: z.number().default(99),
+  }),
+})
+
+export const collections = { blog, help }

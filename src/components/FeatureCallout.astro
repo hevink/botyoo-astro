@@ -23,6 +23,11 @@ const features = [
     body: "Route every DM to a shared inbox, assign owners, and keep replies consistent without stepping on each other's conversations.",
     icon: "bot",
   },
+  {
+    title: "Visual Flow Builder",
+    body: "Design multi-step DM conversations with a drag-and-drop canvas — add conditions, delays, and branching logic without writing a single line of code.",
+    icon: "flow",
+  },
 ]
 
 const BG_IMAGE =
@@ -85,7 +90,7 @@ const BG_IMAGE =
 
             {/* Accordion */}
             <div
-              class="mt-auto grid divide-y transition-all duration-300 grid-rows-[1fr_auto_auto_auto]"
+              class="mt-auto grid divide-y transition-all duration-300 grid-rows-[1fr_auto_auto_auto_auto]"
               data-accordion
             >
               {
@@ -126,6 +131,15 @@ const BG_IMAGE =
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-accordion-icon class="size-4 shrink-0 transition-colors text-muted-foreground group-hover:text-foreground">
                           <rect width="18" height="18" x="3" y="3" rx="2" />
                           <path d="M8 10h8" /><path d="M8 14h5" /><path d="M12 17.5h4" />
+                        </svg>
+                      )}
+                      {f.icon === "flow" && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-accordion-icon class="size-4 shrink-0 transition-colors text-muted-foreground group-hover:text-foreground">
+                          <rect width="6" height="4" x="2" y="2" rx="1" />
+                          <rect width="6" height="4" x="16" y="10" rx="1" />
+                          <rect width="6" height="4" x="2" y="18" rx="1" />
+                          <path d="M8 4h3a1 1 0 0 1 1 1v10a1 1 0 0 0 1 1h3" />
+                          <path d="M8 20h3a1 1 0 0 0 1-1v-3" />
                         </svg>
                       )}
                       <h3 data-accordion-title class="group-hover:text-foreground font-medium transition-colors text-muted-foreground">
@@ -316,6 +330,48 @@ const BG_IMAGE =
                         <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
                           <span>3 team members online</span>
                           <span>Avg reply: 2 min</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Card 4: Visual Flow Builder */}
+                <div data-feature-card="4" class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0">
+                  <div class="scale-85 overflow-hidden max-w-md px-6">
+                    <div class="bg-card/95 shadow-black/4 ring-border rounded-2xl p-6 shadow-md ring-1 relative">
+                      <div class="mask-t-from-5% bg-card/50 mask-t-to-65% absolute inset-0 rounded-2xl backdrop-blur"></div>
+                      <div class="relative space-y-4">
+                        <div class="text-lg font-semibold">Visual Flow Builder</div>
+                        <p class="text-muted-foreground text-sm">Drag, drop, and connect steps — no code needed</p>
+                        <div class="space-y-2 text-xs">
+                          {/* Flow diagram */}
+                          <div class="flex flex-col items-center gap-1">
+                            <div class="flex items-center gap-2 rounded-lg bg-foreground/10 border border-foreground/15 px-4 py-2 font-medium text-foreground">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                              Comment trigger
+                            </div>
+                            <div class="w-px h-3 bg-foreground/20"></div>
+                            <div class="flex items-center gap-2 rounded-lg bg-foreground/5 border border-foreground/10 px-4 py-2 text-muted-foreground">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                              Check: is following?
+                            </div>
+                            <div class="flex items-center gap-6">
+                              <div class="flex flex-col items-center gap-1">
+                                <div class="w-px h-3 bg-foreground/20"></div>
+                                <span class="text-foreground/40 text-[10px]">Yes</span>
+                                <div class="rounded-lg bg-foreground/5 border border-foreground/10 px-3 py-1.5 text-muted-foreground">Send link</div>
+                              </div>
+                              <div class="flex flex-col items-center gap-1">
+                                <div class="w-px h-3 bg-foreground/20"></div>
+                                <span class="text-foreground/40 text-[10px]">No</span>
+                                <div class="rounded-lg bg-foreground/5 border border-foreground/10 px-3 py-1.5 text-muted-foreground">Ask to follow</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pt-2 border-t border-foreground/10 flex justify-between text-xs text-muted-foreground">
+                          <span>12 active flows</span>
+                          <span>Unlimited steps</span>
                         </div>
                       </div>
                     </div>

@@ -1,189 +1,372 @@
 ---
-// Same structure as botyoo-landing's Navbar.tsx, ported to Astro.
-// - Fixed, rounded floating header at top
-// - Logo on the left, center nav, Automate Now CTA on the right
-// - On scroll past 15px, header shrinks + gains a blurred background
-// - On mobile, a hamburger expands a drawer with the nav links
+// Header Seven — Astro port of Tailark's quartz/header/seven mega-menu.
+//
+// Faithful to the real shadcn NavigationMenu structure:
+//  - Outer bordered popover panel  +  inner `bg-card` bordered columns  → the
+//    "double border" look (panel border around card borders).
+//  - CSS subgrid so column labels + content align and cards are equal height.
+//  - Two-tone lucide icons: `stroke-foreground` + translucent colored `fill-*`.
+//  - Items highlight with `bg-foreground/5` on hover (no per-item border).
+//
+// shadcn's component is React/Radix; this is a zero-JS Astro project, so the
+// open/close behaviour is a small vanilla-TS script (no React runtime shipped).
+
+type Item = { label: string; href: string; desc?: string; icon: string; tint: string }
+type Column = { label: string; items: Item[]; span?: 2; card?: boolean; twoCol?: boolean; compact?: boolean }
+type Menu = { label: string; columns: Column[]; panelWidth: string; gridCols: string }
+
+const menus: Menu[] = [
+  {
+    label: "Product",
+    panelWidth: "w-[min(52rem,calc(100vw-2rem))]",
+    gridCols: "grid-cols-4",
+    columns: [
+      {
+        label: "Use cases",
+        span: 2,
+        card: true,
+        twoCol: true,
+        items: [
+          { label: "Comment → DM", href: "/templates/dm-from-comments", desc: "Auto-reply to comments in DMs", icon: "message-square", tint: "fill-blue-500/15" },
+          { label: "Story replies", href: "/templates/dm-from-stories", desc: "Respond to story mentions", icon: "at-sign", tint: "fill-pink-500/15" },
+          { label: "Lead capture", href: "/templates/get-leads-from-comments-flow", desc: "Qualify leads 24/7", icon: "user-check", tint: "fill-emerald-500/20" },
+          { label: "DM broadcasts", href: "/templates/dm-broadcast-optin", desc: "Message your opt-in list", icon: "send", tint: "fill-indigo-500/15" },
+        ],
+      },
+      {
+        label: "Solutions",
+        card: true,
+        items: [
+          { label: "For E-commerce", href: "/for/ecommerce", desc: "Turn comments into sales", icon: "shopping-bag", tint: "fill-emerald-500/25" },
+          { label: "Templates", href: "/templates", desc: "Ready-made flows", icon: "layout-grid", tint: "fill-amber-500/15" },
+        ],
+      },
+      {
+        label: "Resources",
+        compact: true,
+        items: [
+          { label: "Help center", href: "/help", icon: "life-buoy", tint: "fill-sky-500/15" },
+          { label: "Blog", href: "/blog", icon: "book-open", tint: "fill-purple-500/15" },
+          { label: "Changelog", href: "/changelog", icon: "sparkles", tint: "fill-green-500/15" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Resources",
+    panelWidth: "w-[min(34rem,calc(100vw-2rem))]",
+    gridCols: "grid-cols-2",
+    columns: [
+      {
+        label: "Learn",
+        card: true,
+        items: [
+          { label: "Blog", href: "/blog", desc: "Automation playbooks", icon: "book-open", tint: "fill-purple-500/15" },
+          { label: "Changelog", href: "/changelog", desc: "What we shipped", icon: "sparkles", tint: "fill-green-500/15" },
+          { label: "Help center", href: "/help", desc: "Docs & tutorials", icon: "life-buoy", tint: "fill-sky-500/15" },
+        ],
+      },
+      {
+        label: "Company",
+        compact: true,
+        items: [
+          { label: "About", href: "/about", icon: "info", tint: "fill-zinc-500/20" },
+          { label: "Contact", href: "/contact", icon: "mail", tint: "fill-rose-500/15" },
+        ],
+      },
+    ],
+  },
+]
 
 const navLinks = [
   { label: "Pricing", href: "/pricing" },
-  { label: "Blog", href: "/blog" },
-  { label: "Changelog", href: "/changelog" },
   { label: "Contact", href: "/contact" },
 ]
+
+// Lucide icon paths (inner SVG), injected with set:html.
+const iconPaths: Record<string, string> = {
+  "message-square": '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  "at-sign": '<circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/>',
+  "user-check": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>',
+  send: '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/>',
+  "shopping-bag": '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+  "layout-grid": '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+  "life-buoy": '<circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/>',
+  "book-open": '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+  sparkles: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+  mail: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+}
+
+const currentPath = Astro.url.pathname
+const isActive = (href: string) =>
+  href.startsWith("/") && (currentPath === href || currentPath.startsWith(href + "/"))
+const menuActive = (menu: Menu) =>
+  menu.columns.some((c) => c.items.some((i) => isActive(i.href)))
 ---
 
-<header
-  id="site-header"
-  data-scrolled="false"
-  data-open="false"
-  class:list={[
-    "fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl",
-    "transform-gpu justify-center overflow-hidden rounded-xl",
-    "border border-transparent px-3 py-3",
-    "transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1.03)] will-change-transform",
-    "h-16",
-    // Scrolled / open states use data-attrs so we can switch with JS
-    "data-[scrolled=true]:max-w-3xl data-[scrolled=true]:backdrop-blur-md data-[scrolled=true]:border-gray-100 data-[scrolled=true]:bg-white/80 data-[scrolled=true]:shadow-xl data-[scrolled=true]:shadow-black/5",
-    "dark:data-[scrolled=true]:border-white/10 dark:data-[scrolled=true]:bg-black/40",
-    "data-[open=true]:h-52 data-[open=true]:max-w-3xl data-[open=true]:backdrop-blur-md data-[open=true]:border-gray-100 data-[open=true]:bg-white/80 data-[open=true]:shadow-xl data-[open=true]:shadow-black/5",
-    "dark:data-[open=true]:border-white/10 dark:data-[open=true]:bg-black/40",
-  ]}
->
-  <div class="w-full md:my-auto">
-    <div class="relative flex items-center justify-between">
-      {/* Logo */}
-      <a href="/" aria-label="Home" class="flex items-center">
-        <img
-          src="/botyoo-logo.png"
-          alt="Botyoo"
-          width="150"
-          height="50"
-          class="block dark:hidden h-10 w-auto object-contain"
-        />
-        <img
-          src="/botyoo-logo-light.png"
-          alt="Botyoo"
-          width="150"
-          height="50"
-          class="hidden dark:block h-10 w-auto object-contain"
-        />
-      </a>
+<header id="site-header" data-state="inactive" class="fixed inset-x-0 top-0 z-50">
+  <!-- Scroll-reactive layer: transparent → blurred bar with bottom border -->
+  <div
+    id="header-bar"
+    data-scrolled="false"
+    class="absolute inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300 data-[scrolled=true]:border-border/60 data-[scrolled=true]:bg-background/75 data-[scrolled=true]:backdrop-blur"
+  >
+    <div class="mx-auto max-w-6xl px-6 lg:px-12">
+      <div class="relative flex flex-wrap items-center justify-between lg:py-5">
+        <!-- Logo + mobile hamburger row -->
+        <div class="flex justify-between gap-8 max-lg:h-14 max-lg:w-full max-lg:border-b max-lg:border-border/60">
+          <a href="/" aria-label="Botyoo home" class="flex items-center">
+            <img src="/botyoo-logo.png" alt="Botyoo" width="120" height="40" class="block h-7 w-auto object-contain dark:hidden" />
+            <img src="/botyoo-logo-light.png" alt="Botyoo" width="120" height="40" class="hidden h-7 w-auto object-contain dark:block" />
+          </a>
 
-      {/* Center nav — desktop */}
-      <nav
-        aria-label="Main"
-        class="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:-translate-x-1/2 md:-translate-y-1/2 md:transform"
-      >
-        <div class="flex items-center gap-10 font-medium">
-          {
-            navLinks.map((link) => (
-              <a
-                class="px-2 py-1 text-gray-900 dark:text-gray-100"
-                href={link.href}
-              >
-                {link.label}
-              </a>
-            ))
-          }
+          <button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" class="relative -m-2.5 -mr-3 block cursor-pointer p-2.5 text-foreground lg:hidden">
+            <svg data-icon="menu" class="m-auto size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+            <svg data-icon="close" class="absolute inset-0 m-auto size-5 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+            </svg>
+          </button>
         </div>
-      </nav>
 
-      {/* Right side — CTA (desktop) */}
-      <div class="hidden items-center gap-x-2 md:flex">
-        <a
-          href="https://app.botyoo.com/dashboard"
-          class="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-md border-[0.5px] border-white/25 shadow-black/20 bg-primary ring-1 ring-(--ring-color) [--ring-color:color-mix(in_oklab,var(--color-foreground)_15%,var(--color-primary))] text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-4 text-sm"
-        >
-          Automate Now
-        </a>
-      </div>
+        <!-- Centered desktop nav with mega-menu flyouts -->
+        <div class="absolute inset-0 m-auto size-fit max-lg:hidden">
+          <nav aria-label="Main">
+            <ul class="relative flex items-center gap-1">
+              {menus.map((menu) => (
+                <li class="group/menu" data-dropdown data-state="closed">
+                  <button
+                    type="button"
+                    data-dropdown-trigger
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    class:list={[
+                      "inline-flex h-9 cursor-pointer items-center gap-1.5 rounded-md px-3.5 text-sm font-medium outline-none transition-colors",
+                      "hover:bg-foreground/5 hover:text-foreground group-data-[state=open]/menu:bg-foreground/5 group-data-[state=open]/menu:text-foreground",
+                      menuActive(menu) ? "text-foreground" : "text-muted-foreground",
+                    ]}
+                  >
+                    {menu.label}
+                    <svg class="size-3.5 opacity-70 transition-transform duration-200 group-data-[state=open]/menu:rotate-180" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
 
-      {/* Right side — mobile */}
-      <div class="flex gap-x-2 md:hidden">
-        <a
-          href="https://app.botyoo.com/dashboard"
-          class="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-md border-[0.5px] border-white/25 shadow-black/20 bg-primary ring-1 ring-(--ring-color) [--ring-color:color-mix(in_oklab,var(--color-foreground)_15%,var(--color-primary))] text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-4 text-sm"
-        >
-          Automate Now
-        </a>
-        <button
-          id="menu-toggle"
-          type="button"
-          aria-label="Open Menu"
-          aria-expanded="false"
-          class="relative inline-flex aspect-square items-center justify-center rounded-xl border border-transparent bg-gray-200 p-2 text-gray-900 hover:bg-gray-300/70 dark:bg-white/10 dark:text-gray-100 dark:hover:bg-white/15 cursor-pointer"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            data-icon="menu"
-            class="size-5"
-          >
-            <line x1="4" x2="20" y1="12" y2="12"></line>
-            <line x1="4" x2="20" y1="6" y2="6"></line>
-            <line x1="4" x2="20" y1="18" y2="18"></line>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            data-icon="close"
-            class="hidden size-5"
-          >
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
+                  <!-- Mega-menu panel: outer border + inner bordered cards = double border -->
+                  <div
+                    data-dropdown-panel
+                    class:list={[
+                      "pointer-events-none invisible absolute left-1/2 top-full z-50 mt-4 -translate-x-1/2 translate-y-1 opacity-0 transition-all duration-200",
+                      "group-data-[state=open]/menu:pointer-events-auto group-data-[state=open]/menu:visible group-data-[state=open]/menu:translate-y-0 group-data-[state=open]/menu:opacity-100",
+                      menu.panelWidth,
+                    ]}
+                  >
+                    <div class="rounded-2xl border border-border/70 bg-black p-1 text-popover-foreground shadow-xl shadow-black/40">
+                      <div class:list={["grid grid-rows-[auto_1fr] gap-1", menu.gridCols]}>
+                        {menu.columns.map((col) => (
+                          <div
+                            class:list={[
+                              "row-span-2 grid grid-rows-subgrid gap-1 p-1 pt-3",
+                              col.span === 2 && "col-span-2",
+                              col.card && "rounded-xl border border-border/60 bg-white/[0.03]",
+                            ]}
+                          >
+                            <span class="ml-2 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{col.label}</span>
+                            <ul class:list={["mt-1", col.twoCol && "grid grid-cols-2"]}>
+                              {col.items.map((item) => (
+                                <li>
+                                  <a
+                                    href={item.href}
+                                    data-active={isActive(item.href) ? "" : undefined}
+                                    class:list={[
+                                      "grid grid-cols-[auto_1fr] gap-2.5 rounded-lg p-2 text-sm outline-none transition-colors hover:bg-foreground/5 focus-visible:bg-foreground/5 data-[active]:bg-foreground/[0.06]",
+                                      col.compact && "items-center",
+                                    ]}
+                                  >
+                                    {col.compact ? (
+                                      <svg viewBox="0 0 24 24" class:list={["size-4 stroke-foreground", item.tint]} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={iconPaths[item.icon]} />
+                                    ) : (
+                                      <span class="relative flex size-9 items-center justify-center rounded-lg bg-white/5 shadow-sm shadow-black/20 ring-1 ring-foreground/10">
+                                        <svg viewBox="0 0 24 24" class:list={["size-[18px] stroke-foreground", item.tint]} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={iconPaths[item.icon]} />
+                                      </span>
+                                    )}
+                                    <span class="min-w-0 space-y-0.5 self-center">
+                                      <span class="block font-medium text-foreground">{item.label}</span>
+                                      {item.desc && <span class="block truncate text-xs text-muted-foreground">{item.desc}</span>}
+                                    </span>
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+
+              {navLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class:list={[
+                      "inline-flex h-9 items-center rounded-md px-3.5 text-sm font-medium transition-colors hover:bg-foreground/5 hover:text-foreground",
+                      isActive(link.href) ? "text-foreground" : "text-muted-foreground",
+                    ]}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Right side actions (desktop) -->
+        <div class="hidden items-center gap-3 lg:flex">
+          <a href="https://app.botyoo.com/login" class="inline-flex h-9 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border border-transparent bg-card px-4 text-sm font-medium text-foreground shadow-sm shadow-black/10 ring-1 ring-foreground/10 transition-all duration-200 hover:bg-muted/50 active:scale-[0.98] dark:ring-foreground/15 dark:hover:bg-muted/50">
+            <span>Login</span>
+          </a>
+          <a href="https://app.botyoo.com/dashboard" class="inline-flex h-9 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border-[0.5px] border-white/10 bg-primary px-4 text-sm font-medium text-primary-foreground shadow-md shadow-black/15 ring-1 ring-black/15 transition-all hover:bg-primary/90 active:scale-[0.98] dark:border-transparent dark:ring-white/15">
+            <span>Get Started</span>
+          </a>
+        </div>
       </div>
     </div>
+  </div>
 
-    {/* Mobile drawer */}
-    <nav
-      id="mobile-nav"
-      class="my-6 hidden flex text-lg ease-in-out will-change-transform md:hidden"
-    >
-      <ul class="space-y-4 font-medium">
-        {
-          navLinks.map((link) => (
-            <li>
-              <a href={link.href}>{link.label}</a>
-            </li>
-          ))
-        }
-      </ul>
+  <!-- Mobile panel -->
+  <div id="mobile-panel" class="absolute inset-x-0 top-14 hidden max-h-[calc(100vh-3.5rem)] overflow-y-auto border-b border-border/60 bg-background/95 backdrop-blur lg:hidden">
+    <nav aria-label="Mobile" class="mx-auto max-w-6xl space-y-1 px-6 py-5">
+      {menus.map((menu) => (
+        <div>
+          <button type="button" data-accordion-trigger aria-expanded="false" class="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5">
+            {menu.label}
+            <svg data-acc-chevron class="size-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <div data-accordion-panel class="hidden space-y-3 px-2 pb-2 pt-1">
+            {menu.columns.map((col) => (
+              <div>
+                <p class="px-2 pb-1 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">{col.label}</p>
+                {col.items.map((item) => (
+                  <a
+                    href={item.href}
+                    class:list={[
+                      "flex items-center gap-3 rounded-md px-2 py-2 transition-colors hover:bg-foreground/5",
+                      isActive(item.href) && "bg-foreground/5",
+                    ]}
+                  >
+                    <span class="flex size-8 shrink-0 items-center justify-center rounded-md bg-background ring-1 ring-foreground/10">
+                      <svg viewBox="0 0 24 24" class:list={["size-4 stroke-foreground", item.tint]} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={iconPaths[item.icon]} />
+                    </span>
+                    <span class="text-sm text-foreground">{item.label}</span>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "block rounded-md px-3 py-2.5 text-sm font-medium transition-colors hover:bg-foreground/5",
+            isActive(link.href) ? "text-foreground bg-foreground/5" : "text-muted-foreground hover:text-foreground",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <div class="mt-4 flex flex-col gap-2 border-t border-border/60 pt-4">
+        <a href="https://app.botyoo.com/login" class="flex h-10 items-center justify-center rounded-md border border-border bg-card text-sm font-medium text-foreground transition-colors hover:bg-foreground/5">Login</a>
+        <a href="https://app.botyoo.com/dashboard" class="flex h-10 items-center justify-center rounded-md bg-primary text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">Get Started</a>
+      </div>
     </nav>
   </div>
 </header>
 
 <script>
   const header = document.getElementById("site-header")
+  const bar = document.getElementById("header-bar")
   const toggle = document.getElementById("menu-toggle")
-  const mobileNav = document.getElementById("mobile-nav")
+  const mobilePanel = document.getElementById("mobile-panel")
 
-  const setOpen = (open: boolean) => {
-    if (!header || !toggle || !mobileNav) return
-    header.dataset.open = open ? "true" : "false"
-    toggle.setAttribute("aria-expanded", open ? "true" : "false")
-    toggle.setAttribute("aria-label", open ? "Close Menu" : "Open Menu")
-    mobileNav.classList.toggle("hidden", !open)
-    toggle
-      .querySelector<SVGElement>('[data-icon="menu"]')
-      ?.classList.toggle("hidden", open)
-    toggle
-      .querySelector<SVGElement>('[data-icon="close"]')
-      ?.classList.toggle("hidden", !open)
-  }
-
-  toggle?.addEventListener("click", () => {
-    const isOpen = header?.dataset.open === "true"
-    setOpen(!isOpen)
-  })
-
-  // Close menu if viewport grows past md
-  const mq = window.matchMedia("(min-width: 768px)")
-  mq.addEventListener("change", (e) => {
-    if (e.matches) setOpen(false)
-  })
-
-  // Scroll state
+  // ── Scroll state (blur + border) ───────────────────────────────
   const onScroll = () => {
-    if (!header) return
-    header.dataset.scrolled = window.scrollY > 15 ? "true" : "false"
+    if (bar) bar.dataset.scrolled = window.scrollY > 10 ? "true" : "false"
   }
   onScroll()
   window.addEventListener("scroll", onScroll, { passive: true })
+
+  // ── Mobile menu toggle ─────────────────────────────────────────
+  const setOpen = (open: boolean) => {
+    if (!header || !toggle || !mobilePanel) return
+    header.dataset.state = open ? "active" : "inactive"
+    toggle.setAttribute("aria-expanded", open ? "true" : "false")
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu")
+    mobilePanel.classList.toggle("hidden", !open)
+    toggle.querySelector<SVGElement>('[data-icon="menu"]')?.classList.toggle("hidden", open)
+    toggle.querySelector<SVGElement>('[data-icon="close"]')?.classList.toggle("hidden", !open)
+  }
+  toggle?.addEventListener("click", () => setOpen(header?.dataset.state !== "active"))
+  window.matchMedia("(min-width: 1024px)").addEventListener("change", (e) => {
+    if (e.matches) setOpen(false)
+  })
+
+  // ── Desktop mega-menu flyouts (hover + click + keyboard) ───────
+  const dropdowns = Array.from(document.querySelectorAll<HTMLElement>("[data-dropdown]"))
+  const closeAll = (except?: HTMLElement) => {
+    dropdowns.forEach((dd) => {
+      if (dd === except) return
+      dd.dataset.state = "closed"
+      dd.querySelector("[data-dropdown-trigger]")?.setAttribute("aria-expanded", "false")
+    })
+  }
+  dropdowns.forEach((dd) => {
+    const trigger = dd.querySelector<HTMLButtonElement>("[data-dropdown-trigger]")
+    let closeTimer: number | undefined
+    const open = () => {
+      window.clearTimeout(closeTimer)
+      closeAll(dd)
+      dd.dataset.state = "open"
+      trigger?.setAttribute("aria-expanded", "true")
+    }
+    const close = () => {
+      dd.dataset.state = "closed"
+      trigger?.setAttribute("aria-expanded", "false")
+    }
+    trigger?.addEventListener("click", (e) => {
+      e.preventDefault()
+      dd.dataset.state === "open" ? close() : open()
+    })
+    dd.addEventListener("mouseenter", open)
+    dd.addEventListener("mouseleave", () => {
+      closeTimer = window.setTimeout(close, 150)
+    })
+  })
+  document.addEventListener("click", (e) => {
+    if (!(e.target as HTMLElement).closest("[data-dropdown]")) closeAll()
+  })
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAll()
+  })
+
+  // ── Mobile accordion groups ────────────────────────────────────
+  document.querySelectorAll<HTMLButtonElement>("[data-accordion-trigger]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const panel = btn.nextElementSibling as HTMLElement | null
+      const open = btn.getAttribute("aria-expanded") === "true"
+      btn.setAttribute("aria-expanded", open ? "false" : "true")
+      panel?.classList.toggle("hidden", open)
+      btn.querySelector("[data-acc-chevron]")?.classList.toggle("rotate-180", !open)
+    })
+  })
 </script>

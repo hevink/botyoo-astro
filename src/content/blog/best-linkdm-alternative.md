@@ -16,7 +16,7 @@ LinkDM is one of the most established Instagram DM tools, running since 2019 wit
 
 I build one of the tools below, so I'm not neutral. Prices are public and the assessments are honest, including where LinkDM is still the better buy.
 
-## TL;DR — the best LinkDM alternatives at a glance
+## TL;DR: the best LinkDM alternatives at a glance
 
 - **Cheapest flat-rate:** [Botyoo](https://botyoo.com/), $3.60/mo, official API, built-in email capture, AI included.
 - **Cheapest flat-rate rival:** InstantDM, $9.99/mo, with email capture, AI, and mobile apps.
@@ -64,7 +64,7 @@ The best LinkDM alternative for a single creator is Botyoo at $3.60/mo, about a 
 
 Prices verified June 2026. (Weighing ManyChat specifically? See our [best ManyChat alternatives](/alternatives/manychat/) breakdown.)
 
-### 1. Botyoo — cheapest single-account, $3.60/mo
+### 1. Botyoo: cheapest single-account, $3.60/mo
 
 ![Botyoo, the cheapest flat-rate Instagram DM tool at $3.60/mo](/blog/tools/botyoo.webp)
 
@@ -96,7 +96,7 @@ The trade-off is scope: Botyoo is built for single-account focus, so it won't bu
 
 **Pricing:** $3.60/mo annual PRO, flat-rate. No free tier.
 
-### 2. InstantDM — cheaper and flat-rate, $9.99/mo
+### 2. InstantDM: cheaper and flat-rate, $9.99/mo
 
 ![InstantDM, flat-rate Instagram DM automation at $9.99/mo](/blog/tools/instantdm.webp)
 
@@ -128,7 +128,7 @@ Like LinkDM Pro, InstantDM captures emails inside the DM, and its automation is 
 
 **Pricing:** $9.99/mo (Legend Pro), $24.99/mo (Trendsetter). Flat-rate, 7-day trial.
 
-### 3. ReplyRush — the best free on-ramp
+### 3. ReplyRush: the best free on-ramp
 
 ![ReplyRush, per-DM Instagram automation with a free tier](/blog/tools/replyrush.webp)
 
@@ -158,7 +158,7 @@ ReplyRush offers something LinkDM doesn't: a genuine free tier, 1,500 DMs a mont
 
 **Pricing:** Free up to 1,500 DMs/mo, then per-DM from ~$10/mo.
 
-### 4. BotPenguin — if you need more than Instagram
+### 4. BotPenguin: if you need more than Instagram
 
 ![BotPenguin, a multi-channel chatbot including Instagram at around $12.50/mo](/blog/tools/botpenguin.webp)
 
@@ -188,7 +188,7 @@ BotPenguin covers WhatsApp, Telegram, Facebook, SMS, web, and Instagram for arou
 
 **Pricing:** Omnichannel from ~$5/mo; the Instagram-inclusive tier lands around $12.50/mo.
 
-### 5. Inrō — the AI-first option
+### 5. Inrō: the AI-first option
 
 ![Inrō, AI-first Instagram DM automation at around $14/mo](/blog/tools/inro.webp)
 
@@ -218,7 +218,7 @@ Inrō is built around AI-led conversations, flat-rate at about $14/mo, below Lin
 
 **Pricing:** Free tier; Pro from €12.99/mo (~$14); Managed from €200/mo.
 
-### 6. CreatorFlow — the polished option
+### 6. CreatorFlow: the polished option
 
 ![CreatorFlow, flat-rate Instagram DM tool with email capture at $15/mo](/blog/tools/creatorflow.webp)
 

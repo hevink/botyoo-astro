@@ -95,7 +95,7 @@ It's worth being precise about when Inrō's premium pays off. Simple comment-to-
 
 ## How to switch from Inrō to Botyoo
 
-Switching takes an afternoon. List your live comment-to-DM and keyword flows, connect your Instagram account to Botyoo through the same official Meta authorization, rebuild your top flow and test it on a live post, add a native email-capture step, then run both in parallel for a few days before switching off. [Compare Botyoo's plans](https://botyoo.com/pricing/) first. For the wider field, see our roundup of the best Inrō alternatives *(internal link — publish once live)*.
+Switching takes an afternoon. List your live comment-to-DM and keyword flows, connect your Instagram account to Botyoo through the same official Meta authorization, rebuild your top flow and test it on a live post, add a native email-capture step, then run both in parallel for a few days before switching off. [Compare Botyoo's plans](https://botyoo.com/pricing/) first. For the wider field, see our roundup of the best Inrō alternatives *(internal link, publish once live)*.
 
 ## FAQ
 

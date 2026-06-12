@@ -17,7 +17,7 @@ const totalCount = templates.length
 ---
 
 <Layout
-  title="Templates — Botyoo"
+  title="Templates: Botyoo"
   description="Ready-made Instagram DM automation templates. Pick one, customise the messages, go live in minutes."
 >
   <main class="pt-28 pb-32">
@@ -31,7 +31,7 @@ const totalCount = templates.length
         </h1>
         <p class="text-muted-foreground mt-4 max-w-md text-base leading-relaxed">
           Real flows for creators, coaches, and brands. Pick one,
-          swap in your copy, and go live — takes about 3 minutes.
+          swap in your copy, and go live, takes about 3 minutes.
         </p>
       </div>
 
@@ -52,7 +52,7 @@ const totalCount = templates.length
         ))}
       </div>
 
-      {/* Grid — grouped by section */}
+      {/* Grid, grouped by section */}
       <div id="template-grid" class="space-y-10">
         {sections.map((section) => {
           const sectionTemplates = templates.filter((t) => t.section === section)
@@ -65,7 +65,7 @@ const totalCount = templates.length
                 <span class="text-xs text-muted-foreground/40">{sectionTemplates.length}</span>
               </div>
 
-              {/* Card list — no grid, just stacked rows with inline dividers */}
+              {/* Card list, no grid, just stacked rows with inline dividers */}
               <div class="border rounded-xl overflow-hidden divide-y divide-border">
                 {(() => {
                   // Chunk into rows of 3

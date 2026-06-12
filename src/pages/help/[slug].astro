@@ -36,11 +36,11 @@ const sidebarGroups = allSorted.reduce<Record<string, typeof allSorted>>((acc, d
 }, {})
 ---
 
-<Layout title={`${doc.data.title} — Botyoo Help`} description={doc.data.description}>
+<Layout title={`${doc.data.title} - Botyoo Help`} description={doc.data.description}>
   <div class="mx-auto max-w-6xl px-6 pt-36 pb-24">
     <div class="flex gap-12">
 
-      <!-- Sidebar — same style as blog nav -->
+      <!-- Sidebar, same style as blog nav -->
       <aside class="hidden w-52 shrink-0 lg:block">
         <a
           href="/help"
@@ -78,7 +78,7 @@ const sidebarGroups = allSorted.reduce<Record<string, typeof allSorted>>((acc, d
         </nav>
       </aside>
 
-      <!-- Article — same as BlogLayout's article -->
+      <!-- Article, same as BlogLayout's article -->
       <article class="min-w-0 flex-1 max-w-3xl">
         <header class="mb-10">
           <!-- Breadcrumb -->
@@ -97,7 +97,7 @@ const sidebarGroups = allSorted.reduce<Record<string, typeof allSorted>>((acc, d
           )}
         </header>
 
-        <!-- Rendered markdown — reuses prose-blog class from BlogLayout -->
+        <!-- Rendered markdown, reuses prose-blog class from BlogLayout -->
         <div class="prose-blog">
           <Content />
         </div>

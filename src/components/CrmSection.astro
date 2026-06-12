@@ -1,27 +1,27 @@
 ---
-// CRM section — positions Botyoo as a real CRM, not just a DM bot.
+// CRM section, positions Botyoo as a real CRM, not just a DM bot.
 // Left: copy + benefit bullets. Right: a faux contacts-table preview card
 // styled to match the StatsGrid illustration cards (bg-card, ring-foreground/10).
 
 const benefits = [
-  "Every comment, reply, and DM saved as a contact — automatically",
+  "Every comment, reply, and DM saved as a contact, automatically",
   "Email, phone, follower count, source, and tags on every lead",
   "Filter and segment your audience, then export to CSV or your email tool",
-  "Unlimited contact storage — you only meter what you message",
+  "Unlimited contact storage, you only meter what you message",
 ]
 
 const contacts = [
   { name: "amara.codes", followers: "12.4k", tag: "Hot lead", email: "✓" },
   { name: "studio.mae", followers: "3.1k", tag: "Webinar", email: "✓" },
   { name: "thefitkofi", followers: "48.9k", tag: "Customer", email: "✓" },
-  { name: "leoribeiro", followers: "920", tag: "New", email: "—" },
+  { name: "leoribeiro", followers: "920", tag: "New", email: ", " },
 ]
 ---
 
 <section class="bg-background py-12 md:py-24">
   <div class="mx-auto w-full max-w-5xl px-6">
     <div class="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-      {/* Left — copy */}
+      {/* Left, copy */}
       <div class="text-balance">
         <span class="text-primary font-mono text-sm uppercase">Built-in CRM</span>
         <h2
@@ -31,7 +31,7 @@ const contacts = [
         </h2>
         <p class="text-muted-foreground mt-4 text-lg">
           Botyoo isn't just a DM bot. Every lead you capture lands in a CRM you
-          own — organized, searchable, and yours to keep. Your audience finally
+          own, organized, searchable, and yours to keep. Your audience finally
           lives somewhere outside the app.
         </p>
 
@@ -60,7 +60,7 @@ const contacts = [
         </ul>
       </div>
 
-      {/* Right — contacts table preview */}
+      {/* Right, contacts table preview */}
       <div
         class="bg-card ring-foreground/10 overflow-hidden rounded-2xl border border-transparent shadow-xl shadow-black/10 ring-1"
       >

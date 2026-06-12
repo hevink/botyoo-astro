@@ -16,7 +16,7 @@ CreatorFlow is one of the nicest-looking Instagram DM tools out there, Meta-appr
 
 I build one of the tools below, so I have a side. Prices are public and I've been straight about where CreatorFlow is still the better choice.
 
-## TL;DR — the best CreatorFlow alternatives at a glance
+## TL;DR: the best CreatorFlow alternatives at a glance
 
 - **Cheapest with the same email capture:** [Botyoo](https://botyoo.com/), $3.60/mo, about a quarter of CreatorFlow's price.
 - **Cheapest established rival:** InstantDM, $9.99/mo, flat-rate with email capture and a broad toolkit.
@@ -66,7 +66,7 @@ The best CreatorFlow alternative is Botyoo at $3.60/mo, which matches CreatorFlo
 
 Prices verified June 2026. Weighing ManyChat specifically? See our [best ManyChat alternatives](/alternatives/manychat/) breakdown.
 
-### 1. Botyoo — same email capture, a quarter of the price
+### 1. Botyoo: same email capture, a quarter of the price
 
 ![Botyoo, the cheapest flat-rate Instagram DM tool at $3.60/mo](/blog/tools/botyoo.webp)
 
@@ -98,7 +98,7 @@ What you give up versus CreatorFlow is interface polish and a free tier (Botyoo 
 
 **Pricing:** $3.60/mo annual PRO, flat-rate. No free tier.
 
-### 2. InstantDM — cheaper than CreatorFlow, with a broad toolkit
+### 2. InstantDM: cheaper than CreatorFlow, with a broad toolkit
 
 ![InstantDM, flat-rate Instagram DM automation at $9.99/mo](/blog/tools/instantdm.webp)
 
@@ -130,7 +130,7 @@ Like CreatorFlow, InstantDM now captures emails inside the DM, so you don't lose
 
 **Pricing:** $9.99/mo (Legend Pro), $24.99/mo (Trendsetter). Flat-rate, 7-day trial.
 
-### 3. ReplyRush — the best free on-ramp
+### 3. ReplyRush: the best free on-ramp
 
 ![ReplyRush, per-DM Instagram automation with a free tier](/blog/tools/replyrush.webp)
 
@@ -162,7 +162,7 @@ The trade-off is predictability: per-DM pricing gets less predictable as volume 
 
 **Pricing:** Free up to 1,500 DMs/mo, then per-DM from ~$10/mo.
 
-### 4. Inrō — the AI-first option
+### 4. Inrō: the AI-first option
 
 ![Inrō, AI-first Instagram DM automation at around $14/mo](/blog/tools/inro.webp)
 
@@ -194,7 +194,7 @@ As a CreatorFlow replacement specifically, though, it trades one strength for an
 
 **Pricing:** Free tier; Pro from €12.99/mo (~$14); Managed from €200/mo.
 
-### 5. BotPenguin — if you need more than Instagram
+### 5. BotPenguin: if you need more than Instagram
 
 ![BotPenguin, a multi-channel chatbot including Instagram at around $12.50/mo](/blog/tools/botpenguin.webp)
 
@@ -226,7 +226,7 @@ Its IG-specific depth and polish are well behind CreatorFlow's, so as a like-for
 
 **Pricing:** Omnichannel from ~$5/mo; the Instagram-inclusive tier lands around $12.50/mo.
 
-### 6. LinkDM — for small agencies
+### 6. LinkDM: for small agencies
 
 ![LinkDM, established Instagram DM automation at $19/mo for 3 accounts](/blog/tools/linkdm.webp)
 

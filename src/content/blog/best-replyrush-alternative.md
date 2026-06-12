@@ -16,7 +16,7 @@ ReplyRush is one of the best free ways to start with Instagram comment-to-DM, 1,
 
 I build one of the tools below, so I'm not neutral. Prices are public and the assessments are honest, including where ReplyRush is still the smarter start.
 
-## TL;DR — the best ReplyRush alternatives at a glance
+## TL;DR: the best ReplyRush alternatives at a glance
 
 - **Cheapest flat-rate:** [Botyoo](https://botyoo.com/), $3.60/mo, official API, built-in email capture, AI included, no per-DM surprises.
 - **Cheapest established rival:** InstantDM, $9.99/mo flat-rate.
@@ -64,7 +64,7 @@ The best ReplyRush alternative for scaling creators is Botyoo at $3.60/mo, which
 
 Prices verified June 2026. (Weighing ManyChat specifically? See our [best ManyChat alternatives](/alternatives/manychat/) breakdown.)
 
-### 1. Botyoo — cheapest flat-rate, no per-DM surprises
+### 1. Botyoo: cheapest flat-rate, no per-DM surprises
 
 ![Botyoo, the cheapest flat-rate Instagram DM tool at $3.60/mo](/blog/tools/botyoo.webp)
 
@@ -96,7 +96,7 @@ The practical difference shows up on a good month: where ReplyRush bills you mor
 
 **Pricing:** $3.60/mo annual PRO, flat-rate. No free tier.
 
-### 2. InstantDM — flat-rate and established
+### 2. InstantDM: flat-rate and established
 
 ![InstantDM, flat-rate Instagram DM automation at $9.99/mo](/blog/tools/instantdm.webp)
 
@@ -128,7 +128,7 @@ Unlike ReplyRush's partial capture, InstantDM collects emails and phone numbers 
 
 **Pricing:** $9.99/mo (Legend Pro), $24.99/mo (Trendsetter). Flat-rate, 7-day trial.
 
-### 3. CreatorFlow — the polished option
+### 3. CreatorFlow: the polished option
 
 ![CreatorFlow, flat-rate Instagram DM tool with email capture at $15/mo](/blog/tools/creatorflow.webp)
 
@@ -160,7 +160,7 @@ If you liked starting free on ReplyRush but want a nicer interface once you pay,
 
 **Pricing:** Free (500 DMs/mo), Pro $15/mo, Growth $29/mo. Flat-rate.
 
-### 4. Inrō — the AI-first option
+### 4. Inrō: the AI-first option
 
 ![Inrō, AI-first Instagram DM automation at around $14/mo](/blog/tools/inro.webp)
 
@@ -192,7 +192,7 @@ The catch as a ReplyRush alternative: no native email capture and a free plan ca
 
 **Pricing:** Free tier; Pro from €12.99/mo (~$14); Managed from €200/mo.
 
-### 5. BotPenguin — if you need more than Instagram
+### 5. BotPenguin: if you need more than Instagram
 
 ![BotPenguin, a multi-channel chatbot including Instagram at around $12.50/mo](/blog/tools/botpenguin.webp)
 
@@ -224,7 +224,7 @@ As a pure Instagram tool, though, its IG-specific depth is thinner than tools bu
 
 **Pricing:** Omnichannel from ~$5/mo; the Instagram-inclusive tier lands around $12.50/mo.
 
-### 6. LinkDM — for small agencies
+### 6. LinkDM: for small agencies
 
 ![LinkDM, established Instagram DM automation at $19/mo for 3 accounts](/blog/tools/linkdm.webp)
 

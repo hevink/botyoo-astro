@@ -96,7 +96,7 @@ Choose Botyoo if Instagram is your main channel, you want the lowest flat price,
 
 Switching takes an afternoon, because you rebuild a few flows rather than migrate data. List your live comment-to-DM and keyword flows, connect your Instagram account to Botyoo through the same official Meta authorization InstantDM uses, rebuild your top flow first and test it on a live post, recreate your email-capture step, then run both in parallel for a few days before switching off. [Compare Botyoo's plans](https://botyoo.com/pricing/) before you start.
 
-For the full field of options rather than a head-to-head, see our roundup of the best InstantDM alternatives *(internal link — publish once live)*.
+For the full field of options rather than a head-to-head, see our roundup of the best InstantDM alternatives *(internal link, publish once live)*.
 
 ## FAQ
 

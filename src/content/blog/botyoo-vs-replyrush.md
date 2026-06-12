@@ -91,7 +91,7 @@ Say you run a weekly comment-to-DM post that delivers a free guide. In a quiet m
 
 ## How to switch from ReplyRush to Botyoo
 
-Switching is quick because you rebuild a few flows rather than migrate data. List your live comment-to-DM and keyword flows, connect your Instagram account to Botyoo through the same official Meta authorization, rebuild your top flow and test it on a live post, add a native email-capture step, then run both in parallel for a few days before switching off. [Compare Botyoo's plans](https://botyoo.com/pricing/) first. For the wider field, see our roundup of the best ReplyRush alternatives *(internal link — publish once live)*.
+Switching is quick because you rebuild a few flows rather than migrate data. List your live comment-to-DM and keyword flows, connect your Instagram account to Botyoo through the same official Meta authorization, rebuild your top flow and test it on a live post, add a native email-capture step, then run both in parallel for a few days before switching off. [Compare Botyoo's plans](https://botyoo.com/pricing/) first. For the wider field, see our roundup of the best ReplyRush alternatives *(internal link, publish once live)*.
 
 ## FAQ
 

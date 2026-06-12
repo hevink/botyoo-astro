@@ -94,7 +94,7 @@ Choose Botyoo if you want CreatorFlow's core capabilities, comment-to-DM and nat
 
 Because both tools do the same jobs, switching is quick. List your live comment-to-DM, keyword, and email-capture flows, connect your Instagram account to Botyoo through the same official Meta authorization CreatorFlow uses, rebuild your top flow and test it on a live post, then run both in parallel for a few days and switch off CreatorFlow once your numbers match. [Compare Botyoo's plans](https://botyoo.com/pricing/) before you start.
 
-For the wider field rather than a head-to-head, see our roundup of the best CreatorFlow alternatives *(internal link — publish once live)*.
+For the wider field rather than a head-to-head, see our roundup of the best CreatorFlow alternatives *(internal link, publish once live)*.
 
 ## FAQ
 

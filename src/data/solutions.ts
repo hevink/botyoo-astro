@@ -28,7 +28,7 @@ export const solutions: Solution[] = [
   {
     slug: "creators",
     tag: "For Creators",
-    title: "Turn content into conversions — on autopilot",
+    title: "Turn content into conversions, on autopilot",
     description:
       "For creators who are done spending hours on DMs. Botyoo automates your IG funnel so you can stay focused on making content.",
     steps: [
@@ -38,7 +38,7 @@ export const solutions: Solution[] = [
       },
       {
         title: "Automate your funnel",
-        desc: "Instantly deliver freebies, booking links, and offers via DM — triggered by keywords, story replies, or post comments.",
+        desc: "Instantly deliver freebies, booking links, and offers via DM, triggered by keywords, story replies, or post comments.",
       },
       {
         title: "Drive more conversions",
@@ -52,7 +52,7 @@ export const solutions: Solution[] = [
       },
       {
         title: "Link in DM",
-        desc: "Promote any link — course, affiliate, shop — directly in DMs so followers don't need to visit your bio.",
+        desc: "Promote any link (course, affiliate, shop) directly in DMs so followers don't need to visit your bio.",
       },
       {
         title: "Story reply automation",
@@ -88,11 +88,11 @@ export const solutions: Solution[] = [
     tag: "For Coaches & Experts",
     title: "Get more bookings and clients from Instagram DMs",
     description:
-      "Turn your Instagram audience into booked calls and course buyers — without living in your DMs.",
+      "Turn your Instagram audience into booked calls and course buyers, without living in your DMs.",
     steps: [
       {
         title: "Capture qualified leads",
-        desc: "Botyoo turns comments, DMs, and story replies into leads and booked calls — every time, not just when you're online.",
+        desc: "Botyoo turns comments, DMs, and story replies into leads and booked calls, every time, not just when you're online.",
       },
       {
         title: "Automate qualification",
@@ -110,7 +110,7 @@ export const solutions: Solution[] = [
       },
       {
         title: "Book sales calls from Instagram",
-        desc: "Send your Calendly or booking link automatically after a short qualifying exchange — no manual DM required.",
+        desc: "Send your Calendly or booking link automatically after a short qualifying exchange, no manual DM required.",
       },
       {
         title: "Fill webinars and live trainings",
@@ -124,7 +124,7 @@ export const solutions: Solution[] = [
     faqs: [
       {
         q: "How do coaches get clients from Instagram DMs?",
-        a: "Botyoo lets you set up flows that respond instantly to comments or story interactions, qualify the lead with a few questions, and send your booking link — all without you being in the app. Coaches typically book their first call within a day of activating.",
+        a: "Botyoo lets you set up flows that respond instantly to comments or story interactions, qualify the lead with a few questions, and send your booking link, all without you being in the app. Coaches typically book their first call within a day of activating.",
       },
       {
         q: "Can I automatically send my Calendly link in DMs?",
@@ -146,11 +146,11 @@ export const solutions: Solution[] = [
     tag: "For Artists & Labels",
     title: "Your fans are on Instagram. Meet them in their DMs.",
     description:
-      "Automate how you connect with fans, drop releases, and sell tickets — all inside Instagram.",
+      "Automate how you connect with fans, drop releases, and sell tickets, all inside Instagram.",
     steps: [
       {
         title: "Spot your superfans",
-        desc: "Identify and tag your most engaged fans the moment they interact — likes, comments, story replies. Build a list of people who actually care.",
+        desc: "Identify and tag your most engaged fans the moment they interact: likes, comments, story replies. Build a list of people who actually care.",
       },
       {
         title: "Build your fanbase",
@@ -158,13 +158,13 @@ export const solutions: Solution[] = [
       },
       {
         title: "Sell more tickets and merch",
-        desc: "Send concert and product links directly in DMs to the right fans at the right time — timed to drops, tour announcements, or restocks.",
+        desc: "Send concert and product links directly in DMs to the right fans at the right time, timed to drops, tour announcements, or restocks.",
       },
     ],
     useCases: [
       {
         title: "Drop new music to fans first",
-        desc: "Send your release link to opted-in fans before it hits playlists. DMs get opened — emails don't.",
+        desc: "Send your release link to opted-in fans before it hits playlists. DMs get opened, emails don't.",
       },
       {
         title: "Boost streams via DMs",
@@ -182,7 +182,7 @@ export const solutions: Solution[] = [
     faqs: [
       {
         q: "How do musicians use Instagram DMs to promote music?",
-        a: "Artists use Botyoo to send release links, pre-save URLs, and stream requests directly to fans via DM — triggered by post comments or story interactions. It's more personal than a feed post and gets significantly higher click-through rates.",
+        a: "Artists use Botyoo to send release links, pre-save URLs, and stream requests directly to fans via DM, triggered by post comments or story interactions. It's more personal than a feed post and gets significantly higher click-through rates.",
       },
       {
         q: "How do I get more pre-saves using Instagram DMs?",
@@ -204,11 +204,11 @@ export const solutions: Solution[] = [
     tag: "For Agencies",
     title: "Offer Instagram DM automation as a service",
     description:
-      "Automate Instagram DMs across all your clients. Capture leads, prove ROI, and save hours — without extra headcount.",
+      "Automate Instagram DMs across all your clients. Capture leads, prove ROI, and save hours, without extra headcount.",
     steps: [
       {
         title: "Prove ROI",
-        desc: "Attribute DMs and comments to leads, links, and sales. Go beyond reach and impressions — show clients real pipeline numbers.",
+        desc: "Attribute DMs and comments to leads, links, and sales. Go beyond reach and impressions: show clients real pipeline numbers.",
       },
       {
         title: "Scale community ops",
@@ -222,7 +222,7 @@ export const solutions: Solution[] = [
     useCases: [
       {
         title: "Creator campaign funnels",
-        desc: "Build end-to-end DM funnels for influencer and creator clients — from comment trigger to lead capture to offer delivery.",
+        desc: "Build end-to-end DM funnels for influencer and creator clients, from comment trigger to lead capture to offer delivery.",
       },
       {
         title: "Community management automation",
@@ -252,7 +252,7 @@ export const solutions: Solution[] = [
       },
       {
         q: "Is Botyoo safe and Meta-approved?",
-        a: "Yes. Botyoo is a Meta Tech Provider and operates fully within Instagram's Messaging API policies. All automations follow Meta's guidelines — no third-party scraping or policy violations.",
+        a: "Yes. Botyoo is a Meta Tech Provider and operates fully within Instagram's Messaging API policies. All automations follow Meta's guidelines: no third-party scraping or policy violations.",
       },
     ],
     cta: "Scale your agency's Instagram offering with Botyoo.",
@@ -262,11 +262,11 @@ export const solutions: Solution[] = [
     tag: "For E-Commerce Brands",
     title: "Sell more from Instagram with DM automation",
     description:
-      "Turn Instagram engagement into store revenue with automations, DM campaigns, and an AI agent — even when you're offline.",
+      "Turn Instagram engagement into store revenue with automations, DM campaigns, and an AI agent, even when you're offline.",
     steps: [
       {
         title: "Start from engagement",
-        desc: "Move people from posts, Stories, and Reels into guided DM conversations that end at checkout — no link-in-bio friction.",
+        desc: "Move people from posts, Stories, and Reels into guided DM conversations that end at checkout, no link-in-bio friction.",
       },
       {
         title: "Give every shopper a personal assistant",
@@ -288,7 +288,7 @@ export const solutions: Solution[] = [
       },
       {
         title: "Waitlist sign-ups in DMs",
-        desc: "Collect waitlist interest directly in DMs. No forms, no links — just a conversation that captures the lead.",
+        desc: "Collect waitlist interest directly in DMs. No forms, no links, just a conversation that captures the lead.",
       },
       {
         title: "Exclusive loyalty segments",
@@ -298,7 +298,7 @@ export const solutions: Solution[] = [
     faqs: [
       {
         q: "How do e-commerce brands sell through Instagram DMs?",
-        a: "Botyoo turns post comments and story interactions into product conversations. Someone comments on a product post, gets a DM with details and a buy link, and you've turned engagement into a sale — without a single manual reply.",
+        a: "Botyoo turns post comments and story interactions into product conversations. Someone comments on a product post, gets a DM with details and a buy link, and you've turned engagement into a sale, without a single manual reply.",
       },
       {
         q: "Can I send DMs when a product drops or restocks?",
@@ -306,7 +306,7 @@ export const solutions: Solution[] = [
       },
       {
         q: "Can I automate customer support on Instagram?",
-        a: "Yes. Botyoo's AI agent can answer product FAQs, check stock, share size guides, and route complex questions to your support team — all inside Instagram DMs.",
+        a: "Yes. Botyoo's AI agent can answer product FAQs, check stock, share size guides, and route complex questions to your support team, all inside Instagram DMs.",
       },
       {
         q: "Is Instagram DM automation safe for e-commerce brands?",
@@ -320,7 +320,7 @@ export const solutions: Solution[] = [
     tag: "For Clinics & Medspas",
     title: "Stop losing patients to slow DM replies",
     description:
-      "Automatically capture, qualify, and route every Instagram DM into a booked consultation — without your team spending time on triage.",
+      "Automatically capture, qualify, and route every Instagram DM into a booked consultation, without your team spending time on triage.",
     steps: [
       {
         title: "Capture every DM instantly",
@@ -338,7 +338,7 @@ export const solutions: Solution[] = [
     useCases: [
       {
         title: "Instant DM replies for consultations",
-        desc: "Respond to consultation inquiries within seconds, day or night — so patients don't move on to the next clinic.",
+        desc: "Respond to consultation inquiries within seconds, day or night, so patients don't move on to the next clinic.",
       },
       {
         title: "Patient qualification flows",
@@ -356,15 +356,15 @@ export const solutions: Solution[] = [
     faqs: [
       {
         q: "What is Instagram DM automation for clinics?",
-        a: "It means Botyoo automatically replies to every patient inquiry on Instagram — even outside office hours — collects their information, and routes qualified leads to your booking flow. Your team only gets involved when a patient is ready to book.",
+        a: "It means Botyoo automatically replies to every patient inquiry on Instagram, even outside office hours, collects their information, and routes qualified leads to your booking flow. Your team only gets involved when a patient is ready to book.",
       },
       {
         q: "How does Botyoo work for medspas and aesthetic practices?",
-        a: "Botyoo handles the first touch: it replies to DMs and comments about services, collects patient info, and sends your consultation booking link. Most practices see a meaningful reduction in response time and an increase in booked consultations within the first week.",
+        a: "Botyoo handles the first touch. It replies to DMs and comments about services, collects patient info, and sends your consultation booking link. Most practices see a meaningful reduction in response time and an increase in booked consultations within the first week.",
       },
       {
         q: "How is Botyoo different from generic chatbots?",
-        a: "Botyoo is built specifically for Instagram and uses Meta's official API — so it works natively in DMs, not in a widget on your website. You can also use AI to handle nuanced questions in your clinic's voice, not a generic script.",
+        a: "Botyoo is built specifically for Instagram and uses Meta's official API, so it works natively in DMs, not in a widget on your website. You can also use AI to handle nuanced questions in your clinic's voice, not a generic script.",
       },
       {
         q: "How long does setup take?",

@@ -2,7 +2,7 @@
 title: Keyword Triggers
 description: Trigger automations when someone comments or messages with specific words.
 category: Automations
-order: 3
+order: 4
 ---
 
 # Keyword Triggers
@@ -26,7 +26,7 @@ Keyword triggers fire your automation when a comment or DM contains a specific w
 
 ## Multiple Keywords
 
-You can add multiple keywords to a single trigger — the automation fires if **any** of the keywords match. Add them comma-separated or one per line depending on the input field.
+You can add multiple keywords to a single trigger, the automation fires if **any** of the keywords match. Add them comma-separated or one per line depending on the input field.
 
 ## Tips
 

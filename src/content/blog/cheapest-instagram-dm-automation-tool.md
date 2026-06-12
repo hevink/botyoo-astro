@@ -16,11 +16,11 @@ Most "cheapest Instagram DM tool" lists quietly ignore the catch: per-contact bi
 
 I build one of the tools below, so I'm not neutral, but every price here is public and I've flagged the catches honestly.
 
-## TL;DR — the cheapest Instagram DM tools at a glance
+## TL;DR: the cheapest Instagram DM tools at a glance
 
-- **Cheapest overall:** [Botyoo](https://botyoo.com/) — $3.60/mo flat-rate, official Instagram API, built-in email capture, AI included.
-- **Cheapest established rival:** InstantDM — $9.99/mo flat-rate, with email capture and AI included.
-- **Lowest free entry:** ReplyRush — free up to 1,500 DMs/mo, then ~$10/mo per-DM.
+- **Cheapest overall:** [Botyoo](https://botyoo.com/) at $3.60/mo flat-rate, official Instagram API, built-in email capture, AI included.
+- **Cheapest established rival:** InstantDM at $9.99/mo flat-rate, with email capture and AI included.
+- **Lowest free entry:** ReplyRush, free up to 1,500 DMs/mo, then ~$10/mo per-DM.
 - **The catch:** only Botyoo stays under $5/mo. Every other official-API tool starts at $9.99 or higher.
 
 | Tool | Lowest paid plan | Pricing model | Official API | Email capture |
@@ -40,11 +40,11 @@ The cheapest Instagram DM automation tool in 2026 is Botyoo, at $3.60/mo on annu
 
 ## Why most "cheapest" claims are wrong
 
-"Cheapest" needs an asterisk, because three pricing tricks hide the real cost. Per-contact pricing (ManyChat) starts at $14/mo but climbs with every active contact, so your bill grows as your automation works. Per-DM pricing (ReplyRush) looks cheap until one viral comment-to-DM campaign blows through your cap. And the "$2/mo" tools you'll see advertised usually aren't on the official API at all — they automate through a logged-in session, which is scraping, and scraping is how accounts get restricted or banned. A tool that costs you your account isn't cheap; it's the most expensive mistake on this list. Every tool ranked below uses the [official Instagram API](https://developers.facebook.com/docs/instagram-platform/).
+"Cheapest" needs an asterisk, because three pricing tricks hide the real cost. Per-contact pricing (ManyChat) starts at $14/mo but climbs with every active contact, so your bill grows as your automation works. Per-DM pricing (ReplyRush) looks cheap until one viral comment-to-DM campaign blows through your cap. And the "$2/mo" tools you'll see advertised usually aren't on the official API at all; they automate through a logged-in session, which is scraping, and scraping is how accounts get restricted or banned. A tool that costs you your account isn't cheap; it's the most expensive mistake on this list. Every tool ranked below uses the [official Instagram API](https://developers.facebook.com/docs/instagram-platform/).
 
 ## The 8 cheapest Instagram DM tools, ranked
 
-### 1. Botyoo — $3.60/mo
+### 1. Botyoo: $3.60/mo
 
 ![Botyoo, the cheapest flat-rate Instagram DM tool at $3.60/mo](/blog/tools/botyoo.webp)
 
@@ -74,7 +74,7 @@ Botyoo is the cheapest serious Instagram DM automation tool, at $3.60/mo flat-ra
 
 **Pricing:** $3.60/mo on annual PRO, flat-rate. No free tier.
 
-### 2. InstantDM — $9.99/mo
+### 2. InstantDM: $9.99/mo
 
 ![InstantDM, flat-rate Instagram DM automation at $9.99/mo](/blog/tools/instantdm.webp)
 
@@ -104,11 +104,11 @@ InstantDM is the cheapest established flat-rate rival at $9.99/mo, a legitimate 
 
 **Pricing:** $9.99/mo (Legend Pro), $24.99/mo (Trendsetter). Flat-rate, 7-day trial.
 
-### 3. ReplyRush — ~$10/mo
+### 3. ReplyRush: ~$10/mo
 
 ![ReplyRush, per-DM Instagram automation with a free tier](/blog/tools/replyrush.webp)
 
-ReplyRush has the lowest free entry: 1,500 DMs a month at $0, then a per-DM model from around $10/mo. At low volume it's genuinely the cheapest way to run comment-to-DM. The trade-off is predictability — your cost tracks message volume, so a post that pops can bump you a tier mid-month. Best for steady, low-volume senders.
+ReplyRush has the lowest free entry: 1,500 DMs a month at $0, then a per-DM model from around $10/mo. At low volume it's genuinely the cheapest way to run comment-to-DM. The trade-off is predictability: your cost tracks message volume, so a post that pops can bump you a tier mid-month. Best for steady, low-volume senders.
 
 **Best for:** Low-volume creators who want the lowest free entry.
 
@@ -134,11 +134,11 @@ ReplyRush has the lowest free entry: 1,500 DMs a month at $0, then a per-DM mode
 
 **Pricing:** Free up to 1,500 DMs/mo, then per-DM from ~$10/mo.
 
-### 4. BotPenguin — ~$12.50/mo
+### 4. BotPenguin: ~$12.50/mo
 
 ![BotPenguin, a multi-channel chatbot including Instagram at around $12.50/mo](/blog/tools/botpenguin.webp)
 
-BotPenguin spans WhatsApp, Telegram, Facebook, SMS, web, and Instagram for around $12.50/mo. If you automate several channels, the bundled price is reasonable. As a pure Instagram tool it's mid-pack — the IG-specific depth is thinner than tools built only for Instagram — so it's really for multi-channel teams rather than IG-only creators.
+BotPenguin spans WhatsApp, Telegram, Facebook, SMS, web, and Instagram for around $12.50/mo. If you automate several channels, the bundled price is reasonable. As a pure Instagram tool it's mid-pack, the IG-specific depth is thinner than tools built only for Instagram, so it's really for multi-channel teams rather than IG-only creators.
 
 **Best for:** Teams automating several channels who want Instagram folded into one bot.
 
@@ -164,7 +164,7 @@ BotPenguin spans WhatsApp, Telegram, Facebook, SMS, web, and Instagram for aroun
 
 **Pricing:** Omnichannel from ~$5/mo; the Instagram-inclusive tier lands around $12.50/mo (free-forever plan available).
 
-### 5. Inrō — ~$14/mo
+### 5. Inrō: ~$14/mo
 
 ![Inrō, AI-first Instagram DM automation at around $14/mo](/blog/tools/inro.webp)
 
@@ -194,9 +194,9 @@ Inrō prices at about $14/mo flat and leans into AI-led conversations on the off
 
 **Pricing:** Free tier; Pro from €12.99/mo (~$14); Managed from €200/mo.
 
-### 6. ManyChat — $14/mo (and rising)
+### 6. ManyChat: $14/mo (and rising)
 
-ManyChat is the category default, and the clearest example of why "cheapest" needs an asterisk. The $14/mo Essential plan is real only at low contact counts — it bills per active contact, so the bill scales with your audience, and AI is a separate $29/mo add-on. After the [March 2026 free-tier cut](https://manychat.com/blog/manychat-pricing-is-changing/) (from 1,000 to 25 contacts), a lot of creators went looking for cheaper, flat-rate options. If you're weighing it specifically, see our [best ManyChat alternatives](/alternatives/manychat/) breakdown.
+ManyChat is the category default, and the clearest example of why "cheapest" needs an asterisk. The $14/mo Essential plan is real only at low contact counts; it bills per active contact, so the bill scales with your audience, and AI is a separate $29/mo add-on. After the [March 2026 free-tier cut](https://manychat.com/blog/manychat-pricing-is-changing/) (from 1,000 to 25 contacts), a lot of creators went looking for cheaper, flat-rate options. If you're weighing it specifically, see our [best ManyChat alternatives](/alternatives/manychat/) breakdown.
 
 **Best for:** Teams that genuinely need multi-channel automation (WhatsApp, Messenger, SMS) alongside Instagram.
 
@@ -222,11 +222,11 @@ ManyChat is the category default, and the clearest example of why "cheapest" nee
 
 **Pricing:** Free (25 contacts), Essential $14/mo, Pro $29/mo, Business $69/mo; billed per active contact.
 
-### 7. CreatorFlow — $15/mo
+### 7. CreatorFlow: $15/mo
 
 ![CreatorFlow, flat-rate Instagram DM tool with email capture at $15/mo](/blog/tools/creatorflow.webp)
 
-CreatorFlow is Botyoo's closest feature twin: Instagram-first, flat-rate, Meta-approved, with native email capture and a polished, Canva-style interface. The difference is price — $15/mo is roughly four times Botyoo's $3.60 for a comparable feature set. The modern UI and 500-DM free tier are real draws; the premium is the question.
+CreatorFlow is Botyoo's closest feature twin: Instagram-first, flat-rate, Meta-approved, with native email capture and a polished, Canva-style interface. The difference is price: $15/mo is roughly four times Botyoo's $3.60 for a comparable feature set. The modern UI and 500-DM free tier are real draws; the premium is the question.
 
 **Best for:** Creators who want the most polished interface, with email capture built in.
 
@@ -252,7 +252,7 @@ CreatorFlow is Botyoo's closest feature twin: Instagram-first, flat-rate, Meta-a
 
 **Pricing:** Free (500 DMs/mo), Pro $15/mo, Growth $29/mo. Flat-rate.
 
-### 8. LinkDM — $19/mo
+### 8. LinkDM: $19/mo
 
 ![LinkDM, established Instagram DM automation at $19/mo for 3 accounts](/blog/tools/linkdm.webp)
 
@@ -304,7 +304,7 @@ A cheap tool is only safe if it uses the official Instagram (Meta Graph) API rat
 
 ## Cheap Instagram DM tools with email capture
 
-Among cheap tools, only a few capture emails inside the DM itself. Botyoo ($3.60/mo), InstantDM ($9.99/mo), and CreatorFlow ($15/mo) all offer native email capture in DM flows. That makes Botyoo the cheapest Instagram DM tool with built-in email capture by a wide margin. Email capture matters most for funnels — a coach booking calls or a brand collecting leads before a sale — where capturing the email mid-DM and syncing it to your list is the whole point. For ecommerce teams, [Botyoo for ecommerce](https://botyoo.com/for/ecommerce/) maps the comment-to-DM-to-email flow to store use cases.
+Among cheap tools, only a few capture emails inside the DM itself. Botyoo ($3.60/mo), InstantDM ($9.99/mo), and CreatorFlow ($15/mo) all offer native email capture in DM flows. That makes Botyoo the cheapest Instagram DM tool with built-in email capture by a wide margin. Email capture matters most for funnels, a coach booking calls or a brand collecting leads before a sale, where capturing the email mid-DM and syncing it to your list is the whole point. For ecommerce teams, [Botyoo for ecommerce](https://botyoo.com/for/ecommerce/) maps the comment-to-DM-to-email flow to store use cases.
 
 ## The cheapest Instagram DM tool by use case
 
@@ -330,7 +330,7 @@ Botyoo is Instagram-only and flat-rate by design, so it doesn't carry the cost o
 
 ### Are cheap Instagram DM tools safe?
 
-Cheap Instagram DM automation is safe only when the tool uses the official Instagram (Meta Graph) API rather than scraping or password login. Every tool in this ranking is official-API. Avoid any tool that asks for your Instagram password — that's the unsafe, account-risking kind, regardless of how cheap it looks.
+Cheap Instagram DM automation is safe only when the tool uses the official Instagram (Meta Graph) API rather than scraping or password login. Every tool in this ranking is official-API. Avoid any tool that asks for your Instagram password; that's the unsafe, account-risking kind, regardless of how cheap it looks.
 
 ### What's the cheapest Instagram DM tool under $10/month?
 

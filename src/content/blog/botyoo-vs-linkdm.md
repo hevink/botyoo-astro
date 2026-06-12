@@ -92,7 +92,7 @@ Picture two creators. The first runs one Instagram account and a single comment-
 
 ## How to switch from LinkDM to Botyoo
 
-If you're consolidating to a single account, switching is quick. List your live comment-to-DM and keyword flows, connect your Instagram account to Botyoo through the same official Meta authorization, rebuild your top flow and test it on a live post, add a native email-capture step, then run both in parallel for a few days before switching off. [Compare Botyoo's plans](https://botyoo.com/pricing/) first. For the wider field, see our roundup of the best LinkDM alternatives *(internal link — publish once live)*.
+If you're consolidating to a single account, switching is quick. List your live comment-to-DM and keyword flows, connect your Instagram account to Botyoo through the same official Meta authorization, rebuild your top flow and test it on a live post, add a native email-capture step, then run both in parallel for a few days before switching off. [Compare Botyoo's plans](https://botyoo.com/pricing/) first. For the wider field, see our roundup of the best LinkDM alternatives *(internal link, publish once live)*.
 
 ## FAQ
 

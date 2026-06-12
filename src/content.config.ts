@@ -22,6 +22,7 @@ const help = defineCollection({
     description: z.string(),
     category: z.string().default("General"),
     order: z.number().default(99),
+    popular: z.number().optional(),
   }),
 })
 

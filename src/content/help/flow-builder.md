@@ -2,41 +2,61 @@
 title: Flow Builder
 description: Build multi-step conversation flows with the visual Flow Builder.
 category: Automations
-order: 2
+order: 5
 ---
 
 # Flow Builder
 
-The Flow Builder lets you design multi-step conversation flows visually — no code required. Instead of a single trigger → action, you can build branching conversations that respond dynamically to what users say.
+The Flow Builder lets you design multi-step conversation flows on a visual canvas, no code required. Use it when a single trigger → DM Instant Automation isn't enough.
 
 ## Opening the Flow Builder
 
-1. Go to **Automations** → **Flows**
-2. Click **New Flow** or open an existing one
-3. The canvas opens with a start node already placed
+1. Click **Create Automation** in the top bar
+2. Pick **Start from Scratch** (or any flow template)
+3. The canvas opens with a trigger node placed at the top
 
-## Node Types
+## The canvas
 
-### Message Node
-Sends a text message, image, or carousel to the contact. You can include buttons that branch the flow based on what the user taps.
+Flows are **vertical, top-down**. Each step is a card; you connect them with a single line and use the **`+`** button between cards to insert a new step.
 
-### Condition Node
-Branches the flow based on a condition — for example, whether the contact has a specific tag, or whether their message matches a keyword.
+## Adding a step
 
-### Wait Node
-Pauses the flow for a set amount of time before continuing to the next node.
+Click the **`+`** between two existing cards. A categorized step picker opens with six categories:
 
-### End Node
-Marks the end of a flow path. Add this to cleanly close a branch.
+| Category | What's in it |
+|---|---|
+| **Messages** | Send message, Like message, Send photo/video, Send audio, Send file, Send message with buttons |
+| **Conversions** | Welcome message, Conversion link, Payment link *(rolling out)* |
+| **Comments** | Comment actions |
+| **Contacts** | Add to folder, tag contact |
+| **Logic** | Time delay, Follow-up message, Trigger a scenario, Wait for reply, Scenario condition *(rolling out)*, A/B testing *(Premium)* |
+| **AI** | AI-driven steps |
 
-## Connecting Nodes
+Some steps are gated to higher plans or in active development, those appear greyed out in the picker.
 
-- Click and drag from an **output handle** (right side of a node) to an **input handle** (left side) to connect two nodes
-- Condition nodes have two outputs: **Yes** and **No**
-- Button nodes have one output per button
+## Step configuration
 
-## Saving and Activating
+Each step has its own config panel:
 
-Click **Save** to store your flow as a draft. Toggle the flow **Active** from the Flows list to start processing it.
+- **Send Message**, text (up to 1,000 chars), image, links, variables
+- **Welcome Message**, text (up to 200 chars), single button
+- **Send message with buttons**, text + multiple URL buttons (label + link)
+- **Time delay**, number + unit (minutes / hours / days)
 
-> Flows only trigger for new conversations that start after the flow is activated.
+## Variables in Flow Builder messages
+
+Use `{{contact.name}}` and `{{contact.username}}`. This is **different** from Campaign variables, see [Variables in messages](/help/variables).
+
+## Buttons
+
+Buttons send users to a URL, they're URL buttons, not branching/quick-reply buttons. For true conditional branching, the **Scenario condition** step is rolling out.
+
+## Saving and activating
+
+Click **Save** to keep your flow as a draft. Toggle the flow **Active** from the list to start processing. Flows only fire for new conversations that start after activation.
+
+## What's next
+
+- [Instant vs Flow Automations](/help/instant-vs-flow)
+- [Variables in messages](/help/variables)
+- [Follow-up sequences](/help/follow-up-sequences)

@@ -67,7 +67,7 @@ A few habits separate funnels that convert from ones that get ignored:
 
 ## The cheapest way to run comment-to-DM in 2026
 
-Comment-to-DM automation works the same across every official-API tool, so price is the main differentiator, and Botyoo runs it from $3.60/mo flat-rate with built-in email capture, the lowest serious price in the category. ManyChat starts at $14/mo and bills per contact; InstantDM is $9.99/mo flat; CreatorFlow is $15/mo. For a full price breakdown, see our roundup of the cheapest Instagram DM tools and the ManyChat-alternatives comparison *(internal links — publish once live)*.
+Comment-to-DM automation works the same across every official-API tool, so price is the main differentiator, and Botyoo runs it from $3.60/mo flat-rate with built-in email capture, the lowest serious price in the category. ManyChat starts at $14/mo and bills per contact; InstantDM is $9.99/mo flat; CreatorFlow is $15/mo. For a full price breakdown, see our roundup of the cheapest Instagram DM tools and the ManyChat-alternatives comparison *(internal links, publish once live)*.
 
 If you want comment-to-DM plus email capture for the lowest flat fee, [compare Botyoo's plans](https://botyoo.com/pricing/). For ecommerce stores routing comments into product links and lead capture, [Botyoo for ecommerce](https://botyoo.com/for/ecommerce/) maps the flow to store use cases.
 

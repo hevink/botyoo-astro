@@ -96,7 +96,7 @@ Botyoo's line never moves; ManyChat's rises with every contact, plus a separate 
 
 Switching from ManyChat to Botyoo takes an afternoon, because you rebuild a few flows rather than export a database. List your live flows (usually a comment-to-DM trigger, one or two keyword replies, and an email-capture step), connect your Instagram account to Botyoo through the same official Meta authorization ManyChat uses, rebuild your top flow first and test it on a live post, then run both tools in parallel for a week before turning ManyChat off. Most creators are fully moved within a day.
 
-If you want the wider field rather than a head-to-head, see our roundup of the best ManyChat alternatives for Instagram *(internal link — publish once live)*.
+If you want the wider field rather than a head-to-head, see our roundup of the best ManyChat alternatives for Instagram *(internal link, publish once live)*.
 
 ## FAQ
 

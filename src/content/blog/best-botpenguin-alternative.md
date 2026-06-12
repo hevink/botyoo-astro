@@ -16,7 +16,7 @@ BotPenguin is a capable multi-channel chatbot, WhatsApp, Telegram, Facebook, SMS
 
 I build one of the tools below, so I'm not neutral. Prices are public and the assessments are honest, including where BotPenguin is still the better pick.
 
-## TL;DR — the best BotPenguin alternatives at a glance
+## TL;DR: the best BotPenguin alternatives at a glance
 
 - **Cheapest Instagram-first:** [Botyoo](https://botyoo.com/), $3.60/mo, official API, built-in email capture, AI included, deep on Instagram.
 - **Cheapest established rival:** InstantDM, $9.99/mo flat-rate.
@@ -64,7 +64,7 @@ The best BotPenguin alternative for Instagram-focused creators is Botyoo at $3.6
 
 Prices verified June 2026. (Weighing ManyChat specifically? See our [best ManyChat alternatives](/alternatives/manychat/) breakdown.)
 
-### 1. Botyoo — cheapest Instagram-first, $3.60/mo
+### 1. Botyoo: cheapest Instagram-first, $3.60/mo
 
 ![Botyoo, the cheapest flat-rate Instagram DM tool at $3.60/mo](/blog/tools/botyoo.webp)
 
@@ -96,7 +96,7 @@ The trade-off is obvious: if you need WhatsApp or Facebook automation too, Botyo
 
 **Pricing:** $3.60/mo annual PRO, flat-rate. No free tier.
 
-### 2. InstantDM — flat-rate and Instagram-focused
+### 2. InstantDM: flat-rate and Instagram-focused
 
 ![InstantDM, flat-rate Instagram DM automation at $9.99/mo](/blog/tools/instantdm.webp)
 
@@ -126,7 +126,7 @@ InstantDM is an Instagram-focused Meta Business Partner at $9.99/mo flat, with n
 
 **Pricing:** $9.99/mo (Legend Pro), $24.99/mo (Trendsetter). Flat-rate, 7-day trial.
 
-### 3. ReplyRush — the best free on-ramp
+### 3. ReplyRush: the best free on-ramp
 
 ![ReplyRush, per-DM Instagram automation with a free tier](/blog/tools/replyrush.webp)
 
@@ -156,7 +156,7 @@ ReplyRush is Instagram-and-Facebook focused with a free 1,500-DM monthly tier, t
 
 **Pricing:** Free up to 1,500 DMs/mo, then per-DM from ~$10/mo.
 
-### 4. Inrō — the AI-first option
+### 4. Inrō: the AI-first option
 
 ![Inrō, AI-first Instagram DM automation at around $14/mo](/blog/tools/inro.webp)
 
@@ -186,7 +186,7 @@ Inrō is Instagram-focused and built around AI-led conversations, flat-rate at a
 
 **Pricing:** Free tier; Pro from €12.99/mo (~$14); Managed from €200/mo.
 
-### 5. CreatorFlow — the polished option
+### 5. CreatorFlow: the polished option
 
 ![CreatorFlow, flat-rate Instagram DM tool with email capture at $15/mo](/blog/tools/creatorflow.webp)
 
@@ -216,7 +216,7 @@ CreatorFlow is Instagram-first, flat-rate, Meta-approved, with native email capt
 
 **Pricing:** Free (500 DMs/mo), Pro $15/mo, Growth $29/mo. Flat-rate.
 
-### 6. LinkDM — for small agencies
+### 6. LinkDM: for small agencies
 
 ![LinkDM, established Instagram DM automation at $19/mo for 3 accounts](/blog/tools/linkdm.webp)
 

@@ -16,7 +16,7 @@ InstantDM is a legitimate Meta Business Partner and a perfectly good Instagram D
 
 I build one of the tools on this list, so I'm not neutral. The prices are all public and I've kept the assessments honest, including where InstantDM is still the better pick.
 
-## TL;DR — the best InstantDM alternatives at a glance
+## TL;DR: the best InstantDM alternatives at a glance
 
 - **Cheapest flat-rate:** [Botyoo](https://botyoo.com/), $3.60/mo, official API, built-in email capture, AI included.
 - **Best free on-ramp:** ReplyRush, 1,500 free DMs/mo, then ~$10/mo per-DM.
@@ -64,7 +64,7 @@ The cheapest InstantDM alternative is Botyoo at $3.60/mo, about a third of Insta
 
 Prices verified June 2026. ManyChat is the other big incumbent here; if you're weighing it specifically, see our [best ManyChat alternatives](/alternatives/manychat/) breakdown.
 
-### 1. Botyoo — cheapest, with the email capture InstantDM lacks
+### 1. Botyoo: cheapest, with the email capture InstantDM lacks
 
 ![Botyoo, the cheapest flat-rate Instagram DM tool at $3.60/mo](/blog/tools/botyoo.webp)
 
@@ -98,7 +98,7 @@ The honest trade-offs: there's no free plan, it's Instagram-only, and it doesn't
 
 **Pricing:** $3.60/mo annual PRO, flat-rate. No free tier.
 
-### 2. ReplyRush — the best free on-ramp
+### 2. ReplyRush: the best free on-ramp
 
 ![ReplyRush, per-DM Instagram automation with a free tier](/blog/tools/replyrush.webp)
 
@@ -130,7 +130,7 @@ The catch is predictability. Because you pay by message volume, a single comment
 
 **Pricing:** Free up to 1,500 DMs/mo, then per-DM from ~$10/mo.
 
-### 3. CreatorFlow — closest match on features
+### 3. CreatorFlow: closest match on features
 
 ![CreatorFlow, flat-rate Instagram DM tool with email capture at $15/mo](/blog/tools/creatorflow.webp)
 
@@ -162,7 +162,7 @@ At $15/mo it's the priciest mainstream pick and notably more than InstantDM's $9
 
 **Pricing:** Free (500 DMs/mo), Pro $15/mo, Growth $29/mo. Flat-rate.
 
-### 4. Inrō — the AI-first option
+### 4. Inrō: the AI-first option
 
 ![Inrō, AI-first Instagram DM automation at around $14/mo](/blog/tools/inro.webp)
 
@@ -194,7 +194,7 @@ The catch as an InstantDM alternative: it's roughly 4x Botyoo's price for AI tha
 
 **Pricing:** Free tier; Pro from €12.99/mo (~$14); Managed from €200/mo.
 
-### 5. BotPenguin — if you need more than Instagram
+### 5. BotPenguin: if you need more than Instagram
 
 ![BotPenguin, a multi-channel chatbot including Instagram at around $12.50/mo](/blog/tools/botpenguin.webp)
 
@@ -226,7 +226,7 @@ As a pure Instagram alternative to InstantDM, though, it's mid-pack: its IG-spec
 
 **Pricing:** Omnichannel from ~$5/mo; the Instagram-inclusive tier lands around $12.50/mo.
 
-### 6. LinkDM — for small agencies
+### 6. LinkDM: for small agencies
 
 ![LinkDM, established Instagram DM automation at $19/mo for 3 accounts](/blog/tools/linkdm.webp)
 

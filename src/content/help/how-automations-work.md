@@ -24,19 +24,19 @@ A trigger is the event that starts your automation. Available triggers:
 
 Actions are what Botyoo does when a trigger fires:
 
-- **Send DM** — Send a private message to the person who triggered the automation
-- **Reply to comment** — Post a public reply under the comment
-- **Add to sequence** — Enroll the contact in a follow-up message sequence
-- **Tag contact** — Add a label to the contact for filtering later
+- **Send DM**, Send a private message to the person who triggered the automation
+- **Reply to comment**, Post a public reply under the comment
+- **Add to sequence**, Enroll the contact in a follow-up message sequence
+- **Tag contact**, Add a label to the contact for filtering later
 
 ## Automation Status
 
 Each automation has one of these statuses:
 
-- **Active** — Running and processing triggers
-- **Paused** — Exists but not processing
-- **Draft** — Saved but never activated
+- **Active**, Running and processing triggers
+- **Paused**, Exists but not processing
+- **Draft**, Saved but never activated
 
 ## Limits and Cooldowns
 
-To stay within Instagram's messaging policies, Botyoo applies a cooldown per contact — the same person won't receive the same automated message more than once per 24 hours unless you explicitly configure otherwise.
+To stay within Instagram's messaging policies, Botyoo applies a cooldown per contact, the same person won't receive the same automated message more than once per 24 hours unless you explicitly configure otherwise.

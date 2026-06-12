@@ -1,5 +1,5 @@
 // Central template registry for the public landing site.
-// Mirrors the automation-templates in the Next.js app but is leaner —
+// Mirrors the automation-templates in the Next.js app but is leaner:
 // only the fields needed to render the public templates pages.
 
 export type TriggerMode =
@@ -40,7 +40,7 @@ export interface FlowStep {
   kind: StepKind
   label: string
   sublabel?: string
-  /** For branching steps — shown as two outgoing paths */
+  /** For branching steps, shown as two outgoing paths */
   branches?: [string, string]
 }
 
@@ -70,7 +70,7 @@ export const triggerLabels: Record<TriggerMode, string> = {
   CLICK_TO_DM: 'Click-to-DM ad',
 }
 
-// Accent colours per trigger — keep in sync with the flow builder
+// Accent colours per trigger, keep in sync with the flow builder
 export const triggerColors: Record<TriggerMode, string> = {
   COMMENT: '#3b82f6',
   STORY: '#8b5cf6',
@@ -125,7 +125,7 @@ export const templates: Template[] = [
     badge: 'flow-builder',
     section: 'Engage your audience',
     tags: ['engagement', 'stories'],
-    about: 'Every time someone mentions you in their story, Botyoo likes the post, tags the contact in your CRM, and fires off a heartfelt thank-you DM — all within seconds.',
+    about: 'Every time someone mentions you in their story, Botyoo likes the post, tags the contact in your CRM, and fires off a heartfelt thank-you DM, all within seconds.',
     bestFor: ['Creators', 'Artists', 'Coaches'],
     steps: [
       { kind: 'trigger', label: 'Someone mentions you in a Story' },
@@ -170,7 +170,7 @@ export const templates: Template[] = [
   {
     id: 'dm-broadcast-optin',
     name: 'DM Broadcast Opt-in',
-    description: "Build a consented subscriber list — one button tap and they're in your exclusive DM updates.",
+    description: "Build a consented subscriber list: one button tap and they're in your exclusive DM updates.",
     automationMode: 'DM',
     badge: 'flow-builder',
     section: 'Engage your audience',
@@ -204,7 +204,7 @@ export const templates: Template[] = [
   {
     id: 'grow-followers-freebie',
     name: 'Grow Followers with a Freebie',
-    description: 'Offer a free guide, template, or ebook gated behind a follow — turn commenters into loyal followers.',
+    description: 'Offer a free guide, template, or ebook gated behind a follow, turning commenters into loyal followers.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Get more leads',
@@ -221,7 +221,7 @@ export const templates: Template[] = [
   {
     id: 'get-leads-from-comments-flow',
     name: 'Get Leads From Comments',
-    description: 'Turn comments into qualified leads — collect email and deliver a guide automatically.',
+    description: 'Turn comments into qualified leads: collect email and deliver a guide automatically.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Get more leads',
@@ -239,7 +239,7 @@ export const templates: Template[] = [
   {
     id: 'grow-email-list-flow',
     name: 'Grow Your Email List',
-    description: 'Collect emails from commenters and deliver a freebie — grow your newsletter automatically.',
+    description: 'Collect emails from commenters and deliver a freebie, growing your newsletter automatically.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Get more leads',
@@ -256,7 +256,7 @@ export const templates: Template[] = [
   {
     id: 'get-leads-with-freebies-flow',
     name: 'Get Leads With Freebies',
-    description: 'Turn freebie requests into qualified leads — collect email, deliver the guide, tag contacts.',
+    description: 'Turn freebie requests into qualified leads: collect email, deliver the guide, tag contacts.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Get more leads',
@@ -274,7 +274,7 @@ export const templates: Template[] = [
   {
     id: 'run-giveaway',
     name: 'Run A Giveaway',
-    description: 'Grow followers and build your email list with a giveaway — verify follow + collect email via DM.',
+    description: 'Grow followers and build your email list with a giveaway: verify follow + collect email via DM.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Get more leads',
@@ -287,7 +287,7 @@ export const templates: Template[] = [
       { kind: 'follow-gate', label: 'Follow gate', sublabel: '"Follow to qualify for the giveaway 🔔"' },
       { kind: 'email-collect', label: 'Collect email', sublabel: '"Drop your email for the winner announcement 📧"' },
       { kind: 'message', label: 'Confirmation', sublabel: '"You\'re officially entered! 🍀 Good luck!"' },
-      { kind: 'follow-up', label: 'Follow-up in 2 days', sublabel: '"Winner announced soon — stay tuned! 👀"' },
+      { kind: 'follow-up', label: 'Follow-up in 2 days', sublabel: '"Winner announced soon, stay tuned! 👀"' },
     ],
   },
   // ── Convert & sell ────────────────────────────────────────────
@@ -312,7 +312,7 @@ export const templates: Template[] = [
   {
     id: 'get-webinar-signups-flow',
     name: 'Get Webinar Sign-Ups',
-    description: 'Turn DMs and comments into webinar registrations — collect emails and send the link.',
+    description: 'Turn DMs and comments into webinar registrations: collect emails and send the link.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Convert & sell',
@@ -331,7 +331,7 @@ export const templates: Template[] = [
   {
     id: 'gamify-ig-lives',
     name: 'Gamify IG Lives',
-    description: 'Run live quizzes with prizes — engage viewers, reward correct answers, and send prize links.',
+    description: 'Run live quizzes with prizes: engage viewers, reward correct answers, and send prize links.',
     automationMode: 'IG_LIVE',
     badge: 'flow-builder',
     section: 'Convert & sell',
@@ -347,7 +347,7 @@ export const templates: Template[] = [
   {
     id: 'sell-with-ig-lives',
     name: 'Sell With IG Lives',
-    description: 'Turn every Live into a sales engine — show your product, send the link, and follow up automatically.',
+    description: 'Turn every Live into a sales engine, show your product, send the link, and follow up automatically.',
     automationMode: 'IG_LIVE',
     badge: 'flow-builder',
     section: 'Convert & sell',
@@ -364,7 +364,7 @@ export const templates: Template[] = [
   {
     id: 'sell-your-courses',
     name: 'Sell Your Courses',
-    description: 'Sell your course through a DM funnel — tag leads, send the link, and nudge non-clickers.',
+    description: 'Sell your course through a DM funnel, tag leads, send the link, and nudge non-clickers.',
     automationMode: 'DM',
     badge: 'flow-builder',
     section: 'Convert & sell',
@@ -435,7 +435,7 @@ export const templates: Template[] = [
   {
     id: 'flash-sale',
     name: 'Flash Sale / Limited Offer',
-    description: 'Create urgency with a time-sensitive offer — comment keyword → link with 2 escalating follow-up nudges.',
+    description: 'Create urgency with a time-sensitive offer, comment keyword → link with 2 escalating follow-up nudges.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Convert & sell',
@@ -445,7 +445,7 @@ export const templates: Template[] = [
     steps: [
       { kind: 'trigger', label: 'Someone comments on your post', sublabel: 'Keywords: sale, deal, want' },
       { kind: 'comment-reply', label: 'Reply to comment', sublabel: '"Check your DMs for the deal! 🔥"' },
-      { kind: 'conversion-link', label: 'Send offer link', sublabel: '"Limited time — grab it now ⏳"' },
+      { kind: 'conversion-link', label: 'Send offer link', sublabel: '"Limited time, grab it now ⏳"' },
       { kind: 'follow-up', label: 'Follow-up #1 (2h)', sublabel: '"Still thinking? Offer ends soon ⚡"' },
       { kind: 'follow-up', label: 'Follow-up #2 (24h)', sublabel: '"Last chance! 🚨 Almost gone"' },
     ],
@@ -453,7 +453,7 @@ export const templates: Template[] = [
   {
     id: 'collab-pitch',
     name: 'Collaboration / Podcast Pitch',
-    description: 'Qualify collab requests — collect audience size, type, email, then book a call or politely decline.',
+    description: 'Qualify collab requests, collect audience size, type, email, then book a call or politely decline.',
     automationMode: 'DM',
     badge: 'flow-builder',
     section: 'Convert & sell',
@@ -470,7 +470,7 @@ export const templates: Template[] = [
   {
     id: 'job-application',
     name: 'Job Application / Hiring',
-    description: 'Accept job applications via DM — collect name + email, tag as Applicant, send confirmation.',
+    description: 'Accept job applications via DM, collect name + email, tag as Applicant, send confirmation.',
     automationMode: 'COMMENT',
     badge: 'flow-builder',
     section: 'Convert & sell',
@@ -545,7 +545,7 @@ export const templates: Template[] = [
     badge: 'instant',
     section: 'Convert & sell',
     tags: ['comments', 'links', 'instant'],
-    about: 'The simplest automation. Someone comments → they get a DM with your link immediately. No flow needed — just set a keyword and a message.',
+    about: 'The simplest automation. Someone comments → they get a DM with your link immediately. No flow needed, just set a keyword and a message.',
     bestFor: ['Creators', 'Brands', 'Anyone'],
     steps: [
       { kind: 'trigger', label: 'Someone comments on your post', sublabel: 'Keywords: link, send, yes' },
@@ -577,7 +577,7 @@ export const templates: Template[] = [
     badge: 'instant',
     section: 'Engage your audience',
     tags: ['dm', 'instant', 'engagement'],
-    about: 'Never leave a DM unanswered. Set a personalised auto-reply for any incoming DM — keyword-filtered or catch-all.',
+    about: 'Never leave a DM unanswered. Set a personalised auto-reply for any incoming DM, keyword-filtered or catch-all.',
     bestFor: ['Creators', 'Brands', 'Businesses'],
     steps: [
       { kind: 'trigger', label: 'Someone DMs you', sublabel: 'Any keyword or catch-all' },
@@ -607,7 +607,7 @@ export const templates: Template[] = [
     badge: 'instant',
     section: 'Convert & sell',
     tags: ['ig-live', 'instant', 'links'],
-    about: 'Monetise every Live. Viewers comment a keyword and instantly receive your product link, offer, or resource in their DMs — while you keep talking.',
+    about: 'Monetise every Live. Viewers comment a keyword and instantly receive your product link, offer, or resource in their DMs, while you keep talking.',
     bestFor: ['Creators', 'E-commerce', 'Coaches'],
     steps: [
       { kind: 'trigger', label: 'Comment during IG Live', sublabel: 'Keywords: link, buy, send' },
@@ -623,7 +623,7 @@ export const templates: Template[] = [
     badge: 'instant',
     section: 'Engage your audience',
     tags: ['comments', 'instant', 'all-posts'],
-    about: 'One automation covers every post. No need to set up per-post rules — Botyoo replies to every qualifying comment across your entire feed.',
+    about: 'One automation covers every post. No need to set up per-post rules, Botyoo replies to every qualifying comment across your entire feed.',
     bestFor: ['Brands', 'Creators', 'Businesses'],
     steps: [
       { kind: 'trigger', label: 'Comment on any of your posts', sublabel: 'Any keyword or catch-all' },

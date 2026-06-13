@@ -31,13 +31,22 @@ const plans: Plan[] = [
     },
     description:
       "Perfect for content creators and influencers who want to grow their Instagram presence.",
-    capacity: ["Unlimited DMs"],
+    capacity: [],
     features: [
+      "1 Instagram account (1 workspace)",
       "Unlimited automation",
       "Unlimited DMs",
+      "10,000 contacts in CRM (storage)",
+      "1,000 active contacts / mo",
+      "10 campaigns / mo",
+      "Comment-to-DM & keyword automation",
+      "In-DM email capture",
+      "Contacts CRM with tags & segments",
       "Followers growth",
       "Account safety",
       "Detailed analytics & insights",
+      "Link tracking with click analytics",
+      "Visual drag-and-drop Flow Builder",
       "Email support",
     ],
     isRecommended: false,
@@ -55,16 +64,26 @@ const plans: Plan[] = [
     },
     description:
       "Designed for brands and businesses with multiple accounts and advanced needs analytics.",
-    capacity: ["Unlimited DMs"],
+    capacity: [],
     features: [
+      "3 Instagram accounts (3 workspaces)",
       "Unlimited automation",
       "Unlimited DMs",
+      "Unlimited contacts in CRM (storage)",
+      "15,000 active contacts / mo",
+      "Unlimited campaigns / mo",
+      "Comment-to-DM & keyword automation",
+      "In-DM email capture",
+      "Contacts CRM with tags & segments",
       "Followers growth",
       "Account safety",
       "Detailed analytics & insights",
+      "Link tracking with click analytics",
+      "Visual drag-and-drop Flow Builder",
       "Email support",
       "Priority in queue",
       "Email collection",
+      "Follow-gating (links/offers for followers only)",
     ],
     isRecommended: true,
     buttonText: "Get started Now",
@@ -74,12 +93,15 @@ const plans: Plan[] = [
     price: "Contact us",
     description:
       "For agencies and large businesses managing multiple accounts with advanced customization.",
-    capacity: ["Unlimited DMs"],
+    capacity: [],
     features: [
+      "Everything in Premium",
       "Advanced custom chatbot",
       "Advanced automation rules",
+      "Visual Flow Builder (unlimited steps)",
       "API access",
       "White-label options",
+      "Priority support",
     ],
     isRecommended: false,
     buttonText: "Contact sales",
@@ -102,10 +124,14 @@ const stripCurrency = (s: string) => {
 }
 
 // Always display USD prices
-const usdPrice = (plan: Plan) =>
-  typeof plan.price === "string" ? plan.price : plan.price.USD
+type Currency = { monthly: string; quarterly: string; annually: string }
 
-const usdOriginalPrice = (plan: Plan) =>
+const usdPrice = (plan: Plan): Currency =>
+  typeof plan.price === "string"
+    ? { monthly: plan.price, quarterly: plan.price, annually: plan.price }
+    : plan.price.USD
+
+const usdOriginalPrice = (plan: Plan): Currency | undefined =>
   plan.originalPrice ? plan.originalPrice.USD : undefined
 
 const discountFor = (plan: Plan, p: Period) => {
@@ -190,9 +216,9 @@ const discountFor = (plan: Plan, p: Period) => {
                         <div class="leading-none font-medium">{plan.name}</div>
 
                         {/* Price */}
-                        <div class="mb-0.5 mt-2 block">
+                        <div class="mb-0.5 mt-2 flex min-h-10 items-center">
                           {typeof plan.price === "string" ? (
-                            <div class="mb-1 block text-2xl font-semibold">
+                            <div class="text-2xl font-semibold">
                               {plan.price}
                             </div>
                           ) : (
@@ -246,7 +272,7 @@ const discountFor = (plan: Plan, p: Period) => {
                           )}
                         </div>
 
-                        <div class="text-muted-foreground text-sm">
+                        <div class="text-muted-foreground text-sm min-h-15">
                           {plan.description}
                         </div>
 
@@ -299,7 +325,7 @@ const discountFor = (plan: Plan, p: Period) => {
                       {/* Features */}
                       <ul role="list" class="space-y-3 p-8">
                         {plan.features.map((feature) => (
-                          <li class="flex items-center gap-2">
+                          <li class="flex items-start gap-2">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
@@ -308,7 +334,7 @@ const discountFor = (plan: Plan, p: Period) => {
                               stroke-width="3.5"
                               stroke-linecap="round"
                               stroke-linejoin="round"
-                              class="text-primary size-3"
+                              class="text-primary size-3 mt-[0.3rem] shrink-0"
                             >
                               <path d="M20 6 9 17l-5-5" />
                             </svg>

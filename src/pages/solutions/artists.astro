@@ -1,40 +1,61 @@
 ---
 import Layout from "../../layouts/Layout.astro"
+import SolutionHero from "../../components/SolutionHero.astro"
+import SolutionFaq from "../../components/SolutionFaq.astro"
+import CtaBanner from "../../components/CtaBanner.astro"
+import UseCases from "../../components/UseCases.astro"
+
+const useCases = [
+  {
+    title: "Pre-save campaigns",
+    desc: `Comment "PRESAVE" → DM with the Spotify/Apple pre-save link. Track who opted in and message them on release day.`,
+  },
+  {
+    title: "Stream link delivery",
+    desc: "New single, EP, or album drop? Send the stream link directly to fans via DM the moment it's live, no post burial, no link-in-bio friction.",
+  },
+  {
+    title: "Merch and ticket drops",
+    desc: "Build hype with a post, capture interest through comments, then DM the checkout link to everyone who signaled interest. Sell out faster.",
+  },
+  {
+    title: "Fan segmentation",
+    desc: "Tag fans by campaign, engagement level, or location. Send tour DMs only to fans in relevant cities. Superfan-only early access. Keep it personal at scale.",
+  },
+]
+
+const faqs = [
+  {
+    q: "Can I use DMs to promote music without coming across as spam?",
+    a: `Yes, because Botyoo only sends DMs to fans who opt in by interacting first (commenting, using a keyword, replying to a story). You're never cold-messaging strangers. Every person you DM already raised their hand, which means the message feels personal, not promotional.`,
+  },
+  {
+    q: "How do pre-save campaigns work with Botyoo?",
+    a: `Post a teaser with a call-to-action like "comment PRESAVE for the link." Botyoo instantly DMs each person the pre-save URL and tags them. On release day, you fire a campaign to everyone in that group with the stream link, closing the loop automatically.`,
+  },
+  {
+    q: "Can I build a direct fan channel outside the algorithm?",
+    a: `That's exactly what Botyoo's contact list is for. Every fan who interacts with your automations gets stored as a contact. You can DM the whole list anytime, for new releases, tour announcements, or merch drops, without relying on Instagram's feed algorithm to surface your post.`,
+  },
+  {
+    q: "We're a label managing multiple artists, does Botyoo handle that?",
+    a: `Yes. Botyoo supports multiple workspaces, so each artist gets their own separate account, automations, and contact list. Labels and management teams can switch between workspaces from one login without any crossover between fan data or flows.`,
+  },
+]
 ---
 
 <Layout
   title="Botyoo for Artists & Labels: Drop Music Straight Into Fans' DMs"
   description="Your fans are already on Instagram. Botyoo helps you connect with them personally: pre-saves, stream links, merch drops, and tour announcements, all delivered via DM automatically."
 >
-  <main class="pt-28 pb-28">
+  <SolutionHero
+    eyebrow="For Artists & Labels"
+    title="Drop your music straight into"
+    highlight="your fans' DMs."
+    description="Your fans are already on Instagram. Botyoo helps you connect with them personally: pre-saves, stream links, merch drops, and tour announcements, all delivered via DM automatically."
+  />
+  <main class="pb-28">
     <div class="mx-auto max-w-4xl px-6">
-
-      {/* Hero */}
-      <section class="py-12 border-b border-border">
-        <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
-          For Artists & Labels
-        </p>
-        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-foreground max-w-2xl leading-tight">
-          Drop your music straight into your fans' DMs.
-        </h1>
-        <p class="mt-4 text-lg text-muted-foreground max-w-xl leading-relaxed">
-          Your fans are already on Instagram. Botyoo helps you connect with them personally: pre-saves, stream links, merch drops, and tour announcements, all delivered via DM automatically.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            href="https://app.botyoo.com/dashboard"
-            class="inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
-          >
-            Get started free
-          </a>
-          <a
-            href="/pricing"
-            class="inline-flex items-center gap-2 rounded-lg border border-border bg-card text-foreground px-5 py-2.5 text-sm font-medium hover:bg-muted/50 transition-colors"
-          >
-            See pricing
-          </a>
-        </div>
-      </section>
 
       {/* How it works */}
       <section class="py-14 border-b border-border">
@@ -161,96 +182,19 @@ import Layout from "../../layouts/Layout.astro"
         <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
           Key use cases
         </h2>
-        <div class="grid sm:grid-cols-2 gap-px bg-border border border-border rounded-xl overflow-hidden">
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Pre-save campaigns</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Comment "PRESAVE" → DM with the Spotify/Apple pre-save link. Track who opted in and message them on release day.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Stream link delivery</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">New single, EP, or album drop? Send the stream link directly to fans via DM the moment it's live, no post burial, no link-in-bio friction.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Merch and ticket drops</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Build hype with a post, capture interest through comments, then DM the checkout link to everyone who signaled interest. Sell out faster.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Fan segmentation</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Tag fans by campaign, engagement level, or location. Send tour DMs only to fans in relevant cities. Superfan-only early access. Keep it personal at scale.</p>
-          </div>
-        </div>
+        <UseCases items={useCases} />
       </section>
 
       {/* FAQ */}
-      <section class="py-14 border-b border-border">
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
-          FAQ
-        </h2>
-        <div class="divide-y divide-border" id="faq">
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              Can I use DMs to promote music without coming across as spam?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Yes, because Botyoo only sends DMs to fans who opt in by interacting first (commenting, using a keyword, replying to a story). You're never cold-messaging strangers. Every person you DM already raised their hand, which means the message feels personal, not promotional.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              How do pre-save campaigns work with Botyoo?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Post a teaser with a call-to-action like "comment PRESAVE for the link." Botyoo instantly DMs each person the pre-save URL and tags them. On release day, you fire a campaign to everyone in that group with the stream link, closing the loop automatically.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              Can I build a direct fan channel outside the algorithm?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">That's exactly what Botyoo's contact list is for. Every fan who interacts with your automations gets stored as a contact. You can DM the whole list anytime, for new releases, tour announcements, or merch drops, without relying on Instagram's feed algorithm to surface your post.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              We're a label managing multiple artists, does Botyoo handle that?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Yes. Botyoo supports multiple workspaces, so each artist gets their own separate account, automations, and contact list. Labels and management teams can switch between workspaces from one login without any crossover between fan data or flows.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section class="py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <p class="text-lg font-semibold text-foreground">Your next release deserves a direct line to your fans.</p>
-          <p class="text-sm text-muted-foreground mt-1">Set up in under 5 minutes. No credit card needed.</p>
-        </div>
-        <a
-          href="https://app.botyoo.com/dashboard"
-          class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
-        >
-          Start building free →
-        </a>
-      </section>
+      <SolutionFaq items={faqs} />
 
     </div>
+
+    {/* Bottom CTA */}
+    <CtaBanner
+      title="A direct line to your fans."
+      ctaText="Start building free"
+      note="Set up in under 5 minutes. No credit card needed."
+    />
   </main>
 </Layout>
-
-<script>
-  document.querySelectorAll('.faq-item').forEach((item) => {
-    item.querySelector('.faq-trigger')?.addEventListener('click', () => {
-      const body = item.querySelector('.faq-body')
-      const icon = item.querySelector('.faq-icon')
-      body?.classList.toggle('hidden')
-      icon?.classList.toggle('rotate-180')
-    })
-  })
-</script>

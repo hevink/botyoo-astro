@@ -1,0 +1,103 @@
+---
+// Shared hero for /solutions/* pages.
+// Mirrors the homepage Hero.astro look: constellation background, centered
+// layout, Meta Tech Provider badge and a gradient-emphasised headline.
+const CONSTELLATION_SRC = "/constellation.webp"
+
+interface Props {
+  eyebrow: string
+  title: string
+  highlight?: string
+  description: string
+}
+
+const { eyebrow, title, highlight, description } = Astro.props
+---
+
+<section class="bg-background relative overflow-hidden border-b border-border">
+  {/* Background layer 1: dithered */}
+  <div
+    class="mask-b-from-55% mask-b-to-75% mask-radial-from-45% dither mask-radial-at-bottom mask-radial-[125%_80%] lg:aspect-3/2 absolute inset-0 opacity-15"
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      decoding="async"
+      width="2342"
+      height="1561"
+      class="size-full object-cover"
+      src={CONSTELLATION_SRC}
+    />
+  </div>
+
+  {/* Background layer 2 */}
+  <div
+    class="mask-b-from-55% mask-b-to-75% mask-radial-from-45% mask-radial-at-bottom mask-radial-[125%_80%] lg:aspect-7/5 absolute inset-0"
+  >
+    <img
+      alt=""
+      aria-hidden="true"
+      fetchpriority="high"
+      decoding="async"
+      width="2342"
+      height="1561"
+      class="size-full object-cover"
+      src={CONSTELLATION_SRC}
+    />
+  </div>
+
+  <div class="relative z-10 pb-16 pt-28 md:pt-32 lg:pt-40">
+    <div
+      class="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-4 px-6 text-center"
+    >
+      <div class="flex flex-col items-center">
+        <img
+          src="/meta-tech-provider.png"
+          alt="Meta Tech Provider verified"
+          width="180"
+          height="60"
+          class="mb-6 h-10 w-auto md:h-12"
+        />
+        <p
+          class="text-muted-foreground mb-4 text-xs font-semibold uppercase tracking-widest"
+        >
+          {eyebrow}
+        </p>
+        <h1
+          class="text-foreground text-balance text-4xl font-semibold lg:text-5xl"
+        >
+          {title}{" "}
+          {
+            highlight && (
+              <span
+                class="bg-linear-to-b from-foreground/50 to-foreground/95 bg-clip-text text-transparent [-webkit-text-stroke:0.5px_var(--color-foreground)]"
+              >
+                {highlight}
+              </span>
+            )
+          }
+        </h1>
+      </div>
+      <div class="flex max-w-xl flex-col items-center">
+        <p class="text-muted-foreground mb-6 text-balance text-lg">
+          {description}
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="https://app.botyoo.com/dashboard"
+            class="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-md border-[0.5px] border-white/25 shadow-black/20 bg-primary ring-1 ring-(--ring-color) [--ring-color:color-mix(in_oklab,var(--color-foreground)_15%,var(--color-primary))] text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-4 text-sm"
+          >
+            Get started free
+          </a>
+          <a
+            href="/pricing"
+            class="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-sm shadow-black/15 border border-transparent ring-1 duration-200 ring-foreground/15 hover:bg-muted/50 h-9 rounded-md px-4 text-sm bg-foreground/10 backdrop-blur"
+          >
+            See pricing
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

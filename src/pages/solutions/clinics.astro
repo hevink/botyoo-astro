@@ -1,40 +1,61 @@
 ---
 import Layout from "../../layouts/Layout.astro"
+import SolutionHero from "../../components/SolutionHero.astro"
+import SolutionFaq from "../../components/SolutionFaq.astro"
+import CtaBanner from "../../components/CtaBanner.astro"
+import UseCases from "../../components/UseCases.astro"
+
+const useCases = [
+  {
+    title: "After-hours consultation capture",
+    desc: "Patients DM at all hours. Botyoo responds instantly at 11pm just as well as 11am, so you never lose a lead to a slow reply from a competitor who responded first.",
+  },
+  {
+    title: "Patient qualification flows",
+    desc: "Collect treatment interest, budget range, and timeline through a natural DM conversation before your team ever picks up the phone.",
+  },
+  {
+    title: "Lead recovery sequences",
+    desc: "Re-engage inquiries that went cold with a timed follow-up: a seasonal offer, a new treatment announcement, or a simple check-in. Recover bookings without manual outreach.",
+  },
+  {
+    title: "CRM sync",
+    desc: "Push qualified lead data, name, Instagram handle, treatment interest, contact details, to your CRM or Google Sheet automatically via webhook. No copy-paste.",
+  },
+]
+
+const faqs = [
+  {
+    q: "What exactly is Instagram automation for clinics?",
+    a: `It means Botyoo handles the first layer of patient communication on Instagram automatically: replying to DMs, collecting intake information, and routing qualified leads to your team. You're not replacing your staff; you're making sure no inquiry slips through because it came in at midnight or during a busy clinic day.`,
+  },
+  {
+    q: "How do I get Botyoo set up for my medspa?",
+    a: `Connect your Instagram business account, pick a template (we have a ready-made clinic inquiry flow), customize the questions and your clinic's tone, and activate. Most practices are live within 10–15 minutes. No technical setup required. If you can type a DM, you can configure Botyoo.`,
+  },
+  {
+    q: "How is this different from a generic chatbot?",
+    a: `Generic chatbots are rigid, scripted, and obvious. Botyoo's AI replies naturally, adapts to what the patient says, and knows when to escalate to a human. You can instruct it with your clinic's voice, treatment menu, and what not to say. Patients get a professional, warm response, not a bot-shaped wall.`,
+  },
+  {
+    q: "How long until we start seeing new consultation bookings?",
+    a: `Most clinics see their first automatically-handled inquiry within hours of going live, assuming there's existing DM traffic from their Instagram content. If your account doesn't get many DMs yet, Botyoo also captures leads from comments on posts, so your content can start generating inquiries without people needing to initiate a DM first.`,
+  },
+]
 ---
 
 <Layout
   title="Botyoo for Clinics & Medspas: Never Miss a Patient Inquiry Again"
   description="Botyoo replies to every Instagram DM in seconds, capturing patient interest, asking qualifying questions, and routing ready-to-book leads straight to your team."
 >
-  <main class="pt-28 pb-28">
+  <SolutionHero
+    eyebrow="For Clinics & Medspas"
+    title="Never miss a"
+    highlight="patient inquiry again."
+    description="Botyoo replies to every Instagram DM in seconds, capturing patient interest, asking qualifying questions, and routing ready-to-book leads straight to your team."
+  />
+  <main class="pb-28">
     <div class="mx-auto max-w-4xl px-6">
-
-      {/* Hero */}
-      <section class="py-12 border-b border-border">
-        <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
-          For Clinics & Medspas
-        </p>
-        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-foreground max-w-2xl leading-tight">
-          Never miss a patient inquiry again.
-        </h1>
-        <p class="mt-4 text-lg text-muted-foreground max-w-xl leading-relaxed">
-          Botyoo replies to every Instagram DM in seconds, capturing patient interest, asking qualifying questions, and routing ready-to-book leads straight to your team.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            href="https://app.botyoo.com/dashboard"
-            class="inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
-          >
-            Get started free
-          </a>
-          <a
-            href="/pricing"
-            class="inline-flex items-center gap-2 rounded-lg border border-border bg-card text-foreground px-5 py-2.5 text-sm font-medium hover:bg-muted/50 transition-colors"
-          >
-            See pricing
-          </a>
-        </div>
-      </section>
 
       {/* How it works */}
       <section class="py-14 border-b border-border">
@@ -176,96 +197,19 @@ import Layout from "../../layouts/Layout.astro"
         <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
           Key use cases
         </h2>
-        <div class="grid sm:grid-cols-2 gap-px bg-border border border-border rounded-xl overflow-hidden">
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">After-hours consultation capture</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Patients DM at all hours. Botyoo responds instantly at 11pm just as well as 11am, so you never lose a lead to a slow reply from a competitor who responded first.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Patient qualification flows</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Collect treatment interest, budget range, and timeline through a natural DM conversation before your team ever picks up the phone.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Lead recovery sequences</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Re-engage inquiries that went cold with a timed follow-up: a seasonal offer, a new treatment announcement, or a simple check-in. Recover bookings without manual outreach.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">CRM sync</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Push qualified lead data, name, Instagram handle, treatment interest, contact details, to your CRM or Google Sheet automatically via webhook. No copy-paste.</p>
-          </div>
-        </div>
+        <UseCases items={useCases} />
       </section>
 
       {/* FAQ */}
-      <section class="py-14 border-b border-border">
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
-          FAQ
-        </h2>
-        <div class="divide-y divide-border" id="faq">
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              What exactly is Instagram automation for clinics?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">It means Botyoo handles the first layer of patient communication on Instagram automatically: replying to DMs, collecting intake information, and routing qualified leads to your team. You're not replacing your staff; you're making sure no inquiry slips through because it came in at midnight or during a busy clinic day.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              How do I get Botyoo set up for my medspa?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Connect your Instagram business account, pick a template (we have a ready-made clinic inquiry flow), customize the questions and your clinic's tone, and activate. Most practices are live within 10–15 minutes. No technical setup required. If you can type a DM, you can configure Botyoo.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              How is this different from a generic chatbot?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Generic chatbots are rigid, scripted, and obvious. Botyoo's AI replies naturally, adapts to what the patient says, and knows when to escalate to a human. You can instruct it with your clinic's voice, treatment menu, and what not to say. Patients get a professional, warm response, not a bot-shaped wall.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              How long until we start seeing new consultation bookings?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Most clinics see their first automatically-handled inquiry within hours of going live, assuming there's existing DM traffic from their Instagram content. If your account doesn't get many DMs yet, Botyoo also captures leads from comments on posts, so your content can start generating inquiries without people needing to initiate a DM first.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section class="py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <p class="text-lg font-semibold text-foreground">The next inquiry that comes in at midnight shouldn't go unanswered.</p>
-          <p class="text-sm text-muted-foreground mt-1">Set up in under 5 minutes. No credit card needed.</p>
-        </div>
-        <a
-          href="https://app.botyoo.com/dashboard"
-          class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
-        >
-          Start building free →
-        </a>
-      </section>
+      <SolutionFaq items={faqs} />
 
     </div>
+
+    {/* Bottom CTA */}
+    <CtaBanner
+      title="Never miss a midnight inquiry."
+      ctaText="Start building free"
+      note="Set up in under 5 minutes. No credit card needed."
+    />
   </main>
 </Layout>
-
-<script>
-  document.querySelectorAll('.faq-item').forEach((item) => {
-    item.querySelector('.faq-trigger')?.addEventListener('click', () => {
-      const body = item.querySelector('.faq-body')
-      const icon = item.querySelector('.faq-icon')
-      body?.classList.toggle('hidden')
-      icon?.classList.toggle('rotate-180')
-    })
-  })
-</script>

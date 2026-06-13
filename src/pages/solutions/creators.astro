@@ -1,40 +1,61 @@
 ---
 import Layout from "../../layouts/Layout.astro"
+import SolutionHero from "../../components/SolutionHero.astro"
+import SolutionFaq from "../../components/SolutionFaq.astro"
+import CtaBanner from "../../components/CtaBanner.astro"
+import UseCases from "../../components/UseCases.astro"
+
+const useCases = [
+  {
+    title: "Freebie delivery",
+    desc: "Comment a keyword → instant DM with your PDF, checklist, or guide. No link-in-bio friction, no lost leads.",
+  },
+  {
+    title: "Link in bio replacement",
+    desc: "Stop sending people to a static page. Drive them to DMs instead, higher engagement, better tracking, real conversations.",
+  },
+  {
+    title: "Story reply automation",
+    desc: "Mention your lead magnet in a story. Everyone who replies gets a DM instantly, even at 3am when you're asleep.",
+  },
+  {
+    title: "Course and offer promotion",
+    desc: "Warm up your audience through DM conversations before pitching. Followers who reply are already engaged, they convert better.",
+  },
+]
+
+const faqs = [
+  {
+    q: "Will Instagram flag my account for using automation?",
+    a: `Botyoo connects through Meta's official API, so you're working within Instagram's permitted automation tools, not scraping or botting. This is the same infrastructure that major brands and agencies use. Following Meta's guidelines (like not spamming unsolicited DMs) keeps your account in good standing.`,
+  },
+  {
+    q: "Can I use this to deliver different freebies to different audiences?",
+    a: `Yes, each automation you create has its own keyword, message, and destination link. So you can run a "GUIDE" automation for one post and a "TEMPLATE" automation for another, and each sends the right thing to the right person. No mixing, no mistakes.`,
+  },
+  {
+    q: "How does email list building through DMs actually work?",
+    a: `After sending the initial freebie, your flow can ask a follow-up question like "Want me to email this too?" When someone replies with their address, Botyoo captures it and stores it as a contact. You can then export those emails or connect them to your email tool via Zapier or webhook.`,
+  },
+  {
+    q: "Can I promote a paid course or offer through DM flows?",
+    a: `Absolutely. Many creators use Botyoo to warm up leads with a freebie first, then follow up days later with a pitch for their paid offer. The sequence feels personal rather than spammy, which means higher open rates and better conversion compared to a cold link drop.`,
+  },
+]
 ---
 
 <Layout
   title="Botyoo for Content Creators: Turn Engagement Into a Lead Machine"
   description="Stop manually replying to every comment. Botyoo turns your Instagram engagement into a 24/7 lead machine, delivering freebies, links, and offers while you're focused on creating."
 >
-  <main class="pt-28 pb-28">
+  <SolutionHero
+    eyebrow="For Content Creators"
+    title="Your content works hard."
+    highlight="Your DMs should too."
+    description="Stop manually replying to every comment. Botyoo turns your Instagram engagement into a 24/7 lead machine, delivering freebies, links, and offers while you're focused on creating."
+  />
+  <main class="pb-28">
     <div class="mx-auto max-w-4xl px-6">
-
-      {/* Hero */}
-      <section class="py-12 border-b border-border">
-        <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
-          For Content Creators
-        </p>
-        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-foreground max-w-2xl leading-tight">
-          Your content works hard. Your DMs should too.
-        </h1>
-        <p class="mt-4 text-lg text-muted-foreground max-w-xl leading-relaxed">
-          Stop manually replying to every comment. Botyoo turns your Instagram engagement into a 24/7 lead machine, delivering freebies, links, and offers while you're focused on creating.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            href="https://app.botyoo.com/dashboard"
-            class="inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
-          >
-            Get started free
-          </a>
-          <a
-            href="/pricing"
-            class="inline-flex items-center gap-2 rounded-lg border border-border bg-card text-foreground px-5 py-2.5 text-sm font-medium hover:bg-muted/50 transition-colors"
-          >
-            See pricing
-          </a>
-        </div>
-      </section>
 
       {/* How it works */}
       <section class="py-14 border-b border-border">
@@ -149,96 +170,19 @@ import Layout from "../../layouts/Layout.astro"
         <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
           Key use cases
         </h2>
-        <div class="grid sm:grid-cols-2 gap-px bg-border border border-border rounded-xl overflow-hidden">
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Freebie delivery</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Comment a keyword → instant DM with your PDF, checklist, or guide. No link-in-bio friction, no lost leads.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Link in bio replacement</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Stop sending people to a static page. Drive them to DMs instead, higher engagement, better tracking, real conversations.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Story reply automation</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Mention your lead magnet in a story. Everyone who replies gets a DM instantly, even at 3am when you're asleep.</p>
-          </div>
-          <div class="bg-background p-5">
-            <p class="font-semibold text-sm text-foreground">Course and offer promotion</p>
-            <p class="text-xs text-muted-foreground mt-1.5 leading-relaxed">Warm up your audience through DM conversations before pitching. Followers who reply are already engaged, they convert better.</p>
-          </div>
-        </div>
+        <UseCases items={useCases} />
       </section>
 
       {/* FAQ */}
-      <section class="py-14 border-b border-border">
-        <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-8">
-          FAQ
-        </h2>
-        <div class="divide-y divide-border" id="faq">
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              Will Instagram flag my account for using automation?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Botyoo connects through Meta's official API, so you're working within Instagram's permitted automation tools, not scraping or botting. This is the same infrastructure that major brands and agencies use. Following Meta's guidelines (like not spamming unsolicited DMs) keeps your account in good standing.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              Can I use this to deliver different freebies to different audiences?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Yes, each automation you create has its own keyword, message, and destination link. So you can run a "GUIDE" automation for one post and a "TEMPLATE" automation for another, and each sends the right thing to the right person. No mixing, no mistakes.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              How does email list building through DMs actually work?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">After sending the initial freebie, your flow can ask a follow-up question like "Want me to email this too?" When someone replies with their address, Botyoo captures it and stores it as a contact. You can then export those emails or connect them to your email tool via Zapier or webhook.</p>
-            </div>
-          </div>
-          <div class="faq-item py-4">
-            <button type="button" class="faq-trigger w-full flex items-center justify-between text-left gap-4 text-sm font-medium text-foreground">
-              Can I promote a paid course or offer through DM flows?
-              <svg class="faq-icon shrink-0 w-4 h-4 text-muted-foreground transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="faq-body hidden pt-3">
-              <p class="text-sm text-muted-foreground leading-relaxed">Absolutely. Many creators use Botyoo to warm up leads with a freebie first, then follow up days later with a pitch for their paid offer. The sequence feels personal rather than spammy, which means higher open rates and better conversion compared to a cold link drop.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SolutionFaq items={faqs} />
 
       {/* Bottom CTA */}
-      <section class="py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <p class="text-lg font-semibold text-foreground">Your next post could be your best lead gen ever.</p>
-          <p class="text-sm text-muted-foreground mt-1">Set up in under 5 minutes. No credit card needed.</p>
-        </div>
-        <a
-          href="https://app.botyoo.com/dashboard"
-          class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-colors"
-        >
-          Start building free →
-        </a>
-      </section>
-
     </div>
+
+    <CtaBanner
+      title="Your next post, your best lead gen."
+      ctaText="Start building free"
+      note="Set up in under 5 minutes. No credit card needed."
+    />
   </main>
 </Layout>
-
-<script>
-  document.querySelectorAll('.faq-item').forEach((item) => {
-    item.querySelector('.faq-trigger')?.addEventListener('click', () => {
-      const body = item.querySelector('.faq-body')
-      const icon = item.querySelector('.faq-icon')
-      body?.classList.toggle('hidden')
-      icon?.classList.toggle('rotate-180')
-    })
-  })
-</script>

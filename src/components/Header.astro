@@ -22,23 +22,26 @@ const menus: Menu[] = [
     gridCols: "grid-cols-4",
     columns: [
       {
-        label: "Use cases",
+        label: "Products",
+        card: true,
+        items: [
+          { label: "Comment to DM", href: "/product/comment-to-dm", desc: "Auto-DM anyone who comments", icon: "message-square", tint: "fill-blue-500/15" },
+          { label: "DM Campaigns", href: "/product/dm-campaigns", desc: "Broadcasts & sequences in DMs", icon: "send", tint: "fill-indigo-500/15" },
+          { label: "Smart Inbox & CRM", href: "/product/smart-inbox-crm", desc: "Every DM and contact in one place", icon: "user-check", tint: "fill-emerald-500/20" },
+        ],
+      },
+      {
+        label: "Automations",
         span: 2,
         card: true,
         twoCol: true,
         items: [
-          { label: "Comment → DM", href: "/templates/dm-from-comments", desc: "Auto-reply to comments in DMs", icon: "message-square", tint: "fill-blue-500/15" },
-          { label: "Story replies", href: "/templates/dm-from-stories", desc: "Respond to story mentions", icon: "at-sign", tint: "fill-pink-500/15" },
-          { label: "Lead capture", href: "/templates/get-leads-from-comments-flow", desc: "Qualify leads 24/7", icon: "user-check", tint: "fill-emerald-500/20" },
-          { label: "DM broadcasts", href: "/templates/dm-broadcast-optin", desc: "Message your opt-in list", icon: "send", tint: "fill-indigo-500/15" },
-        ],
-      },
-      {
-        label: "Solutions",
-        card: true,
-        items: [
-          { label: "For E-commerce", href: "/solutions/ecommerce", desc: "Turn comments into sales", icon: "shopping-bag", tint: "fill-emerald-500/25" },
-          { label: "Templates", href: "/templates", desc: "Ready-made flows", icon: "layout-grid", tint: "fill-amber-500/15" },
+          { label: "Story Mentions", href: "/product/story-mentions", desc: "Reward fans who tag you", icon: "at-sign", tint: "fill-amber-500/15" },
+          { label: "Story Replies", href: "/product/story-replies", desc: "DM everyone who replies", icon: "message-square", tint: "fill-violet-500/15" },
+          { label: "Post Shares", href: "/product/post-shares", desc: "Turn shares into chats", icon: "share-2", tint: "fill-emerald-500/15" },
+          { label: "Live Comments", href: "/product/live-comments", desc: "Sell during IG Live", icon: "radio", tint: "fill-rose-500/15" },
+          { label: "Click-to-DM Ads", href: "/product/click-to-dm-ads", desc: "Convert ad clicks", icon: "mouse-pointer-click", tint: "fill-pink-500/15" },
+          { label: "Templates", href: "/templates", desc: "Ready-made flows", icon: "layout-grid", tint: "fill-sky-500/15" },
         ],
       },
       {
@@ -126,6 +129,9 @@ const iconPaths: Record<string, string> = {
   music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
   briefcase: '<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
   stethoscope: '<path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/>',
+  "share-2": '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>',
+  radio: '<path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/>',
+  "mouse-pointer-click": '<path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/>',
 }
 
 const currentPath = Astro.url.pathname

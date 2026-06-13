@@ -1,0 +1,283 @@
+---
+// Alternating text + illustrative mockup row for /product/* pages.
+// The right-hand "visual" is rendered with inline HTML (no screenshots),
+// matching the card aesthetic used on the homepage FeatureCallout.
+import type { ProductVisual } from "../data/products"
+
+interface Props {
+  index: number
+  title: string
+  desc: string
+  visual: ProductVisual
+}
+
+const { index, title, desc, visual } = Astro.props
+const flip = index % 2 === 1
+---
+
+<div
+  class:list={[
+    "grid items-center gap-10 md:grid-cols-2 md:gap-16",
+    flip && "md:[&>*:first-child]:order-2",
+  ]}
+>
+  {/* Copy */}
+  <div class="text-balance">
+    <span
+      class="text-foreground inline-flex size-7 items-center justify-center rounded-full bg-foreground/8 text-sm font-semibold ring-1 ring-foreground/10"
+    >
+      {index + 1}
+    </span>
+    <h3 class="text-foreground mt-4 text-2xl font-semibold tracking-tight">
+      {title}
+    </h3>
+    <p class="text-muted-foreground mt-3 text-base leading-relaxed">{desc}</p>
+  </div>
+
+  {/* Visual */}
+  <div class="relative">
+    <div
+      class="dither pointer-events-none absolute -inset-6 -z-10 rounded-3xl opacity-30"
+    >
+    </div>
+    <div
+      class="bg-card/95 ring-border relative mx-auto max-w-md rounded-2xl p-6 shadow-md shadow-black/5 ring-1"
+    >
+      {/* ── list ─────────────────────────────────────────── */}
+      {
+        visual.kind === "list" && (
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-foreground text-sm font-semibold">{visual.label}</span>
+              {visual.live && (
+                <span class="text-muted-foreground inline-flex items-center gap-1.5 text-xs">
+                  <span class="size-2 animate-pulse rounded-full bg-emerald-500" />
+                  {visual.live}
+                </span>
+              )}
+            </div>
+            <div class="space-y-2.5">
+              {visual.rows.map((row) => (
+                <div class="flex items-center gap-3 rounded-lg bg-foreground/5 p-3">
+                  <div class="text-foreground/70 flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground/10 text-xs font-bold">
+                    {row.initials}
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-foreground text-xs font-medium">{row.name}</p>
+                    <p class="text-muted-foreground truncate text-xs">{row.text}</p>
+                  </div>
+                  <span class="text-muted-foreground shrink-0 text-xs font-medium">
+                    {row.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div class="text-muted-foreground flex justify-between border-t border-foreground/10 pt-3 text-xs">
+              <span>{visual.footer.left}</span>
+              <span>{visual.footer.right}</span>
+            </div>
+          </div>
+        )
+      }
+
+      {/* ── chat ─────────────────────────────────────────── */}
+      {
+        visual.kind === "chat" && (
+          <div class="space-y-4">
+            <span class="text-foreground text-sm font-semibold">{visual.label}</span>
+            <div class="space-y-2.5">
+              {visual.bubbles.map((b) =>
+                b.from === "them" && b.text.includes("Wait") ? (
+                  <div class="flex justify-center">
+                    <span class="text-muted-foreground rounded-full bg-foreground/5 px-3 py-1 text-[11px]">
+                      {b.text}
+                    </span>
+                  </div>
+                ) : b.from === "me" ? (
+                  <div class="bg-foreground/5 text-muted-foreground ml-auto max-w-[85%] rounded-lg rounded-tr-none p-3 text-xs leading-relaxed">
+                    {b.text}
+                  </div>
+                ) : (
+                  <div class="flex max-w-[85%] items-end gap-2">
+                    <div class="text-foreground/70 flex size-6 shrink-0 items-center justify-center rounded-full bg-foreground/10 text-[10px] font-bold">
+                      {b.initials ?? "·"}
+                    </div>
+                    <div class="bg-foreground/10 text-foreground rounded-lg rounded-tl-none p-3 text-xs leading-relaxed">
+                      {b.text}
+                    </div>
+                  </div>
+                ),
+              )}
+            </div>
+            <div class="text-muted-foreground flex justify-between border-t border-foreground/10 pt-3 text-xs">
+              <span>{visual.footer.left}</span>
+              <span>{visual.footer.right}</span>
+            </div>
+          </div>
+        )
+      }
+
+      {/* ── tags / segments ──────────────────────────────── */}
+      {
+        visual.kind === "tags" && (
+          <div class="space-y-4">
+            <div>
+              <span class="text-foreground text-sm font-semibold">{visual.label}</span>
+              {visual.subtitle && (
+                <p class="text-muted-foreground mt-1 text-xs">{visual.subtitle}</p>
+              )}
+            </div>
+            <div class="space-y-2">
+              {visual.segments.map((s) => (
+                <div class="flex items-center justify-between rounded-lg border border-foreground/10 bg-foreground/[0.03] px-3 py-2.5">
+                  <span class="text-foreground flex items-center gap-2 text-sm font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary shrink-0"><path d="M9 5H2v7l6.29 6.29c.94.94 2.48.94 3.42 0l3.58-3.58c.94-.94.94-2.48 0-3.42L9 5Z"/><path d="M6 9.01V9"/><path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/></svg>
+                    {s.label}
+                  </span>
+                  <span class="text-muted-foreground bg-foreground/10 rounded-full px-2 py-0.5 text-xs font-medium">
+                    {s.count}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div class="text-muted-foreground flex justify-between border-t border-foreground/10 pt-3 text-xs">
+              <span>{visual.footer.left}</span>
+              <span>{visual.footer.right}</span>
+            </div>
+          </div>
+        )
+      }
+
+      {/* ── stats ────────────────────────────────────────── */}
+      {
+        visual.kind === "stats" && (
+          <div class="space-y-4">
+            <div>
+              <span class="text-foreground text-sm font-semibold">{visual.label}</span>
+              {visual.subtitle && (
+                <p class="text-muted-foreground mt-1 text-xs">{visual.subtitle}</p>
+              )}
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              {visual.stats.map((st) => (
+                <div class="rounded-lg bg-foreground/5 p-3 text-center">
+                  <p class="text-foreground text-xl font-semibold">{st.value}</p>
+                  <p class="text-muted-foreground text-[11px]">{st.label}</p>
+                </div>
+              ))}
+            </div>
+            <div class="space-y-2.5 pt-1">
+              {visual.bars.map((bar) => (
+                <div class="space-y-1">
+                  <div class="text-muted-foreground flex justify-between text-[11px]">
+                    <span>{bar.label}</span>
+                    <span>{bar.pct}%</span>
+                  </div>
+                  <div class="h-1.5 overflow-hidden rounded-full bg-foreground/10">
+                    <div class="bg-primary h-full rounded-full" style={`width:${bar.pct}%`} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      {/* ── profile ──────────────────────────────────────── */}
+      {
+        visual.kind === "profile" && (
+          <div class="space-y-4">
+            <span class="text-foreground text-sm font-semibold">{visual.label}</span>
+            <div class="flex items-center gap-3">
+              <div class="text-foreground/80 flex size-12 shrink-0 items-center justify-center rounded-full bg-foreground/10 text-sm font-bold">
+                {visual.initials}
+              </div>
+              <div>
+                <p class="text-foreground text-sm font-semibold">{visual.name}</p>
+                <p class="text-muted-foreground text-xs">{visual.handle}</p>
+              </div>
+            </div>
+            <dl class="grid grid-cols-2 gap-2">
+              {visual.fields.map((f) => (
+                <div class="rounded-lg bg-foreground/5 p-2.5">
+                  <dt class="text-muted-foreground text-[11px]">{f.label}</dt>
+                  <dd class="text-foreground truncate text-xs font-medium">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <div class="flex flex-wrap gap-1.5 border-t border-foreground/10 pt-3">
+              {visual.tags.map((t) => (
+                <span class="text-foreground/80 rounded-full bg-foreground/10 px-2.5 py-1 text-[11px] font-medium">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      {/* ── flow ─────────────────────────────────────────── */}
+      {
+        visual.kind === "flow" && (
+          <div class="space-y-4">
+            <span class="text-foreground text-sm font-semibold">{visual.label}</span>
+            <div class="flex flex-col items-stretch">
+              {visual.steps.map((step, i) => (
+                <>
+                  <div
+                    class:list={[
+                      "rounded-lg border p-3",
+                      step.tone === "trigger" &&
+                        "border-primary/40 bg-primary/10",
+                      step.tone === "convert" &&
+                        "border-foreground/20 bg-foreground/[0.07]",
+                      (!step.tone || step.tone === "action") &&
+                        "border-foreground/10 bg-foreground/[0.03]",
+                    ]}
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        class:list={[
+                          "flex size-5 shrink-0 items-center justify-center rounded-md text-[10px] font-bold",
+                          step.tone === "trigger"
+                            ? "bg-primary/20 text-primary"
+                            : "bg-foreground/10 text-foreground/70",
+                        ]}
+                      >
+                        {step.tone === "trigger" ? "⚡" : i + 1}
+                      </span>
+                      <p class="text-foreground text-xs font-medium">{step.label}</p>
+                    </div>
+                    {step.sublabel && (
+                      <p class="text-muted-foreground mt-1.5 pl-7 text-[11px] leading-relaxed">
+                        {step.sublabel}
+                      </p>
+                    )}
+                    {step.branches && (
+                      <div class="mt-2 grid grid-cols-2 gap-2 pl-7">
+                        {step.branches.map((b) => (
+                          <span class="text-foreground/70 rounded-md bg-foreground/5 px-2 py-1 text-center text-[10px] font-medium">
+                            {b}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {i < visual.steps.length - 1 && (
+                    <div class="mx-auto h-3 w-px bg-foreground/20" />
+                  )}
+                </>
+              ))}
+            </div>
+            {visual.footer && (
+              <div class="text-muted-foreground flex justify-between border-t border-foreground/10 pt-3 text-xs">
+                <span>{visual.footer.left}</span>
+                <span>{visual.footer.right}</span>
+              </div>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</div>

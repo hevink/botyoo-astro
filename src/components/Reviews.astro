@@ -2,62 +2,61 @@
 // Reviews / social proof grid: Tailark quartz layout port.
 // - 6 smaller quote cards + 3 "featured" cards with brand logos.
 // - Content rewritten for Botyoo's Instagram DM automation pitch.
-// - Avatars use GitHub identicons via a seed so we don't need to commit images.
+// - Reviewer avatars are real face photos (randomuser.me), gender-matched to
+//   the US/UK/German names. Roles describe the persona (doctor, founder,
+//   e-commerce, webinar, course creator) without naming a company.
 
 type Review = {
   quote: string
   name: string
   role: string
-  avatarSeed: number
+  avatar: string
 }
 
 const reviews: Review[] = [
   {
     quote:
-      "Our comment-to-DM flow started converting the day we launched. Botyoo replaced three tools we were duct-taping together and our cost-per-lead dropped by half.",
+      "Our comment-to-DM flow started converting the day we launched. Botyoo replaced three tools we were duct-taping together and our cost-per-order dropped by half.",
     name: "Madison Brooks",
-    role: "Growth Lead, Meadow & Mane",
-    avatarSeed: 55670723,
+    role: "E-commerce store owner",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
     quote:
       "Follow-first gating alone grew our audience by 18k in six weeks. The DM keeps firing even when my team is asleep, so it genuinely runs in the background.",
     name: "Oliver Bennett",
-    role: "Founder, Drip Studio",
-    avatarSeed: 47919550,
+    role: "Founder",
+    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
   },
   {
     quote:
-      "We moved off our old chat tool and saved about $200 a month. No more per-contact pricing surprises, and the automations just keep running through every Instagram update.",
+      "Every freebie comment now triggers a DM that funnels people straight onto my course waitlist. Enrollments from Instagram doubled on my last launch.",
     name: "Lena Hoffmann",
-    role: "Ops Manager, Kiln Ceramics",
-    avatarSeed: 31113941,
+    role: "Online course creator",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     quote:
-      "The shared inbox is the real unlock. Four of us reply without stepping on each other and every DM has owner + status. My coaching business finally scaled past me.",
+      "I drop a keyword in a reel and Botyoo DMs everyone the webinar registration link instantly. We filled 600 seats without me lifting a finger.",
     name: "Tyler Morgan",
-    role: "Coach, Morgan Training",
-    avatarSeed: 99137927,
+    role: "Webinar host",
+    avatar: "https://randomuser.me/api/portraits/men/52.jpg",
   },
   {
     quote:
-      "Building Botyoo came from scratching my own itch: I kept losing Instagram leads overnight. Seeing creators rely on it every day to actually close sales is the best part of this job.",
-    name: "Hevin Kalathiya",
-    role: "Founder, Botyoo",
-    avatarSeed: 68236786,
+      "Patients comment on our before-and-afters and Botyoo books them into a consultation chat automatically. My front desk stopped drowning in DMs.",
+    name: "Dr. Anna Fischer",
+    role: "Aesthetic clinic owner",
+    avatar: "https://randomuser.me/api/portraits/women/53.jpg",
   },
   {
     quote:
       "Campaign analytics in Botyoo show DMs sent, clicks, and follow-first conversions in one place. We finally know which post actually drove revenue, not just likes.",
     name: "Jonas Weber",
-    role: "Performance Marketer, Onda Agency",
-    avatarSeed: 69605071,
+    role: "E-commerce founder",
+    avatar: "https://randomuser.me/api/portraits/men/36.jpg",
   },
 ]
-
-const avatar = (seed: number) =>
-  `https://avatars.githubusercontent.com/u/${seed}?v=4`
 ---
 
 <section id="reviews" class="bg-background py-12 md:py-24">
@@ -94,7 +93,7 @@ const avatar = (seed: number) =>
                     height="120"
                     decoding="async"
                     class="h-full w-full object-cover"
-                    src={avatar(r.avatarSeed)}
+                    src={r.avatar}
                   />
                 </div>
                 <div class="space-y-px">
@@ -125,9 +124,10 @@ const avatar = (seed: number) =>
               ></path>
             </svg>
             <p>
-              &ldquo;I used to lose half my leads overnight. Now every comment
-              gets a DM within seconds. My sales calls doubled in the first
-              month without hiring anyone.&rdquo;
+              &ldquo;I used to lose half my course leads overnight. Now every
+              comment gets a DM within seconds and people land on my enrollment
+              page while they're still excited. Sales doubled in the first
+              month.&rdquo;
             </p>
           </div>
           <div class="flex items-center gap-3">
@@ -141,13 +141,13 @@ const avatar = (seed: number) =>
                 height="120"
                 decoding="async"
                 class="h-full w-full object-cover"
-                src={avatar(4323180)}
+                src="https://randomuser.me/api/portraits/women/29.jpg"
               />
             </div>
             <div class="space-y-px">
               <p class="text-sm font-medium">Charlotte Hughes</p>
               <p class="text-muted-foreground text-xs">
-                Founder, Linework Studio
+                Online course creator
               </p>
             </div>
           </div>
@@ -188,13 +188,13 @@ const avatar = (seed: number) =>
                 height="120"
                 decoding="async"
                 class="h-full w-full object-cover"
-                src={avatar(124599)}
+                src="https://randomuser.me/api/portraits/men/41.jpg"
               />
             </div>
             <div class="space-y-px">
               <p class="text-sm font-medium">Felix Wagner</p>
               <p class="text-muted-foreground text-xs">
-                Owner, Saffron & Salt
+                E-commerce store owner
               </p>
             </div>
           </div>
@@ -219,9 +219,9 @@ const avatar = (seed: number) =>
               ></path>
             </svg>
             <p>
-              &ldquo;Setup took me fifteen minutes. I'm not technical at all. My
-              DMs now qualify leads before I even open my laptop in the
-              morning.&rdquo;
+              &ldquo;Setup took me fifteen minutes and I'm not technical at
+              all. Botyoo now registers people for my webinars and qualifies
+              them before I even open my laptop in the morning.&rdquo;
             </p>
           </div>
           <div class="flex items-center gap-3">
@@ -235,13 +235,13 @@ const avatar = (seed: number) =>
                 height="120"
                 decoding="async"
                 class="h-full w-full object-cover"
-                src={avatar(99137927)}
+                src="https://randomuser.me/api/portraits/women/63.jpg"
               />
             </div>
             <div class="space-y-px">
               <p class="text-sm font-medium">Emily Carter</p>
               <p class="text-muted-foreground text-xs">
-                Coach, Kindling Pilates
+                Webinar host
               </p>
             </div>
           </div>

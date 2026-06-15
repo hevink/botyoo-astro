@@ -329,22 +329,6 @@ export const templates: Template[] = [
     ],
   },
   {
-    id: 'gamify-ig-lives',
-    name: 'Gamify IG Lives',
-    description: 'Run live quizzes with prizes: engage viewers, reward correct answers, and send prize links.',
-    automationMode: 'IG_LIVE',
-    badge: 'flow-builder',
-    section: 'Convert & sell',
-    tags: ['ig-live', 'engagement', 'gamification'],
-    about: 'Ask a question during your Live, trigger a flow for anyone who comments the right answer, and automatically send the prize link. Drives massive live engagement.',
-    bestFor: ['Creators', 'Artists', 'Brands'],
-    steps: [
-      { kind: 'trigger', label: 'Comment during IG Live', sublabel: 'Keywords: correct answer keyword' },
-      { kind: 'message', label: 'Congrats DM', sublabel: '"You got it right! 🎉 Here\'s your prize:"' },
-      { kind: 'conversion-link', label: 'Send prize link', sublabel: '"Claim your reward 🏆"' },
-    ],
-  },
-  {
     id: 'sell-with-ig-lives',
     name: 'Sell With IG Lives',
     description: 'Turn every Live into a sales engine, show your product, send the link, and follow up automatically.',

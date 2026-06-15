@@ -11,7 +11,10 @@ export async function getStaticPaths() {
 }
 
 const { doc } = Astro.props
-const { Content } = await render(doc)
+const { Content, headings } = await render(doc)
+
+// Only surface h2/h3 in the table of contents.
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3)
 
 const allDocs = await getCollection("help")
 
@@ -22,6 +25,9 @@ const categoryDocs = allDocs
 const currentIndex = categoryDocs.findIndex((d) => d.id === doc.id)
 const prev = currentIndex > 0 ? categoryDocs[currentIndex - 1] : null
 const next = currentIndex < categoryDocs.length - 1 ? categoryDocs[currentIndex + 1] : null
+
+// Related = other articles in the same category (excluding the current one).
+const related = categoryDocs.filter((d) => d.id !== doc.id).slice(0, 3)
 
 const allSorted = allDocs.sort((a, b) => {
   const catCompare = a.data.category.localeCompare(b.data.category)
@@ -34,52 +40,67 @@ const sidebarGroups = allSorted.reduce<Record<string, typeof allSorted>>((acc, d
   acc[d.data.category].push(d)
   return acc
 }, {})
+
+// Small Lucide glyphs for each category header in the sidebar.
+const CAT_ICONS: Record<string, string> = {
+  "Getting Started":   '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+  Automations:         '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+  "How-To Guides":     '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+  "Inbox & Contacts":  '<polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
+  "Account & Billing": '<rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>',
+  Integrations:        '<path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/>',
+  Troubleshooting:     '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+}
 ---
 
 <Layout title={`${doc.data.title} - Botyoo Help`} description={doc.data.description}>
-  <div class="mx-auto max-w-6xl px-6 pt-36 pb-24">
-    <div class="flex gap-12">
+  <div class="mx-auto max-w-7xl px-6 pt-36 pb-24">
+    <div class="flex gap-10">
 
-      <!-- Sidebar, same style as blog nav -->
-      <aside class="hidden w-52 shrink-0 lg:block">
-        <a
-          href="/help"
-          class="text-muted-foreground hover:text-foreground mb-8 flex items-center gap-1.5 text-sm transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-          Help Center
-        </a>
+      <!-- Left sidebar nav -->
+      <aside class="hidden w-60 shrink-0 lg:block">
+        <div class="sticky top-28">
+          <a
+            href="/help"
+            class="text-muted-foreground hover:text-foreground hover:bg-foreground/5 mb-6 -ml-2 inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Help Center
+          </a>
 
-        <nav class="space-y-5">
-          {Object.entries(sidebarGroups).map(([cat, docs]) => (
-            <div>
-              <p class="text-muted-foreground mb-2 text-xs font-semibold uppercase tracking-wider">
-                {cat}
-              </p>
-              <ul class="space-y-0.5 border-l border-border pl-3">
-                {docs.map((d) => (
-                  <li>
-                    <a
-                      href={`/help/${d.id}`}
-                      class:list={[
-                        "block py-1 text-sm transition-colors",
-                        d.id === doc.id
-                          ? "text-primary font-medium"
-                          : "text-muted-foreground hover:text-foreground",
-                      ]}
-                    >
-                      {d.data.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </nav>
+          <nav class="max-h-[calc(100vh-10rem)] space-y-6 overflow-y-auto pb-4 pr-2">
+            {Object.entries(sidebarGroups).map(([cat, docs]) => (
+              <div>
+                <p class="text-muted-foreground mb-2 flex items-center gap-2 px-2 text-[11px] font-semibold uppercase tracking-wider">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-60" set:html={CAT_ICONS[cat] ?? ""} />
+                  {cat}
+                </p>
+                <ul class="space-y-0.5">
+                  {docs.map((d) => (
+                    <li>
+                      <a
+                        href={`/help/${d.id}`}
+                        aria-current={d.id === doc.id ? "page" : undefined}
+                        class:list={[
+                          "relative block rounded-lg px-3 py-1.5 text-sm leading-snug transition-colors",
+                          d.id === doc.id
+                            ? "bg-primary/10 text-primary font-medium before:absolute before:inset-y-1 before:-left-px before:w-0.5 before:rounded-full before:bg-primary"
+                            : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground",
+                        ]}
+                      >
+                        {d.data.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        </div>
       </aside>
 
-      <!-- Article, same as BlogLayout's article -->
-      <article class="min-w-0 flex-1 max-w-3xl">
+      <!-- Article -->
+      <article class="min-w-0 flex-1">
         <header class="mb-10">
           <!-- Breadcrumb -->
           <div class="text-muted-foreground mb-4 flex items-center gap-2 text-sm">
@@ -97,14 +118,73 @@ const sidebarGroups = allSorted.reduce<Record<string, typeof allSorted>>((acc, d
           )}
         </header>
 
-        <!-- Rendered markdown, reuses prose-blog class from BlogLayout -->
-        <div class="prose-blog">
+        <!-- Mobile TOC (collapsible) -->
+        {toc.length > 0 && (
+          <details class="bg-card ring-border mb-8 rounded-xl p-4 shadow-sm ring-1 xl:hidden">
+            <summary class="text-foreground cursor-pointer text-sm font-medium">On this page</summary>
+            <ul class="mt-3 space-y-1.5">
+              {toc.map((h) => (
+                <li class:list={[h.depth === 3 && "pl-4"]}>
+                  <a href={`#${h.slug}`} class="text-muted-foreground hover:text-foreground text-sm transition-colors">{h.text}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+
+        <!-- Rendered markdown -->
+        <div class="prose-blog max-w-3xl">
           <Content />
         </div>
 
+        <!-- Feedback widget -->
+        <div
+          id="feedback"
+          class="bg-card ring-border mt-14 max-w-3xl rounded-2xl p-6 text-center shadow-sm ring-1"
+        >
+          <p id="feedback-prompt" class="text-foreground text-sm font-medium">Was this article helpful?</p>
+          <div id="feedback-buttons" class="mt-4 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              data-vote="yes"
+              class="text-muted-foreground hover:text-foreground hover:bg-foreground/5 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+              Yes
+            </button>
+            <button
+              type="button"
+              data-vote="no"
+              class="text-muted-foreground hover:text-foreground hover:bg-foreground/5 inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg>
+              No
+            </button>
+          </div>
+          <p id="feedback-thanks" class="text-muted-foreground hidden text-sm">Thanks for your feedback! 🙌</p>
+        </div>
+
+        <!-- Related articles -->
+        {related.length > 0 && (
+          <div class="mt-16 max-w-3xl">
+            <h2 class="text-muted-foreground mb-4 text-xs font-semibold uppercase tracking-widest">Related articles</h2>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {related.map((d) => (
+                <a
+                  href={`/help/${d.id}`}
+                  class="bg-card ring-border hover:ring-primary/40 group rounded-xl p-4 shadow-sm ring-1 transition-all hover:shadow-md"
+                >
+                  <p class="text-foreground group-hover:text-primary text-sm font-medium transition-colors">{d.data.title}</p>
+                  <p class="text-muted-foreground mt-1 line-clamp-2 text-xs leading-relaxed">{d.data.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
         <!-- Prev / Next -->
         {(prev || next) && (
-          <div class="mt-16 grid gap-3 border-t border-border pt-8 sm:grid-cols-2">
+          <div class="mt-12 grid max-w-3xl gap-3 border-t border-border pt-8 sm:grid-cols-2">
             {prev ? (
               <a
                 href={`/help/${prev.id}`}
@@ -132,19 +212,94 @@ const sidebarGroups = allSorted.reduce<Record<string, typeof allSorted>>((acc, d
             ) : <div />}
           </div>
         )}
-
-
       </article>
+
+      <!-- Right table of contents -->
+      {toc.length > 0 && (
+        <aside class="hidden w-56 shrink-0 xl:block">
+          <div class="sticky top-28">
+            <p class="text-muted-foreground mb-3 text-xs font-semibold uppercase tracking-wider">On this page</p>
+            <ul id="toc" class="space-y-2 border-l border-border">
+              {toc.map((h) => (
+                <li>
+                  <a
+                    href={`#${h.slug}`}
+                    data-toc-link={h.slug}
+                    class:list={[
+                      "-ml-px block border-l-2 border-transparent text-sm leading-snug text-muted-foreground transition-colors hover:text-foreground",
+                      h.depth === 3 ? "pl-6" : "pl-3",
+                    ]}
+                  >
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      )}
 
     </div>
   </div>
 
   <script>
+    // Wrap tables for horizontal scroll on mobile.
     document.querySelectorAll(".prose-blog table").forEach((table) => {
       const wrapper = document.createElement("div")
       wrapper.className = "table-wrapper"
       table.parentNode!.insertBefore(wrapper, table)
       wrapper.appendChild(table)
     })
+
+    // Scroll-spy for the table of contents.
+    const tocLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]"))
+    if (tocLinks.length) {
+      const headingEls = tocLinks
+        .map((l) => document.getElementById(l.dataset.tocLink!))
+        .filter((el): el is HTMLElement => !!el)
+
+      const setActive = (id: string | null) => {
+        tocLinks.forEach((l) => {
+          const on = l.dataset.tocLink === id
+          l.classList.toggle("border-primary", on)
+          l.classList.toggle("text-foreground", on)
+          l.classList.toggle("font-medium", on)
+          l.classList.toggle("border-transparent", !on)
+        })
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries.filter((e) => e.isIntersecting)
+          if (visible.length) setActive(visible[0].target.id)
+        },
+        { rootMargin: "-100px 0px -70% 0px", threshold: 0 },
+      )
+      headingEls.forEach((el) => observer.observe(el))
+    }
+
+    // "Was this helpful?" feedback (persisted per-article in localStorage).
+    const fb = document.getElementById("feedback")
+    if (fb) {
+      const key = `botyoo-help-vote:${location.pathname}`
+      const buttons = document.getElementById("feedback-buttons")
+      const prompt = document.getElementById("feedback-prompt")
+      const thanks = document.getElementById("feedback-thanks")
+
+      const showThanks = () => {
+        buttons?.classList.add("hidden")
+        prompt?.classList.add("hidden")
+        thanks?.classList.remove("hidden")
+      }
+
+      if (localStorage.getItem(key)) showThanks()
+
+      fb.querySelectorAll<HTMLButtonElement>("[data-vote]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          try { localStorage.setItem(key, btn.dataset.vote!) } catch (e) {}
+          showThanks()
+        })
+      })
+    }
   </script>
 </Layout>

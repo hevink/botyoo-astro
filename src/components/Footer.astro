@@ -31,6 +31,8 @@ const solutionLinks = [
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Changelog", href: "/changelog" },
+  { label: "Roadmap", href: "https://botyoo.featurebase.app/roadmap", external: true },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
   { label: "Refund Policy", href: "/refund" },
@@ -168,6 +170,8 @@ const alternativeLinks = [
               <a
                 class="text-muted-foreground hover:text-primary block duration-150"
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
               >
                 <span>{link.label}</span>
               </a>

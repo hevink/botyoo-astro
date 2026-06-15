@@ -79,6 +79,83 @@
     }
 }
 
+/* ── Buttons ──────────────────────────────────────────────────── */
+/* Reusable button styles for landing-page CTAs.
+   .btn               base layout + sizing (default ~40px tall)
+   .btn-primary       glossy blue call-to-action
+   .btn-secondary     subtle, theme-aware neutral button
+   .btn-sm / .btn-lg  size modifiers
+   Layout utilities (w-full, mt-*, etc.) can still be added inline. */
+@layer components {
+    .btn {
+        display: inline-flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+        height: 2.5rem;
+        padding-inline: 1.25rem;
+        border-radius: 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1;
+        transition:
+            background-color 0.2s ease,
+            box-shadow 0.2s ease,
+            transform 0.1s ease;
+    }
+
+    .btn:focus-visible {
+        outline: none;
+        box-shadow:
+            0 0 0 2px var(--color-background),
+            0 0 0 4px #2563eb;
+    }
+
+    .btn:active {
+        transform: scale(0.98);
+    }
+
+    .btn-primary {
+        background-color: #1346e6;
+        color: #fafafa;
+        box-shadow:
+            0 -1px 0 1px #1e3a8a inset,
+            0 0 0 1px #1d4ed8 inset,
+            0 0.5px 0 1.5px #60a5fa inset,
+            0 1px 2px rgb(0 0 0 / 0.25);
+    }
+
+    .btn-primary:hover {
+        background-color: #1d4ed8;
+    }
+
+    .btn-secondary {
+        background-color: color-mix(in oklab, var(--color-foreground) 8%, transparent);
+        color: var(--color-foreground);
+        box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-foreground) 14%, transparent);
+        backdrop-filter: blur(6px);
+    }
+
+    .btn-secondary:hover {
+        background-color: color-mix(in oklab, var(--color-foreground) 14%, transparent);
+    }
+
+    .btn-sm {
+        height: 2.25rem;
+        padding-inline: 1rem;
+        font-size: 0.8125rem;
+        border-radius: 0.625rem;
+    }
+
+    .btn-lg {
+        height: 2.75rem;
+        padding-inline: 1.75rem;
+        font-size: 0.9375rem;
+    }
+}
+
 .dither {
     --dither-gray: 1;
     --dither-contrast: 120;

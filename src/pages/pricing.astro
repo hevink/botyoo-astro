@@ -312,10 +312,8 @@ const discountFor = (plan: Plan, p: Period) => {
                             typeof plan.price === "string" ? plan.price : ""
                           }
                           class={[
-                            "w-full rounded-xl cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring h-9 px-4 py-2",
-                            plan.isRecommended
-                              ? "bg-[#1346e6] text-zinc-50 shadow-[0_-1px_0_1px_#1e3a8a_inset,0_0_0_1px_#1d4ed8_inset,0_0.5px_0_1.5px_#60a5fa_inset] hover:bg-blue-700"
-                              : "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+                            "btn w-full",
+                            plan.isRecommended ? "btn-primary" : "btn-secondary",
                           ].join(" ")}
                         >
                           {plan.buttonText}

@@ -4,6 +4,16 @@
 // so it matches the dark landing instead of the Next.js gray gradient.
 
 import Layout from "../layouts/Layout.astro"
+
+const members = [
+  {
+    image: "/hevin.png",
+    name: "Hevin",
+    role: "Founder & Engineer",
+    bio: "Built Botyoo from scratch and leads product, engineering, and everything in between. Obsessed with making Instagram automation feel effortless.",
+    link: "https://x.com/Hevin_69",
+  },
+]
 ---
 
 <Layout
@@ -61,6 +71,70 @@ import Layout from "../layouts/Layout.astro"
           project and grew into something creators and businesses actually rely
           on every day.
         </p>
+      </section>
+
+      {/* Team */}
+      <section aria-labelledby="team-title" class="mt-20">
+        <h2
+          id="team-title"
+          class="text-foreground inline-block py-2 text-4xl font-bold tracking-tighter md:text-5xl"
+        >
+          Meet the team
+        </h2>
+        <p class="text-muted-foreground mt-6 max-w-2xl text-lg">
+          The people behind Botyoo, building fast and listening closely to the
+          creators and businesses who use it every day.
+        </p>
+
+        <div class="mt-12 grid gap-6">
+          {
+            members.map((member) => (
+              <div class="group bg-foreground/[0.03] ring-foreground/10 hover:bg-foreground/[0.05] relative flex flex-col overflow-hidden rounded-2xl ring-1 ring-inset transition-colors duration-200 sm:flex-row">
+                <div class="relative w-full shrink-0 overflow-hidden sm:w-48">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    width="384"
+                    height="384"
+                    loading="lazy"
+                    decoding="async"
+                    class="h-64 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0 sm:h-full"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col gap-3 p-6">
+                  <div class="space-y-0.5">
+                    <h3 class="text-foreground text-lg font-semibold tracking-tight">
+                      {member.name}
+                    </h3>
+                    <p class="text-sm font-medium text-indigo-400">
+                      {member.role}
+                    </p>
+                  </div>
+                  <p class="text-muted-foreground text-balance text-sm leading-6">
+                    {member.bio}
+                  </p>
+                  {member.link && (
+                    <a
+                      href={member.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-muted-foreground hover:text-foreground hover:border-foreground/20 mt-1 inline-flex w-fit items-center gap-1.5 rounded-full border border-foreground/10 px-3 py-1 text-xs font-medium transition-colors"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        class="size-3.5 fill-current"
+                      >
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                      @Hevin_69
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </section>
 
       {/* Vision */}

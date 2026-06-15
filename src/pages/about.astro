@@ -1,24 +1,62 @@
 ---
-// About page, ported from botyoo-landing/src/app/about/page.tsx.
-// Uses the Astro site's theme tokens (bg-background, text-muted-foreground, etc.)
-// so it matches the dark landing instead of the Next.js gray gradient.
+// About page for Botyoo.
+// Goal: maximise credibility for buyers/acquirers who check that the team is
+// real and not anonymous. Includes a company narrative, company facts
+// (HQ, founded, legal/trust signals), an extensible team section with X +
+// LinkedIn links, and Meta trust badges.
+//
+// ⚠️ FILL IN THE REAL VALUES BELOW before publishing:
+//   - companyInfo.headquarters  (city, country)
+//   - companyInfo.founded        (year Botyoo started)
+//   - companyInfo.legalName      (registered company name, if any)
+//   - each member's `linkedin`   (real LinkedIn profile URL)
+// Add real cofounders / team members to the `members` array as you hire.
 
 import Layout from "../layouts/Layout.astro"
+
+const companyInfo = {
+  headquarters: "Surat, India",
+  // Full registered address, shown in the contact block for transparency.
+  address: "Laxmi Enclave 2, 564, Katargam, Surat, Gujarat 395004",
+  founded: "2025",
+  // TODO: optional registered/legal entity name shown for transparency.
+  legalName: "Botyoo",
+  email: "hevin@botyoo.com",
+}
 
 const members = [
   {
     image: "/hevin.png",
-    name: "Hevin",
-    role: "Founder & Engineer",
-    bio: "Built Botyoo from scratch and leads product, engineering, and everything in between. Obsessed with making Instagram automation feel effortless.",
-    link: "https://x.com/Hevin_69",
+    name: "Hevin Kalathiya",
+    role: "Founder & CEO",
+    bio: "Built Botyoo from scratch and leads product, engineering, and support. Previously shipped automation tools for creators; now obsessed with making Instagram DM automation feel effortless and reliable.",
+    twitter: "https://x.com/Hevin_69",
+    twitterHandle: "@Hevin_69",
+    linkedin: "https://www.linkedin.com/in/hevink/",
   },
+  // Add more team members here as you grow, e.g.:
+  // {
+  //   image: "/team/jane.png",
+  //   name: "Jane Doe",
+  //   role: "Co-Founder & CTO",
+  //   bio: "...",
+  //   twitter: "https://x.com/...",
+  //   twitterHandle: "@...",
+  //   linkedin: "https://www.linkedin.com/in/...",
+  // },
+]
+
+const facts = [
+  { label: "Founded", value: companyInfo.founded },
+  { label: "Headquarters", value: companyInfo.headquarters },
+  { label: "Built on", value: "Official Instagram API" },
+  { label: "Status", value: "Meta Tech Provider" },
 ]
 ---
 
 <Layout
   title="About Botyoo"
-  description="Learn about Botyoo, the Instagram DM automation platform that helps creators and businesses engage followers, automate responses, and turn every comment into a lead."
+  description="Learn about Botyoo, the Instagram DM automation platform that helps creators and businesses engage followers, automate responses, and turn every comment into a lead. Meet the team, see where we're based, and connect with us."
 >
   <main class="bg-background pt-36 pb-24">
     <div class="mx-auto flex max-w-2xl flex-col overflow-hidden px-6">
@@ -42,17 +80,58 @@ const members = [
         >
           Why we built Botyoo
         </h1>
-        <p class="text-muted-foreground mt-6 max-w-2xl text-lg">
-          We noticed that many people use Instagram to grow their business. But
-          when potential customers send DMs, most brands can't keep up, messages
-          pile up, and replies never come. That's where we come in. We automate
-          your Instagram DMs, so your followers get instant responses, even
-          when you're offline.
+        <p class="text-muted-foreground mt-6 max-w-2xl text-lg leading-8">
+          Botyoo turns every Instagram follower into a lead, automatically. We
+          noticed that creators and businesses pour real effort into growing on
+          Instagram, but when potential customers send DMs or comment on a post,
+          most brands can't keep up. Messages pile up and replies never come.
+          Botyoo automates those conversations, so your followers get instant,
+          on-brand responses, capture their email right inside the DM, and land
+          in one organized inbox, even when you're offline.
         </p>
+        <p class="text-muted-foreground mt-4 max-w-2xl text-lg leading-8">
+          We're built entirely on the official Instagram API as a registered
+          Meta Tech Provider, so your account stays safe and compliant. No grey
+          area, no per-message fees, no surprises.
+        </p>
+      </section>
+
+      {/* Company facts */}
+      <section aria-labelledby="facts-title" class="mt-16">
+        <h2 id="facts-title" class="sr-only">Company facts</h2>
+        <dl class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-foreground/10 ring-1 ring-inset ring-foreground/10 sm:grid-cols-4">
+          {
+            facts.map((fact) => (
+              <div class="bg-background flex flex-col gap-1 p-5">
+                <dt class="text-muted-foreground text-xs font-medium uppercase tracking-wide">
+                  {fact.label}
+                </dt>
+                <dd class="text-foreground text-balance text-sm font-semibold">
+                  {fact.value}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <img
+            src="/meta-tech-provider.png"
+            alt="Meta Tech Provider"
+            width="160"
+            height="48"
+            loading="lazy"
+            decoding="async"
+            class="h-10 w-auto opacity-90"
+          />
+          <p class="text-muted-foreground text-sm">
+            Officially recognized by Meta and built on the Instagram Graph API.
+          </p>
+        </div>
       </section>
 
       {/* Setup image + origin story */}
       <section aria-labelledby="build-title" class="mt-20">
+        <h2 id="build-title" class="sr-only">How Botyoo started</h2>
         <div
           class="bg-foreground/5 ring-foreground/10 mx-auto mb-10 w-fit rounded-2xl p-2 ring-1 ring-inset lg:p-3"
         >
@@ -66,10 +145,11 @@ const members = [
             class="mx-auto h-auto w-fit rounded-xl object-cover md:h-[600px]"
           />
         </div>
-        <p class="text-muted-foreground text-lg">
-          I built this entire platform from scratch. It started as a side
-          project and grew into something creators and businesses actually rely
-          on every day.
+        <p class="text-muted-foreground text-lg leading-8">
+          Botyoo started as a side project, built from scratch to solve a real
+          problem, and grew into a platform that creators and businesses rely on
+          every day. We ship fast, talk to customers constantly, and keep the
+          product honest: real features, real support, real people behind it.
         </p>
       </section>
 
@@ -83,7 +163,8 @@ const members = [
         </h2>
         <p class="text-muted-foreground mt-6 max-w-2xl text-lg">
           The people behind Botyoo, building fast and listening closely to the
-          creators and businesses who use it every day.
+          creators and businesses who use it every day. We're not anonymous,
+          come say hi.
         </p>
 
         <div class="mt-12 grid gap-6">
@@ -113,23 +194,44 @@ const members = [
                   <p class="text-muted-foreground text-balance text-sm leading-6">
                     {member.bio}
                   </p>
-                  {member.link && (
-                    <a
-                      href={member.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-muted-foreground hover:text-foreground hover:border-foreground/20 mt-1 inline-flex w-fit items-center gap-1.5 rounded-full border border-foreground/10 px-3 py-1 text-xs font-medium transition-colors"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        class="size-3.5 fill-current"
+                  <div class="mt-1 flex flex-wrap items-center gap-2">
+                    {member.twitter && (
+                      <a
+                        href={member.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${member.name} on X`}
+                        class="text-muted-foreground hover:text-foreground hover:border-foreground/20 inline-flex w-fit items-center gap-1.5 rounded-full border border-foreground/10 px-3 py-1 text-xs font-medium transition-colors"
                       >
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                      </svg>
-                      @Hevin_69
-                    </a>
-                  )}
+                        <svg
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          class="size-3.5 fill-current"
+                        >
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        {member.twitterHandle}
+                      </a>
+                    )}
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${member.name} on LinkedIn`}
+                        class="text-muted-foreground hover:text-foreground hover:border-foreground/20 inline-flex w-fit items-center gap-1.5 rounded-full border border-foreground/10 px-3 py-1 text-xs font-medium transition-colors"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          class="size-3.5 fill-current"
+                        >
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                        </svg>
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))
@@ -138,21 +240,20 @@ const members = [
       </section>
 
       {/* Vision */}
-      <section aria-labelledby="vision-title" class="my-20">
+      <section aria-labelledby="vision-title" class="mt-20">
         <h2
           id="vision-title"
           class="text-foreground inline-block py-2 text-4xl font-bold tracking-tighter md:text-5xl"
         >
-          Our Vision
+          Our vision
         </h2>
         <div class="text-muted-foreground mt-6 max-w-prose space-y-4">
           <p class="text-lg leading-8">
-            Currently, our platform only offers Instagram automation, but we
-            plan to expand our services to include TikTok automation and more
-            features in the future. We also recognize that there is still more
-            work to be done to improve our existing Instagram automation, and
-            we're committed to continuously adding new functionality and
-            refinements to make it more powerful and user-friendly.
+            Today, Botyoo focuses on Instagram automation, but we're expanding
+            toward TikTok automation and deeper CRM and campaign tooling. We
+            know there's more to build on Instagram too, and we're committed to
+            shipping new functionality and refinements that make Botyoo more
+            powerful and easier to use.
           </p>
 
           <img
@@ -165,15 +266,31 @@ const members = [
             class="mx-auto w-fit dark:invert"
           />
         </div>
+      </section>
 
-        <a
-          href="https://x.com/Hevin_69"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary mt-8 w-full"
-        >
-          Contact Us
-        </a>
+      {/* Contact / location footer block */}
+      <section aria-labelledby="reach-title" class="mt-20">
+        <div class="bg-foreground/[0.03] ring-foreground/10 rounded-2xl p-8 ring-1 ring-inset">
+          <h2 id="reach-title" class="text-foreground text-xl font-semibold tracking-tight">
+            Get in touch
+          </h2>
+          <p class="text-muted-foreground mt-2 text-sm leading-6">
+            Headquartered in {companyInfo.headquarters}. Have a question,
+            feedback, or a partnership idea? We reply fast.
+          </p>
+          <address class="text-muted-foreground mt-3 text-sm not-italic leading-6">
+            {companyInfo.address}
+          </address>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href="/contact" class="btn btn-primary">Contact us</a>
+            <a
+              href={`mailto:${companyInfo.email}`}
+              class="btn btn-secondary"
+            >
+              {companyInfo.email}
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   </main>

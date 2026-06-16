@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import SolutionFaq from "../components/SolutionFaq.astro"
 
 // Same plan data as botyoo-landing's pricing page, ported to Astro.
 interface PriceByCurrency {
@@ -163,6 +164,42 @@ const compareRows: CompareRow[] = [
   { label: "MCP server (Claude / AI assistant control)", pro: false, premium: false, enterprise: true },
   { label: "White-label options", pro: false, premium: false, enterprise: true },
   { label: "Priority support", pro: false, premium: false, enterprise: true },
+]
+
+// ── Pricing FAQs ─────────────────────────────────────────────────────────────
+const pricingFaqs = [
+  {
+    q: "Can I upgrade or downgrade my plan later?",
+    a: "Yes. You can switch plans at any time from your billing settings. Upgrades take effect immediately, and any change is prorated for your current billing period.",
+  },
+  {
+    q: "What counts as an 'active contact'?",
+    a: "An active contact is a unique person your automations engage with in a given month (for example, someone who triggers a comment-to-DM or sends a DM). Your CRM can store far more contacts than that, the active limit only applies to people you actually message in the month, and it resets every month.",
+  },
+  {
+    q: "Do unlimited automations and DMs really mean unlimited?",
+    a: "Yes. Every paid plan includes unlimited automations and unlimited DMs, with no per-message fees. We meter on active contacts per month, not on message volume, so your costs stay predictable as you scale.",
+  },
+  {
+    q: "Which billing periods do you offer?",
+    a: "You can pay monthly, quarterly, or yearly. Quarterly and yearly billing come at a lower effective monthly rate, so longer terms save you money.",
+  },
+  {
+    q: "Is Botyoo safe for my Instagram account?",
+    a: "Yes. Botyoo runs entirely on the official Meta / Instagram API, we never ask for your password or use unofficial access. This keeps your account compliant and protected from the bans associated with grey-market automation tools.",
+  },
+  {
+    q: "Can I connect more than one Instagram account?",
+    a: "The Pro plan covers 1 Instagram account, Premium covers 3, and Enterprise scales to many more. Each connected account gets its own workspace so data and automations stay separate.",
+  },
+  {
+    q: "What's the difference between Premium and Enterprise?",
+    a: "Premium adds team collaboration (5 members, real-time shared inbox), follow-gating, and email collection. Enterprise unlocks advanced automation rules, API access and API keys, the MCP server for AI assistants, white-label options, unlimited team members, and priority support.",
+  },
+  {
+    q: "Do you offer refunds?",
+    a: "Yes. If Botyoo isn't the right fit, you can request a refund per our refund policy. See the refund page for eligibility and timelines.",
+  },
 ]
 ---
 
@@ -467,6 +504,9 @@ const compareRows: CompareRow[] = [
         </div>
       </div>
     </section>
+
+    {/* FAQs */}
+    <SolutionFaq items={pricingFaqs} />
   </main>
 </Layout>
 

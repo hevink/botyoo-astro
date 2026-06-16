@@ -34,19 +34,13 @@ const plans: Plan[] = [
     capacity: [],
     features: [
       "1 Instagram account (1 workspace)",
-      "Unlimited automation",
-      "Unlimited DMs",
-      "10,000 contacts in CRM (storage)",
-      "1,000 active contacts / mo",
+      "1 team member",
+      "Unlimited automations & DMs",
+      "10,000 contacts · 1,000 active / mo",
       "10 campaigns / mo",
-      "Comment-to-DM & keyword automation",
-      "In-DM email capture",
-      "Contacts CRM with tags & segments",
-      "Followers growth",
-      "Account safety",
-      "Detailed analytics & insights",
-      "Link tracking with click analytics",
-      "Visual drag-and-drop Flow Builder",
+      "All automation types (comment, story, IG Live, share, Click-to-DM)",
+      "Visual Flow Builder + 25+ templates",
+      "Contacts CRM, analytics & link tracking",
       "Email support",
     ],
     isRecommended: false,
@@ -66,24 +60,14 @@ const plans: Plan[] = [
       "Designed for brands and businesses with multiple accounts and advanced needs analytics.",
     capacity: [],
     features: [
+      "Everything in Pro, plus:",
       "3 Instagram accounts (3 workspaces)",
-      "Unlimited automation",
-      "Unlimited DMs",
-      "Unlimited contacts in CRM (storage)",
-      "15,000 active contacts / mo",
+      "5 team members",
+      "Unlimited contacts · 15,000 active / mo",
       "Unlimited campaigns / mo",
-      "Comment-to-DM & keyword automation",
-      "In-DM email capture",
-      "Contacts CRM with tags & segments",
-      "Followers growth",
-      "Account safety",
-      "Detailed analytics & insights",
-      "Link tracking with click analytics",
-      "Visual drag-and-drop Flow Builder",
-      "Email support",
+      "Real-time shared team inbox",
+      "Follow-gating & email collection",
       "Priority in queue",
-      "Email collection",
-      "Follow-gating (links/offers for followers only)",
     ],
     isRecommended: true,
     buttonText: "Get started Now",
@@ -96,10 +80,12 @@ const plans: Plan[] = [
     capacity: [],
     features: [
       "Everything in Premium",
+      "Unlimited team members",
       "Advanced custom chatbot",
       "Advanced automation rules",
       "Visual Flow Builder (unlimited steps)",
-      "API access",
+      "API access & API keys",
+      "MCP server (Claude / AI assistant control)",
       "White-label options",
       "Priority support",
     ],
@@ -142,6 +128,42 @@ const discountFor = (plan: Plan, p: Period) => {
   if (!original) return 0
   return Math.round(((original - current) / original) * 100)
 }
+
+// ── Compare Plans table ──────────────────────────────────────────────────────
+interface CompareRow {
+  label: string
+  pro: boolean
+  premium: boolean
+  enterprise: boolean
+}
+
+const compareRows: CompareRow[] = [
+  { label: "Comment-to-DM & keyword automation", pro: true, premium: true, enterprise: true },
+  { label: "Story reply & story mention automation", pro: true, premium: true, enterprise: true },
+  { label: "IG Live comment automation", pro: true, premium: true, enterprise: true },
+  { label: "Post-share & Click-to-DM ad automation", pro: true, premium: true, enterprise: true },
+  { label: "Comment automation on any post", pro: true, premium: true, enterprise: true },
+  { label: "Multi-language keyword triggers", pro: true, premium: true, enterprise: true },
+  { label: "In-DM email capture", pro: true, premium: true, enterprise: true },
+  { label: "Contacts CRM with tags & segments", pro: true, premium: true, enterprise: true },
+  { label: "Visual drag-and-drop Flow Builder", pro: true, premium: true, enterprise: true },
+  { label: "25+ ready-made automation templates", pro: true, premium: true, enterprise: true },
+  { label: "A/B testing & conditional branching", pro: true, premium: true, enterprise: true },
+  { label: "DM campaigns (broadcast & retargeting)", pro: true, premium: true, enterprise: true },
+  { label: "Detailed analytics & link tracking", pro: true, premium: true, enterprise: true },
+  { label: "Refer & earn rewards", pro: true, premium: true, enterprise: true },
+  { label: "Multiple team members", pro: false, premium: true, enterprise: true },
+  { label: "Real-time shared team inbox", pro: false, premium: true, enterprise: true },
+  { label: "Follow-gating (followers-only links/offers)", pro: false, premium: true, enterprise: true },
+  { label: "Email collection", pro: false, premium: true, enterprise: true },
+  { label: "Priority in queue", pro: false, premium: true, enterprise: true },
+  { label: "Advanced custom chatbot", pro: false, premium: false, enterprise: true },
+  { label: "Advanced automation rules", pro: false, premium: false, enterprise: true },
+  { label: "API access & API keys", pro: false, premium: false, enterprise: true },
+  { label: "MCP server (Claude / AI assistant control)", pro: false, premium: false, enterprise: true },
+  { label: "White-label options", pro: false, premium: false, enterprise: true },
+  { label: "Priority support", pro: false, premium: false, enterprise: true },
+]
 ---
 
 <Layout
@@ -349,6 +371,102 @@ const discountFor = (plan: Plan, p: Period) => {
         </div>
       </div>
     </div>
+
+    {/* Compare Plans */}
+    <section class="py-16 md:py-24">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="max-w-lg md:mx-auto md:text-center">
+          <h2 class="text-foreground text-4xl font-semibold">Compare Plans</h2>
+          <p class="text-muted-foreground mt-3 text-sm">
+            Every plan includes unlimited automations and unlimited DMs. Here's how the tiers stack up.
+          </p>
+        </div>
+
+        <div class="mx-auto mt-12 max-w-3xl overflow-x-auto">
+          <div class="grid min-w-[680px] grid-cols-[1.6fr_2.4fr]">
+            {/* Benefits column */}
+            <div>
+              <div class="h-18 flex items-center">
+                <div class="text-lg font-medium">Features</div>
+              </div>
+              {
+                compareRows.map((row) => (
+                  <div class="flex h-14 items-center border-t max-md:text-sm">
+                    <div>{row.label}</div>
+                  </div>
+                ))
+              }
+            </div>
+
+            {/* Plans wrapper */}
+            <div class="bg-linear-to-b from-foreground/3 grid grid-cols-3 rounded-2xl [--color-border:color-mix(in_oklab,var(--color-foreground)6%,transparent)]">
+              {/* Pro column */}
+              <div>
+                <div class="h-18 flex flex-col items-center justify-center gap-1 px-4 text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z"></path></svg>
+                  <div class="text-sm font-medium">Pro</div>
+                </div>
+                {
+                  compareRows.map((row) => (
+                    <div class="flex h-14 items-center justify-center border-t px-6">
+                      <div>
+                        {row.pro ? (
+                          <span class="bg-emerald-500/10 text-emerald-600 flex size-5 items-center justify-center rounded-full font-sans text-xs font-semibold">✓</span>
+                        ) : (
+                          <span class="bg-foreground/6.5 text-foreground/65 flex size-5 items-center justify-center rounded-full font-sans text-xs font-semibold">✗</span>
+                        )}
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+
+              {/* Premium column (highlighted) */}
+              <div class="bg-card ring-foreground/5 my-2 rounded-lg shadow-lg shadow-black/10 ring-1">
+                <div class="flex h-16 flex-col items-center justify-center gap-1 px-4 pt-2 text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem size-4"><path d="M6 3h12l4 6-10 13L2 9Z"></path><path d="M11 3 8 9l4 13 4-13-3-6"></path><path d="M2 9h20"></path></svg>
+                  <div class="text-sm font-medium">Premium</div>
+                </div>
+                {
+                  compareRows.map((row) => (
+                    <div class="flex h-14 items-center justify-center border-t px-6">
+                      <div>
+                        {row.premium ? (
+                          <span class="bg-emerald-500/10 text-emerald-600 flex size-5 items-center justify-center rounded-full font-sans text-xs font-semibold">✓</span>
+                        ) : (
+                          <span class="bg-foreground/6.5 text-foreground/65 flex size-5 items-center justify-center rounded-full font-sans text-xs font-semibold">✗</span>
+                        )}
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+
+              {/* Enterprise column */}
+              <div>
+                <div class="h-18 flex flex-col items-center justify-center gap-1 px-4 text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-4"></path></svg>
+                  <div class="text-sm font-medium">Enterprise</div>
+                </div>
+                {
+                  compareRows.map((row) => (
+                    <div class="flex h-14 items-center justify-center border-t px-6">
+                      <div>
+                        {row.enterprise ? (
+                          <span class="bg-emerald-500/10 text-emerald-600 flex size-5 items-center justify-center rounded-full font-sans text-xs font-semibold">✓</span>
+                        ) : (
+                          <span class="bg-foreground/6.5 text-foreground/65 flex size-5 items-center justify-center rounded-full font-sans text-xs font-semibold">✗</span>
+                        )}
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
 

@@ -214,7 +214,7 @@ export const templates: Template[] = [
     steps: [
       { kind: 'trigger', label: 'Someone comments on your post', sublabel: 'Keywords: free, guide, send' },
       { kind: 'comment-reply', label: 'Reply to comment', sublabel: '"Sent you a DM! 📩"' },
-      { kind: 'follow-gate', label: 'Follow gate', sublabel: '"Follow me to unlock your freebie 🔔"' },
+      { kind: 'follow-gate', label: 'Grow followers', sublabel: '"Follow me to unlock your freebie 🔔"' },
       { kind: 'message', label: 'Send freebie link', sublabel: '"Here\'s your free guide! 🎁"' },
     ],
   },
@@ -284,8 +284,8 @@ export const templates: Template[] = [
     steps: [
       { kind: 'trigger', label: 'Someone comments on your post', sublabel: 'Keywords: enter, giveaway, win' },
       { kind: 'comment-reply', label: 'Reply to comment', sublabel: '"You\'re entered! Check your DMs 🎉"' },
-      { kind: 'follow-gate', label: 'Follow gate', sublabel: '"Follow to qualify for the giveaway 🔔"' },
-      { kind: 'email-collect', label: 'Collect email', sublabel: '"Drop your email for the winner announcement 📧"' },
+      { kind: 'follow-gate', label: 'Grow followers', sublabel: '"Follow to qualify for the giveaway 🔔"' },
+      { kind: 'email-collect', label: 'Capture email', sublabel: '"Drop your email for the winner announcement 📧"' },
       { kind: 'message', label: 'Confirmation', sublabel: '"You\'re officially entered! 🍀 Good luck!"' },
       { kind: 'follow-up', label: 'Follow-up in 2 days', sublabel: '"Winner announced soon, stay tuned! 👀"' },
     ],

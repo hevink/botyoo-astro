@@ -1,0 +1,233 @@
+---
+// MCP Section — introduces Botyoo's AI agent integration via MCP.
+// Left: dynamic code snippet showing Claude/Cursor config.
+// Right: copy + benefit bullets.
+
+const tools = [
+  { name: "list_automations", desc: "See all active automations & metrics" },
+  { name: "create_comment_automation", desc: "Build a new keyword-triggered DM flow" },
+  { name: "get_contacts", desc: "Pull leads captured by any automation" },
+  { name: "export_emails", desc: "Export collected emails to your stack" },
+  { name: "get_analytics", desc: "Fetch DM delivery & engagement stats" },
+  { name: "update_automation_status", desc: "Turn campaigns on or off instantly" },
+]
+
+const benefits = [
+  "Ask Claude or Cursor to build, pause, or analyse any automation in plain English",
+  "Pull live contact lists and analytics directly into your AI conversation",
+  "One API key — works with Claude.ai, Kiro, Cursor, Windsurf, and any MCP client",
+  "No webhooks to wire up, no SDKs to install — just a URL",
+]
+---
+
+<section class="bg-background py-12 md:py-24 overflow-hidden">
+  <div class="mx-auto w-full max-w-5xl px-6">
+    {/* Section header */}
+    <div class="mx-auto mb-12 max-w-2xl text-balance text-center md:mb-16">
+      <span class="text-primary font-mono text-sm uppercase">MCP · AI Agents</span>
+      <h2 class="text-foreground mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+        Control Botyoo from any AI agent
+      </h2>
+      <p class="text-muted-foreground mx-auto mt-4 max-w-xl text-balance text-lg">
+        Botyoo ships a native Model Context Protocol server. Connect Claude, Cursor,
+        or Kiro to your account and manage automations, pull leads, and read
+        analytics — without leaving your AI tool.
+      </p>
+    </div>
+
+    <div class="grid items-start gap-12 md:grid-cols-2 md:gap-16">
+      {/* Left: live code card */}
+      <div class="relative">
+        {/* Corner crosses matching FeatureCallout style */}
+        {
+          [
+            "-translate-[calc(50%-0.5px)]",
+            "right-0 -translate-y-[calc(50%-0.5px)] translate-x-[calc(50%-0.5px)]",
+            "bottom-0 right-0 translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]",
+            "bottom-0 -translate-x-[calc(50%-0.5px)] translate-y-[calc(50%-0.5px)]",
+          ].map((pos) => (
+            <div
+              aria-hidden="true"
+              class={`mask-radial-from-15% z-1 before:bg-foreground/25 after:bg-foreground/25 absolute size-3 before:absolute before:inset-0 before:m-auto before:h-px after:absolute after:inset-0 after:m-auto after:w-px ${pos}`}
+            />
+          ))
+        }
+
+        <div class="border-foreground/10 border rounded-lg overflow-hidden">
+          {/* Tab bar */}
+          <div class="flex items-center gap-0 border-b border-foreground/10 bg-foreground/5 px-4">
+            <button
+              id="tab-claude"
+              data-mcp-tab="claude"
+              class="mcp-tab mcp-tab-active border-b-2 border-primary px-4 py-3 text-xs font-medium text-foreground transition-colors"
+            >
+              Claude.ai
+            </button>
+            <button
+              id="tab-kiro"
+              data-mcp-tab="kiro"
+              class="mcp-tab border-b-2 border-transparent px-4 py-3 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Kiro / Cursor
+            </button>
+          </div>
+
+          {/* Claude panel */}
+          <div id="panel-claude" data-mcp-panel="claude" class="p-4">
+            <p class="text-muted-foreground mb-3 text-xs">
+              Go to <span class="text-foreground font-medium">claude.ai → Settings → Integrations</span> and add:
+            </p>
+            <div class="bg-foreground/5 rounded-lg p-4 font-mono text-sm relative group">
+              <pre class="text-foreground/80 overflow-x-auto whitespace-pre-wrap break-all leading-relaxed"><span class="text-muted-foreground">https://</span><span class="text-primary">mcp.botyoo.com</span><span class="text-muted-foreground">/mcp/</span><span class="text-foreground font-semibold">botyoo_YOUR_KEY</span></pre>
+              <button
+                data-copy="https://mcp.botyoo.com/mcp/botyoo_YOUR_KEY"
+                class="copy-btn absolute right-3 top-3 opacity-0 group-hover:opacity-100 transition-opacity bg-foreground/10 hover:bg-foreground/20 rounded p-1.5"
+                aria-label="Copy URL"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              </button>
+            </div>
+            <p class="text-muted-foreground mt-3 text-xs">
+              Replace <span class="text-foreground font-medium">botyoo_YOUR_KEY</span> with your API key from the Botyoo dashboard.
+            </p>
+          </div>
+
+          {/* Kiro / Cursor panel */}
+          <div id="panel-kiro" data-mcp-panel="kiro" class="p-4 hidden">
+            <p class="text-muted-foreground mb-3 text-xs">
+              Add to your <span class="text-foreground font-medium">mcp.json</span> config:
+            </p>
+            <div class="bg-foreground/5 rounded-lg p-4 font-mono text-xs relative group">
+              <pre class="text-foreground/80 overflow-x-auto leading-relaxed"><span class="text-muted-foreground">{"{"}</span>
+  <span class="text-primary">"mcpServers"</span><span class="text-muted-foreground">: {"{"}</span>
+    <span class="text-primary">"botyoo"</span><span class="text-muted-foreground">: {"{"}</span>
+      <span class="text-foreground/60">"command"</span><span class="text-muted-foreground">: </span><span class="text-foreground">"npx"</span><span class="text-muted-foreground">,</span>
+      <span class="text-foreground/60">"args"</span><span class="text-muted-foreground">: [</span><span class="text-foreground">"mcp-remote"</span><span class="text-muted-foreground">,</span>
+        <span class="text-primary">"https://mcp.botyoo.com/mcp/<wbr/>botyoo_YOUR_KEY"</span>
+      <span class="text-muted-foreground">]</span>
+    <span class="text-muted-foreground">{"}"}</span>
+  <span class="text-muted-foreground">{"}"}</span>
+<span class="text-muted-foreground">{"}"}</span></pre>
+            </div>
+            <p class="text-muted-foreground mt-3 text-xs">
+              Works with <span class="text-foreground font-medium">Kiro, Cursor, Windsurf</span>, and any MCP-compatible client.
+            </p>
+          </div>
+        </div>
+
+        {/* Available tools list */}
+        <div class="mt-4 border-foreground/10 border rounded-lg overflow-hidden">
+          <div class="bg-foreground/5 px-4 py-2.5 border-b border-foreground/10 flex items-center justify-between">
+            <span class="text-xs font-medium text-foreground">Available tools</span>
+            <span class="text-xs text-muted-foreground">{tools.length} tools</span>
+          </div>
+          <ul class="divide-y divide-foreground/5">
+            {tools.map((t) => (
+              <li class="flex items-start gap-3 px-4 py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mt-0.5 shrink-0"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <div class="min-w-0">
+                  <code class="text-xs font-mono text-foreground">{t.name}</code>
+                  <p class="text-xs text-muted-foreground mt-0.5">{t.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Right: copy + benefit bullets */}
+      <div class="text-balance">
+        <h3 class="text-foreground text-2xl font-semibold">
+          Your AI agent can now run your Instagram growth
+        </h3>
+        <p class="text-muted-foreground mt-4 text-lg">
+          Instead of switching tabs to check analytics or tweak an automation,
+          just ask your AI. Botyoo's MCP server gives any compatible AI agent
+          direct, real-time access to your account.
+        </p>
+
+        <ul class="mt-6 space-y-3">
+          {benefits.map((b) => (
+            <li class="flex items-start gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-primary mt-0.5 size-5 shrink-0"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span class="text-foreground text-sm">{b}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Compatible clients badges */}
+        <div class="mt-8">
+          <p class="text-muted-foreground text-xs mb-3 uppercase font-mono tracking-wide">Works with</p>
+          <div class="flex flex-wrap gap-2">
+            {["Claude.ai", "Kiro", "Cursor", "Windsurf", "Any MCP client"].map((name) => (
+              <span class="inline-flex items-center rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-xs font-medium text-foreground/80">
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="https://app.botyoo.com/dashboard"
+            class="btn btn-primary btn-sm"
+          >
+            Get your API key
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Tab switcher
+  const tabs = document.querySelectorAll<HTMLButtonElement>("[data-mcp-tab]")
+  const panels = document.querySelectorAll<HTMLElement>("[data-mcp-panel]")
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.mcpTab
+
+      tabs.forEach((t) => {
+        const active = t.dataset.mcpTab === target
+        t.classList.toggle("border-primary", active)
+        t.classList.toggle("text-foreground", active)
+        t.classList.toggle("border-transparent", !active)
+        t.classList.toggle("text-muted-foreground", !active)
+      })
+
+      panels.forEach((p) => {
+        p.classList.toggle("hidden", p.dataset.mcpPanel !== target)
+      })
+    })
+  })
+
+  // Copy buttons
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const text = btn.dataset.copy ?? ""
+      navigator.clipboard.writeText(text).catch(() => {})
+      const icon = btn.querySelector("svg")
+      if (icon) {
+        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`
+        setTimeout(() => {
+          btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>`
+        }, 2000)
+      }
+    })
+  })
+</script>

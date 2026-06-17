@@ -74,6 +74,17 @@ import Layout from "../layouts/Layout.astro"
         </a>
       </section>
 
+      {/* Book a call */}
+      <section class="mt-12">
+        <div class="bg-card ring-foreground/5 rounded-2xl border border-transparent p-8 shadow ring-1">
+          <div class="mb-6">
+            <h2 class="text-foreground text-xl font-semibold">Book a call</h2>
+            <p class="text-muted-foreground mt-1 text-sm">Pick a time and we'll walk through anything you need — onboarding, features, or your specific use case.</p>
+          </div>
+          <div id="cal-embed" style="width:100%;height:600px;overflow:scroll"></div>
+        </div>
+      </section>
+
       {/* Contact form */}
       <section class="mt-12">
         <div class="bg-card ring-foreground/5 rounded-2xl border border-transparent p-8 shadow ring-1">
@@ -167,6 +178,49 @@ import Layout from "../layouts/Layout.astro"
     to   { opacity: 1; transform: translateY(0); }
   }
 </style>
+
+<script>
+  // Cal.com embed
+  ;(function (C: any, A: string, L: string) {
+    let p = function (a: any, ar: any) { a.q.push(ar) }
+    let d = C.document
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal
+      let ar = arguments
+      if (!cal.loaded) {
+        cal.ns = {}
+        cal.q = cal.q || []
+        d.head.appendChild(d.createElement("script")).src = A
+        cal.loaded = true
+      }
+      if (ar[0] === L) {
+        const api: any = function () { p(api, arguments) }
+        const namespace = ar[1]
+        api.q = api.q || []
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api
+          p(cal.ns[namespace], ar)
+          return
+        }
+        p(cal, ar)
+        return
+      }
+      p(cal, ar)
+    }
+  })(window as any, "https://app.cal.com/embed/embed.js", "init")
+
+  const Cal = (window as any).Cal
+  Cal("init", "botyoo", { origin: "https://cal.com" })
+  Cal.ns["botyoo"]("inline", {
+    elementOrSelector: "#cal-embed",
+    config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+    calLink: "hevin/botyoo",
+  })
+  Cal.ns["botyoo"]("ui", {
+    hideEventTypeDetails: false,
+    layout: "month_view",
+  })
+</script>
 
 <script>
   const form = document.getElementById("contact-form") as HTMLFormElement | null

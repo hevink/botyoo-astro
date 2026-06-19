@@ -25,9 +25,17 @@ Fires when someone sends you a direct message. Useful for general inbox auto-res
 
 Fires when someone tags you with `@yourhandle` in their Story. Pair with a "Like message" step to react with a heart, and a "Send Message" step to send a personalized thank-you.
 
-## Story share
+## Post share to DM
 
-Fires when someone shares your post to their own Story or to a DM. A good signal that they're engaged, reward with an offer or a coupon.
+Fires when someone shares your post or Reel directly to another user's DM. A strong engagement signal — reward it with a thank-you, a discount, or an exclusive link.
+
+- Works with single images, carousels, and Reels
+- Can be scoped to a specific post or catch all shares across your account
+- Keywordless — fires on the share event itself, no keyword needed
+
+## Story share / Story mention
+
+Fires when someone tags you with `@yourhandle` in their Story. Pair with a "Send Message" step to send a personalized thank-you.
 
 ## Post like
 
@@ -48,7 +56,8 @@ Fires when someone taps your Meta Click-to-DM ad and lands in DM. You can match 
 | Convert comments into leads | Comment on post |
 | Inbox keyword auto-responder | DM received |
 | Engage Story taggers | Story mention |
-| Re-share appreciation | Story share |
+| Thank people who share your post to DMs | Post share to DM |
+| Re-share appreciation | Story share / mention |
 | Reward your top fans | Post like (carefully) |
 | Live giveaway prize delivery | IG Live comment |
 | Recover ad clicks | Click-to-DM ad |
@@ -56,5 +65,6 @@ Fires when someone taps your Meta Click-to-DM ad and lands in DM. You can match 
 ## What's next
 
 - [Comment-to-DM basics](/help/comment-to-dm)
+- [How to automate post shares](/help/how-to-automate-post-shares)
 - [Keyword triggers](/help/keyword-triggers)
 - [Instagram policy and limits](/help/instagram-limits)

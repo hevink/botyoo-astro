@@ -58,7 +58,7 @@ The new plan kicks in immediately. You keep all existing automations, contacts, 
 
 ## Switching between monthly and annual
 
-Cancel the current subscription before its renewal date and start the new one. If you want to convert mid-cycle, email [support@botyoo.com](mailto:support@botyoo.com), they'll handle the proration.
+Cancel the current subscription before its renewal date and start the new one. If you want to convert mid-cycle, email [hevin@botyoo.com](mailto:hevin@botyoo.com), they'll handle the proration.
 
 ## Cancellation
 

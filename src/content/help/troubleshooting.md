@@ -7,7 +7,7 @@ order: 3
 
 # Troubleshooting
 
-Most "why isn't this working" issues fall into one of the patterns below. If yours doesn't match, email [support@botyoo.com](mailto:support@botyoo.com) with a screenshot.
+Most "why isn't this working" issues fall into one of the patterns below. If yours doesn't match, email [hevin@botyoo.com](mailto:hevin@botyoo.com) with a screenshot.
 
 ## My DM didn't send
 
@@ -81,7 +81,7 @@ Copying between them without changing syntax leaves literal `{{...}}` text in th
 
 ## Still stuck?
 
-- Email [support@botyoo.com](mailto:support@botyoo.com), typical reply within a few hours
+- Email [hevin@botyoo.com](mailto:hevin@botyoo.com), typical reply within a few hours
 - Use the in-app live chat (bottom-right of the dashboard)
 - DM [@Hevin_69](https://x.com/Hevin_69) on X for urgent issues, the fastest response
 

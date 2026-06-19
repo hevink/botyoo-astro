@@ -38,7 +38,7 @@ Refunds are **not** issued for:
 - Instagram-side bans or platform changes
 - Terms of Service violations
 
-To request a refund, email [support@botyoo.com](mailto:support@botyoo.com) with:
+To request a refund, email [hevin@botyoo.com](mailto:hevin@botyoo.com) with:
 
 - Your account email
 - The transaction ID
@@ -48,7 +48,7 @@ Requests are evaluated within 5–7 business days. Eligible refunds reach your c
 
 ## Deleting your account
 
-There's no self-service delete button. Email [support@botyoo.com](mailto:support@botyoo.com) from the address on your account requesting deletion. The team confirms within 1–2 business days and removes your data per the Privacy Policy.
+There's no self-service delete button. Email [hevin@botyoo.com](mailto:hevin@botyoo.com) from the address on your account requesting deletion. The team confirms within 1–2 business days and removes your data per the Privacy Policy.
 
 ## What gets deleted
 

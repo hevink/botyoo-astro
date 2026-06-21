@@ -1,0 +1,134 @@
+---
+// PostHog analytics — page tracking + CTA event tracking
+// Included once in Layout.astro
+---
+
+<script is:inline define:vars={{
+  phKey: import.meta.env.PUBLIC_POSTHOG_KEY,
+  phHost: import.meta.env.PUBLIC_POSTHOG_HOST,
+}}>
+  // ── Init PostHog ────────────────────────────────────────────────────────────
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init bs ws ge fs capture De Ne calculateEventProperties $s identify alias people.set people.set_once set set_once unset remove union union_once remove_once createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing register register_once unregister register_for_session unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onFeatureFlags onSessionId sessionRecordingStarted captureException".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+  posthog.init(phKey, {
+    api_host: phHost,
+    person_profiles: 'identified_only',
+    capture_pageview: true,
+    capture_pageleave: true,
+  });
+
+  // ── CTA / navigation event tracking ────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function () {
+    var page = window.location.pathname;
+
+    // Helper: find closest ancestor matching selector
+    function closest(el, sel) {
+      while (el && el !== document) {
+        if (el.matches && el.matches(sel)) return el;
+        el = el.parentElement;
+      }
+      return null;
+    }
+
+    // Determine CTA location label from position in page
+    function getLocation(el) {
+      if (closest(el, 'header, nav')) return 'header';
+      if (closest(el, 'footer')) return 'footer';
+      if (closest(el, '[data-section]')) return el.closest('[data-section]').dataset.section;
+      // Fallback: look for nearest section/article heading
+      var section = closest(el, 'section, article');
+      if (section) {
+        var heading = section.querySelector('h1, h2, h3');
+        if (heading) return heading.textContent.trim().slice(0, 40);
+      }
+      return 'body';
+    }
+
+    document.addEventListener('click', function (e) {
+      var a = closest(e.target, 'a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var text = (a.textContent || '').trim().slice(0, 60);
+      var location = getLocation(a);
+
+      // ── Get Started / Sign Up CTAs ──────────────────────────────────────────
+      if (href.includes('app.botyoo.com/dashboard') || href.includes('app.botyoo.com/auth/sign-up')) {
+        posthog.capture('landing_cta_clicked', {
+          cta_text: text,
+          cta_href: href,
+          cta_location: location,
+          page: page,
+        });
+      }
+
+      // ── Login clicks ────────────────────────────────────────────────────────
+      else if (href.includes('app.botyoo.com/auth/login')) {
+        posthog.capture('landing_login_clicked', {
+          cta_location: location,
+          page: page,
+        });
+      }
+
+      // ── Internal pricing page link ──────────────────────────────────────────
+      else if (href === '/pricing' || href.startsWith('/pricing')) {
+        posthog.capture('landing_pricing_link_clicked', {
+          cta_text: text,
+          cta_location: location,
+          page: page,
+        });
+      }
+
+      // ── Blog / help / docs links ────────────────────────────────────────────
+      else if (href.startsWith('/blog') || href.startsWith('/help')) {
+        posthog.capture('landing_content_clicked', {
+          cta_text: text,
+          cta_href: href,
+          cta_location: location,
+          page: page,
+        });
+      }
+    });
+
+    // ── Pricing page — track plan checkout clicks ───────────────────────────
+    if (page === '/pricing' || page === '/pricing/') {
+      posthog.capture('pricing_page_viewed', { page: page });
+
+      document.querySelectorAll('a[href*="app.botyoo.com"], button').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var text = (el.textContent || '').trim().slice(0, 60);
+          // Try to read plan name from nearest pricing card heading
+          var card = closest(el, '[data-plan], .pricing-card, article, section');
+          var planName = card && card.dataset.plan
+            ? card.dataset.plan
+            : (card ? (card.querySelector('h2, h3') || {}).textContent || '' : '').trim().slice(0, 30);
+          posthog.capture('pricing_plan_cta_clicked', {
+            cta_text: text,
+            plan: planName || 'unknown',
+            page: page,
+          });
+        });
+      });
+    }
+
+    // ── Scroll depth tracking (25 / 50 / 75 / 100%) ────────────────────────
+    var scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
+    window.addEventListener('scroll', function () {
+      var scrolled = window.scrollY + window.innerHeight;
+      var total = document.documentElement.scrollHeight;
+      var pct = Math.round((scrolled / total) * 100);
+      [25, 50, 75, 100].forEach(function (m) {
+        if (!scrollMilestones[m] && pct >= m) {
+          scrollMilestones[m] = true;
+          posthog.capture('landing_scroll_depth', { depth: m, page: page });
+        }
+      });
+    }, { passive: true });
+
+    // ── Time on page (30s / 60s / 120s) ────────────────────────────────────
+    [30, 60, 120].forEach(function (secs) {
+      setTimeout(function () {
+        posthog.capture('landing_time_on_page', { seconds: secs, page: page });
+      }, secs * 1000);
+    });
+  });
+</script>

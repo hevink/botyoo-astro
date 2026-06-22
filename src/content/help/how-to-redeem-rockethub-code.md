@@ -3,6 +3,7 @@ title: How to redeem your RocketHub Lifetime Deal code
 description: Apply your RocketHub LTD redemption code to activate your Botyoo lifetime plan, no card required.
 category: How-To Guides
 order: 29
+popular: 4
 ---
 
 # How to redeem your RocketHub Lifetime Deal code
